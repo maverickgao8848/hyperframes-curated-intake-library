@@ -1,0 +1,26 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "connector-draw",
+  "type": "hyperframes:component",
+  "title": "Connector Draw",
+  "description": "relationship|两个锚点之间的因果连线",
+  "tags": [
+    "comparison",
+    "directed-video",
+    "migrated",
+    "process",
+    "关系"
+  ],
+  "files": [
+    {
+      "path": "connector-draw/component.js",
+      "target": "compositions/components/connector-draw/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

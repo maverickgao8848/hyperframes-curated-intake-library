@@ -1,0 +1,31 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "tracing-beam",
+  "type": "hyperframes:component",
+  "title": "Tracing Beam",
+  "description": "process|路径追踪与步骤传递",
+  "tags": [
+    "demo",
+    "directed-video",
+    "migrated",
+    "process",
+    "流程"
+  ],
+  "files": [
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "tracing-beam/component.js",
+      "target": "compositions/components/tracing-beam/component.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

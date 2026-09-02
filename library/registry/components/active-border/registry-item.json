@@ -1,0 +1,32 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "active-border",
+  "type": "hyperframes:component",
+  "title": "Active Border",
+  "description": "流程焦点｜沿当前步骤边缘运行的光束把状态变化变成叙事动作。",
+  "tags": [
+    "aceternity-inspired",
+    "border",
+    "directed-video",
+    "process",
+    "state",
+    "teaching"
+  ],
+  "files": [
+    {
+      "path": "active-border/component.js",
+      "target": "compositions/components/active-border/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

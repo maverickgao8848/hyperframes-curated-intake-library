@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "mav-hyperframes-frame-inventory/v1",
+  "frames": [
+    {
+      "preset": "biennale-yellow",
+      "path": "frames/biennale-yellow/FRAME.md",
+      "sha256": "2502ffff48182d00756ce1e61969c709f4d54e3162f92958a5b9c258ee4a1720"
+    },
+    {
+      "preset": "bmw-m-engineered-contrast",
+      "path": "frames/bmw-m-engineered-contrast/FRAME.md",
+      "sha256": "92555299f2b87908c713e6891d2238bdc3e3c40efaf828b6d08034a5ce6ec34d"
+    },
+    {
+      "preset": "broadside",
+      "path": "frames/broadside/FRAME.md",
+      "sha256": "d0087171b5dafaf3937b70c9fcedad81c0ac3ff3facea5cee8e45ee1d78f2b24"
+    },
+    {
+      "preset": "cartesian",
+      "path": "frames/cartesian/FRAME.md",
+      "sha256": "d0061354a4a1069b8dfaff59472622964c0dea309a8188228acc74873a5a9dde"
+    },
+    {
+      "preset": "cobalt-grid",
+      "path": "frames/cobalt-grid/FRAME.md",
+      "sha256": "a9e3bcd2dab5732334c68f1d55095e57b5b75115488ec47575959ea6b758d9c3"
+    },
+    {
+      "preset": "dell-1996",
+      "path": "frames/dell-1996/FRAME.md",
+      "sha256": "1d494646e1f9a27a60e87400569b6d03fd3c622293fa12c96e84454bc491575a"
+    },
+    {
+      "preset": "ferrari-editorial-chiaroscuro",
+      "path": "frames/ferrari-editorial-chiaroscuro/FRAME.md",
+      "sha256": "28ac34028df533f7e536433950d1b6d6a75d715d55a8915983512256e36b4fbb"
+    },
+    {
+      "preset": "runway-editorial-cinema",
+      "path": "frames/runway-editorial-cinema/FRAME.md",
+      "sha256": "f3281c633ef696b6683195907428a9adba91f5eaa1d3dce64a165ee3cee5d85a"
+    }
+  ]
+}

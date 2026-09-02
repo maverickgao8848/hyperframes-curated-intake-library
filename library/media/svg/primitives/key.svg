@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="none">
+  <title>Generic key metaphor</title>
+  <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="318" cy="174" r="116" stroke-width="28"/>
+    <circle cx="318" cy="174" r="42" stroke-width="18"/>
+    <path d="M318 290v230" stroke-width="30"/>
+    <path d="M318 390h94v56h-94" stroke-width="28"/>
+    <path d="M318 486h62v60h-62" stroke-width="28"/>
+  </g>
+</svg>
+

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 620" fill="none">
+  <title>Generic document prop</title>
+  <path d="M72 32h226l110 112v444H72z" fill="var(--paper-fill,#f4efe3)" stroke="currentColor" stroke-width="18"/>
+  <path d="M298 32v112h110" stroke="currentColor" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M122 224h236M122 292h236M122 360h164M122 470h96" stroke="var(--accent,currentColor)" stroke-width="18" stroke-linecap="round"/>
+</svg>
+

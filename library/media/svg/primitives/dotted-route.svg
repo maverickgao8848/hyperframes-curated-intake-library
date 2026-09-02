@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" fill="none">
+  <title>Generic dotted teaching route</title>
+  <path id="route" d="M36 126c172-82 300 70 454 0s286-52 392 0 184 58 282-10" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-dasharray="2 28"/>
+  <g fill="var(--accent,currentColor)">
+    <circle cx="36" cy="126" r="16"/>
+    <circle cx="490" cy="126" r="16"/>
+    <circle cx="882" cy="126" r="16"/>
+    <circle cx="1164" cy="116" r="16"/>
+  </g>
+</svg>
+

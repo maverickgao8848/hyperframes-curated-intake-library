@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 430" fill="none">
+  <title>Generic envelope prop</title>
+  <rect x="34" y="34" width="572" height="362" rx="20" fill="var(--paper-fill,#f4efe3)" stroke="currentColor" stroke-width="20"/>
+  <path d="m52 70 268 196L588 70" stroke="currentColor" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m48 374 190-174M592 374 402 200" stroke="var(--accent,currentColor)" stroke-width="18" stroke-linecap="round"/>
+</svg>
+

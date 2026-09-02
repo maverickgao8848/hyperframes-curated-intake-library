@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "parentPlanPath", "parentPlanHash", "clusterId", "segmentIds", "approvedScope", "lockedDecisions", "inheritedVisualPolicy", "timing", "assets", "questionsStillOpen"],
+  "properties": {
+    "schemaVersion": {"const": "hyperframes-visual-director/curated-request-v1"},
+    "parentPlanPath": {"type": "string", "minLength": 1},
+    "parentPlanHash": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+    "clusterId": {"type": "string", "minLength": 1},
+    "segmentIds": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "approvedScope": {"type": "object"},
+    "lockedDecisions": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "inheritedVisualPolicy": {"type": "object"},
+    "timing": {"type": "object", "required": ["precision"], "properties": {"precision": {"enum": ["word", "sentence", "estimated"]}}, "additionalProperties": true},
+    "assets": {"type": "array"},
+    "questionsStillOpen": {"type": "array", "items": {"type": "string"}}
+  }
+}
+

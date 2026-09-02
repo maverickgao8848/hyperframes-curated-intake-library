@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hyperframes.local/schemas/curation.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "policy", "frame", "registry", "palette", "selectionEvidence", "requiredAssets", "forbidden", "onMiss", "catalogMisses"],
+  "properties": {
+    "schemaVersion": {"const": "hyperframes-curated-intake/v3"},
+    "policy": {"enum": ["approved-first", "approved-only", "open"]},
+    "frame": {
+      "type": "object",
+      "required": ["preset", "projectPath", "sourcePath", "sourceSha256", "treatment"],
+      "properties": {
+        "preset": {"type": "string"},
+        "projectPath": {"const": "frame.md"},
+        "sourcePath": {"type": "string"},
+        "sourceSha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "treatment": {"type": ["string", "null"]},
+        "projectModified": {"type": "object"}
+      }
+    },
+    "registry": {"type": "object"},
+    "palette": {
+      "type": "object",
+      "required": ["blocks", "components", "transitions", "media"],
+      "properties": {
+        "blocks": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "components": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "transitions": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "media": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "selectionEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["query", "sceneNeeds", "storyboardSha256", "tier", "selectionAuthority", "favorite", "avoid", "registryFiltered"],
+      "properties": {
+        "query": {"type": "string", "minLength": 1},
+        "sceneNeeds": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "title", "query", "device", "hero", "visualPattern", "heroVisual", "cognitiveAction", "evidenceType", "narrativeScale", "componentBudget", "mediaCandidates", "deviceCandidates", "candidateIds", "incomingTransition", "outgoingTransition"],
+            "properties": {
+              "id": {"type": "string", "minLength": 1},
+              "title": {"type": "string", "minLength": 1},
+              "query": {"type": "string", "minLength": 1},
+              "device": {"type": "string", "minLength": 1},
+              "hero": {"type": "boolean"},
+              "visualPattern": {"type": "string", "minLength": 1},
+              "heroVisual": {"type": "object"},
+              "cognitiveAction": {"type": "string", "minLength": 1},
+              "evidenceType": {"type": "string", "minLength": 1},
+              "narrativeScale": {"enum": ["support-beat", "standard-scene", "chapter-peak"]},
+              "componentBudget": {"type": "integer", "minimum": 0, "maximum": 2},
+              "mediaCandidates": {
+                "type": "array",
+                "maxItems": 3,
+                "items": {"$ref": "#/$defs/mediaCandidate"}
+              },
+              "deviceCandidates": {
+                "type": "array",
+                "maxItems": 3,
+                "items": {"$ref": "#/$defs/deviceCandidate"}
+              },
+              "candidateIds": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+              "incomingTransition": {"$ref": "#/$defs/transitionCandidate"},
+              "outgoingTransition": {"$ref": "#/$defs/transitionCandidate"}
+            }
+          }
+        },
+        "storyboardSha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "tier": {"type": "string", "minLength": 1},
+        "selectionAuthority": {"const": "approved-storyboard-spec"},
+        "favorite": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "avoid": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "registryFiltered": {"type": "integer", "minimum": 0}
+      }
+    },
+    "requiredAssets": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "forbidden": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "onMiss": {"enum": ["record-and-customize", "stop-and-request-exception"]},
+    "catalogMisses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["id", "need", "query", "tier", "returnedCandidates", "rejectionReason"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "need": {"type": "string", "minLength": 1},
+          "query": {"type": "string", "minLength": 1},
+          "tier": {"type": "string", "minLength": 1},
+          "returnedCandidates": {"type": "array", "items": {"type": "string"}},
+          "rejectionReason": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "mediaCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "rationale"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "rationale": {"type": "string", "minLength": 1}
+      }
+    },
+    "deviceCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "role", "responsibility", "rationale", "compatibility", "compatibilityChecks", "catalogRouting"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "role": {"enum": ["hero", "support"]},
+        "responsibility": {"type": "string", "minLength": 1},
+        "rationale": {"type": "string", "minLength": 1},
+        "compatibility": {"const": "passed"},
+        "compatibilityChecks": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "catalogRouting": {"type": "object"}
+      }
+    },
+    "transitionCandidate": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["boundaryId", "catalogId", "role", "purpose", "sameBackground", "perceptualAnchor", "colorDependency"],
+      "properties": {
+        "boundaryId": {"type": "string", "minLength": 1},
+        "catalogId": {"type": "string", "minLength": 1},
+        "role": {"enum": ["primary", "accent"]},
+        "purpose": {"type": "string", "minLength": 1},
+        "sameBackground": {"type": "boolean"},
+        "perceptualAnchor": {"type": "string", "minLength": 1},
+        "colorDependency": {"enum": ["independent", "supporting", "required"]}
+      }
+    }
+  }
+}

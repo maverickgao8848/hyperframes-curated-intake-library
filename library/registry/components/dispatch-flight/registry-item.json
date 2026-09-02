@@ -1,0 +1,26 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "dispatch-flight",
+  "type": "hyperframes:component",
+  "title": "Dispatch Flight",
+  "description": "relationship|任务或数据在容器之间分发",
+  "tags": [
+    "comparison",
+    "directed-video",
+    "migrated",
+    "process",
+    "关系"
+  ],
+  "files": [
+    {
+      "path": "dispatch-flight/component.js",
+      "target": "compositions/components/dispatch-flight/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

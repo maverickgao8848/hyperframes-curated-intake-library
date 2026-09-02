@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "hyperframes-visual-director/block-candidates-v1",
+  "entries": [
+    {
+      "id": "registry-block:wechat-desktop-exchange",
+      "title": "WeChat Desktop Exchange",
+      "kind": "registry-block",
+      "status": "ready",
+      "portStatus": "verified",
+      "sourceStatus": "verified",
+      "sourceProvenance": "docs/library-provenance/source-provenance.json",
+      "source": {"type": "file", "path": "candidates/visual-director/blocks/wechat-desktop-exchange.html"},
+      "canonicalSource": {
+        "type": "hyperframes-native-clean-room",
+        "path": "C:/Users/buend/Desktop/mav-works/mav-content-fac/.agents/skills/hyperframes-ui-motion-library/assets/library/compositions/wechat-desktop-exchange.html",
+        "sha256": "sha256:e7678d16a5ea807ad51c062718b73840128dd9030b341be21541ebdfd43a792f"
+      },
+      "derivedSha256": "sha256:2e3e19eb5136aac03266603cda2c1620e0539e88332ac92d0ed0ab084a5a3b6e",
+      "aspectSupport": ["16:9"],
+      "dimensions": {"width": 1920, "height": 1080},
+      "fps": 60,
+      "duration": 5.6,
+      "framePolicy": "native-evidence",
+      "networkPolicy": "offline",
+      "props": ["contactName", "clientAvatar", "selfAvatar", "speaker1", "type1", "message1", "meta1", "speaker2", "type2", "message2", "meta2", "speaker3", "type3", "message3", "meta3", "speaker4", "type4", "message4", "meta4"],
+      "verification": {"libraryContractTest": "passed", "hyperframesCheck": "passed", "samples": 15, "snapshotsReviewed": true},
+      "knownWarnings": ["The shared GSAP timeline emits non-gating empty-target warnings at sparse early samples."],
+      "fallback": {"type": "source-footage"}
+    },
+    {
+      "id": "registry-block:chatgpt-desktop-exchange",
+      "title": "ChatGPT Desktop Exchange",
+      "kind": "registry-block",
+      "status": "ready",
+      "portStatus": "verified",
+      "sourceStatus": "verified",
+      "sourceProvenance": "docs/library-provenance/source-provenance.json",
+      "source": {"type": "file", "path": "candidates/visual-director/blocks/chatgpt-desktop-exchange.html"},
+      "canonicalSource": {
+        "type": "hyperframes-native-clean-room",
+        "path": "C:/Users/buend/Desktop/mav-works/mav-content-fac/.agents/skills/hyperframes-ui-motion-library/assets/library/compositions/chatgpt-desktop-exchange.html",
+        "sha256": "sha256:44ebeee49717e4c3a974e6c2f8a6e7308d4ac5038f65b9ed5a33f5345d9199e1"
+      },
+      "derivedSha256": "sha256:423b15cf433ae6cd480526ecc0e2dadfcf76e9cf87c6eff153affdb5c50070f6",
+      "aspectSupport": ["16:9"],
+      "dimensions": {"width": 1920, "height": 1080},
+      "fps": 60,
+      "duration": 14.9,
+      "framePolicy": "native-evidence",
+      "networkPolicy": "offline",
+      "props": ["hero", "suggestion1", "suggestion2", "prompt", "intro1", "intro2", "tableHeadUse", "tableHeadTool", "tableHeadWhy", "row1Use", "row1Tool", "row1Why", "row2Use", "row2Tool", "row2Why", "row3Use", "row3Tool", "row3Why", "row4Use", "row4Tool", "row4Why", "compactMode"],
+      "verification": {"libraryContractTest": "passed", "hyperframesCheck": "passed", "samples": 15, "snapshotsReviewed": true},
+      "knownWarnings": ["The shared GSAP timeline emits non-gating empty-target warnings at sparse early samples."],
+      "fallback": {"type": "external-evidence"}
+    },
+    {
+      "id": "registry-block:film-credits-stagger",
+      "title": "Film Credits Stagger",
+      "kind": "registry-block",
+      "status": "ready",
+      "portStatus": "verified",
+      "sourceStatus": "verified",
+      "sourceProvenance": "docs/library-provenance/source-provenance.json",
+      "source": {"type": "file", "path": "candidates/visual-director/blocks/film-credits-stagger.html"},
+      "canonicalSource": {
+        "type": "user-supplied-html-gsap",
+        "path": "C:/Users/buend/Desktop/mav-works/mav-content-fac/.agents/skills/hyperframes-ui-motion-library/assets/library/compositions/film-credits-stagger.html",
+        "sha256": "sha256:8662a6680adf4c73425298df366579c4f8f7857f836e14b4e35d569bf1d7bb3c"
+      },
+      "derivedSha256": "sha256:f75373b3c36fd1acc1e862105fd161b452a840a08bcc30ce15c6b6407e03f93f",
+      "aspectSupport": ["16:9"],
+      "dimensions": {"width": 1920, "height": 1080},
+      "fps": 60,
+      "duration": 4.8,
+      "framePolicy": "frame-governed",
+      "networkPolicy": "offline",
+      "props": ["role1", "name1", "role2", "name2", "foreground", "accent", "background"],
+      "verification": {"libraryContractTest": "passed", "hyperframesCheck": "passed", "samples": 15, "snapshotsReviewed": true},
+      "knownWarnings": ["The shared GSAP timeline emits non-gating empty-target warnings at sparse early samples."],
+      "fallback": {"type": "source-footage"}
+    }
+  ]
+}

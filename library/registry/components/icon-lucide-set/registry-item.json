@@ -1,0 +1,41 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "icon-lucide-set",
+  "type": "hyperframes:component",
+  "title": "Icon Lucide Set",
+  "description": "semantic-icon|Render one semantic icon from the frozen local Lucide subset",
+  "tags": [
+    "chapter",
+    "definition",
+    "directed-video",
+    "icon",
+    "migrated"
+  ],
+  "files": [
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "frozen-icon-assets.js",
+      "target": "compositions/components/frozen-icon-assets.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "icon-lucide-set/component.js",
+      "target": "compositions/components/icon-lucide-set/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "icon-runtime.js",
+      "target": "compositions/components/icon-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

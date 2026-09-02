@@ -1,0 +1,1578 @@
+{
+  "schemaVersion": "mav-hyperframes-registry-build/v1",
+  "catalog": "catalog.json",
+  "output": "registry",
+  "mapped": [
+    {
+      "id": "registry-block:beat-freeze-cut",
+      "name": "beat-freeze-cut",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:camcorder-hud",
+      "name": "camcorder-hud",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:caption-kinetic-slam",
+      "name": "caption-kinetic-slam",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:caption-matrix-decode",
+      "name": "caption-matrix-decode",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:caption-parallax-layers",
+      "name": "caption-parallax-layers",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:chatgpt-exchange",
+      "name": "chatgpt-exchange",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:code-typing",
+      "name": "code-typing",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:cross-warp-morph",
+      "name": "cross-warp-morph",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:domain-warp-dissolve",
+      "name": "domain-warp-dissolve",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:glitch",
+      "name": "glitch",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:hw-callout-circle",
+      "name": "hw-callout-circle",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:hw-frame",
+      "name": "hw-frame",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:hw-path-text",
+      "name": "hw-path-text",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:hw-pipeline",
+      "name": "hw-pipeline",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:hw-underline",
+      "name": "hw-underline",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:lower-third-bild",
+      "name": "lower-third-bild",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:lt-bold-block",
+      "name": "lt-bold-block",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:lt-mask-reveal",
+      "name": "lt-mask-reveal",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:mk-callout-highlight",
+      "name": "mk-callout-highlight",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:morph-text",
+      "name": "morph-text",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:news-ticker",
+      "name": "news-ticker",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:notes-reveal",
+      "name": "notes-reveal",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:us-map-hex",
+      "name": "us-map-hex",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:vfx-text-cursor",
+      "name": "vfx-text-cursor",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:weight-wave",
+      "name": "weight-wave",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:x-post",
+      "name": "x-post",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:yt-comment-card",
+      "name": "yt-comment-card",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:yt-lcd-background",
+      "name": "yt-lcd-background",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-component:abstract-analogy",
+      "name": "abstract-analogy",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:abstract-black-box",
+      "name": "abstract-black-box",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:abstract-equation",
+      "name": "abstract-equation",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:abstract-iceberg",
+      "name": "abstract-iceberg",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:abstract-spectrum",
+      "name": "abstract-spectrum",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:abstract-versus",
+      "name": "abstract-versus",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:animated-beam",
+      "name": "animated-beam",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:ascii-art",
+      "name": "ascii-art",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:canvas-reveal",
+      "name": "canvas-reveal",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:caption-blend-difference",
+      "name": "caption-blend-difference",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:card-stack",
+      "name": "card-stack",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:chart-area",
+      "name": "chart-area",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:chart-bar",
+      "name": "chart-bar",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:chart-donut",
+      "name": "chart-donut",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:chart-gauge",
+      "name": "chart-gauge",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:chart-heatmap",
+      "name": "chart-heatmap",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:chart-horizontal-bar",
+      "name": "chart-horizontal-bar",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:chart-line",
+      "name": "chart-line",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:chart-multi-line",
+      "name": "chart-multi-line",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:chart-sankey",
+      "name": "chart-sankey",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:chart-scatter",
+      "name": "chart-scatter",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:chart-sparkline",
+      "name": "chart-sparkline",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:chart-stacked-bar",
+      "name": "chart-stacked-bar",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:check-list",
+      "name": "check-list",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:code-block",
+      "name": "code-block",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:compare-scan",
+      "name": "compare-scan",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:connector-draw",
+      "name": "connector-draw",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:container-scroll",
+      "name": "container-scroll",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:converge-summary",
+      "name": "converge-summary",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:depth-card",
+      "name": "depth-card",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:dispatch-flight",
+      "name": "dispatch-flight",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:distributed-globe",
+      "name": "distributed-globe",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:dither-reveal",
+      "name": "dither-reveal",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:dual-arc-converge",
+      "name": "dual-arc-converge",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:evidence-timeline",
+      "name": "evidence-timeline",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:flow-branching",
+      "name": "flow-branching",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:flow-complex",
+      "name": "flow-complex",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:flow-decision-tree",
+      "name": "flow-decision-tree",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:flow-fork-join",
+      "name": "flow-fork-join",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:flow-loop",
+      "name": "flow-loop",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:flow-sequence",
+      "name": "flow-sequence",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:flow-state-machine",
+      "name": "flow-state-machine",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:flow-swimlane",
+      "name": "flow-swimlane",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:focus-cards",
+      "name": "focus-cards",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:folder-object",
+      "name": "folder-object",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:gauge-chart",
+      "name": "gauge-chart",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:glare-card",
+      "name": "glare-card",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:grain-overlay",
+      "name": "grain-overlay",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:grid-pixelate-wipe",
+      "name": "grid-pixelate-wipe",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:hero-big-number",
+      "name": "hero-big-number",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:hero-big-type",
+      "name": "hero-big-type",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:hero-inversion-flash",
+      "name": "hero-inversion-flash",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:hero-parallax",
+      "name": "hero-parallax",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:hero-pull-quote",
+      "name": "hero-pull-quote",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:icon-lucide-set",
+      "name": "icon-lucide-set",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:icon-stroke-weights",
+      "name": "icon-stroke-weights",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:illustration-analytics",
+      "name": "illustration-analytics",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:illustration-co-create",
+      "name": "illustration-co-create",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:illustration-launch",
+      "name": "illustration-launch",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:illustration-prompt",
+      "name": "illustration-prompt",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:illustration-retrieval",
+      "name": "illustration-retrieval",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:illustration-scene-library",
+      "name": "illustration-scene-library",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:illustration-thinking",
+      "name": "illustration-thinking",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:inline-highlight",
+      "name": "inline-highlight",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:keyboard-object",
+      "name": "keyboard-object",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:lamp-focus",
+      "name": "lamp-focus",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:layout-grid",
+      "name": "layout-grid",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:meter-bar",
+      "name": "meter-bar",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:multi-step-loader",
+      "name": "multi-step-loader",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:numbered-tag",
+      "name": "numbered-tag",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:overlay-concept-card",
+      "name": "overlay-concept-card",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:overlay-handoff",
+      "name": "overlay-handoff",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:overlay-keyword-sticker",
+      "name": "overlay-keyword-sticker",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:overlay-subtitle-highlight",
+      "name": "overlay-subtitle-highlight",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:parallax-images",
+      "name": "parallax-images",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:result-rows",
+      "name": "result-rows",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:scene-kicker",
+      "name": "scene-kicker",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:side-note",
+      "name": "side-note",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:spotlight-focus",
+      "name": "spotlight-focus",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:step-chain",
+      "name": "step-chain",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:sticker-label",
+      "name": "sticker-label",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:sticky-reveal",
+      "name": "sticky-reveal",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:story-cards-carousel",
+      "name": "story-cards-carousel",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:structure-concentric",
+      "name": "structure-concentric",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:structure-flow-chart",
+      "name": "structure-flow-chart",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:structure-funnel",
+      "name": "structure-funnel",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:structure-grid-map",
+      "name": "structure-grid-map",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:structure-hub-spoke",
+      "name": "structure-hub-spoke",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:structure-layered-stack",
+      "name": "structure-layered-stack",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:structure-matrix-2x2",
+      "name": "structure-matrix-2x2",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:structure-mind-map",
+      "name": "structure-mind-map",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:structure-node-graph",
+      "name": "structure-node-graph",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:structure-pyramid",
+      "name": "structure-pyramid",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:structure-spectrum",
+      "name": "structure-spectrum",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:structure-tree",
+      "name": "structure-tree",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:structure-venn",
+      "name": "structure-venn",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:svg-mask-reveal",
+      "name": "svg-mask-reveal",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:thinking-card-grid",
+      "name": "thinking-card-grid",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:thinking-compare-table",
+      "name": "thinking-compare-table",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:thinking-fishbone",
+      "name": "thinking-fishbone",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:thinking-gantt",
+      "name": "thinking-gantt",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:thinking-kanban",
+      "name": "thinking-kanban",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:thinking-swot",
+      "name": "thinking-swot",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:thinking-timeline-row",
+      "name": "thinking-timeline-row",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:tracing-beam",
+      "name": "tracing-beam",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:typewriter",
+      "name": "typewriter",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:typewriter-block",
+      "name": "typewriter-block",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:ui-api-call",
+      "name": "ui-api-call",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:ui-browser",
+      "name": "ui-browser",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:ui-chat-thread",
+      "name": "ui-chat-thread",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:ui-code-editor",
+      "name": "ui-code-editor",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:ui-dashboard",
+      "name": "ui-dashboard",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:ui-terminal",
+      "name": "ui-terminal",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:wavy-field",
+      "name": "wavy-field",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:window-card",
+      "name": "window-card",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:world-map-routes",
+      "name": "world-map-routes",
+      "type": "hyperframes:component"
+    }
+  ],
+  "unmapped": [
+    {
+      "id": "registry-block:before-after-wipe",
+      "reasons": [
+        "block dimensions are not declared in data-width/data-height or viewport metadata"
+      ]
+    },
+    {
+      "id": "registry-block:caption-camera-follow",
+      "reasons": [
+        "block dimensions are not declared in data-width/data-height or viewport metadata"
+      ]
+    },
+    {
+      "id": "registry-block:code-particle-assemble",
+      "reasons": [
+        "status is 'disabled', not 'ready'"
+      ]
+    },
+    {
+      "id": "registry-block:code-snippet-apple-terminal-clear-dark",
+      "reasons": [
+        "block duration is not declared in data-duration"
+      ]
+    },
+    {
+      "id": "registry-block:code-snippet-dark-plus",
+      "reasons": [
+        "block duration is not declared in data-duration"
+      ]
+    },
+    {
+      "id": "registry-block:liquid-glass-context-menu",
+      "reasons": [
+        "status is 'disabled', not 'ready'"
+      ]
+    },
+    {
+      "id": "registry-block:liquid-glass-media-controls",
+      "reasons": [
+        "status is 'disabled', not 'ready'"
+      ]
+    },
+    {
+      "id": "registry-block:message-thread-reveal",
+      "reasons": [
+        "status is 'disabled', not 'ready'"
+      ]
+    },
+    {
+      "id": "registry-block:notification-cascade",
+      "reasons": [
+        "status is 'disabled', not 'ready'"
+      ]
+    },
+    {
+      "id": "registry-block:ordered-dither-pass",
+      "reasons": [
+        "block dimensions are not declared in data-width/data-height or viewport metadata"
+      ]
+    },
+    {
+      "id": "registry-block:particle-text-dissolve",
+      "reasons": [
+        "block dimensions are not declared in data-width/data-height or viewport metadata"
+      ]
+    },
+    {
+      "id": "registry-block:stitched-text-draw",
+      "reasons": [
+        "block dimensions are not declared in data-width/data-height or viewport metadata"
+      ]
+    },
+    {
+      "id": "registry-block:telemetry-hud",
+      "reasons": [
+        "block dimensions are not declared in data-width/data-height or viewport metadata"
+      ]
+    },
+    {
+      "id": "registry-block:testimonial-proof-card",
+      "reasons": [
+        "block dimensions are not declared in data-width/data-height or viewport metadata"
+      ]
+    },
+    {
+      "id": "registry-block:variable-axis-type",
+      "reasons": [
+        "block dimensions are not declared in data-width/data-height or viewport metadata"
+      ]
+    },
+    {
+      "id": "registry-block:vfx-liquid-glass",
+      "reasons": [
+        "status is 'disabled', not 'ready'"
+      ]
+    },
+    {
+      "id": "registry-block:world-map",
+      "reasons": [
+        "status is 'disabled', not 'ready'"
+      ]
+    },
+    {
+      "id": "registry-component:abstract-placeholder",
+      "reasons": [
+        "status is 'disabled', not 'ready'"
+      ]
+    },
+    {
+      "id": "registry-component:texture-mask-text",
+      "reasons": [
+        "status is 'disabled', not 'ready'"
+      ]
+    }
+  ],
+  "ignored": [
+    {
+      "id": "background:cool-dark-fragments",
+      "kind": "background"
+    },
+    {
+      "id": "background:cool-light-fragments",
+      "kind": "background"
+    },
+    {
+      "id": "background:warm-dark-fragments",
+      "kind": "background"
+    },
+    {
+      "id": "background:warm-light-fragments",
+      "kind": "background"
+    },
+    {
+      "id": "font:inter-400",
+      "kind": "font"
+    },
+    {
+      "id": "font:inter-700",
+      "kind": "font"
+    },
+    {
+      "id": "font:jetbrains-mono-400",
+      "kind": "font"
+    },
+    {
+      "id": "font:jetbrains-mono-700",
+      "kind": "font"
+    },
+    {
+      "id": "font:noto-sans-sc-variable",
+      "kind": "font"
+    },
+    {
+      "id": "license:inter-ofl",
+      "kind": "font"
+    },
+    {
+      "id": "license:jetbrains-mono-ofl",
+      "kind": "font"
+    },
+    {
+      "id": "license:noto-sans-sc-ofl",
+      "kind": "font"
+    },
+    {
+      "id": "logo:alibaba-cloud:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:alibaba-cloud:mark-light",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:alibaba-cloud:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:alibaba-cloud:wordmark-cn",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:anthropic:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:anthropic:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:baidu-comate:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:bilibili:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:bilibili:mark-light",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:bilibili:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:chatgpt:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:chatgpt:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:claude:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:claude:mark-light",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:claude:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:codex:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:codex:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:cursor:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:cursor:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:deepseek:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:deepseek:mark-light",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:deepseek:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:dingtalk:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:dingtalk:official-favicon",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:doubao:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:doubao:mark-light",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:doubao:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:douyin:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:feishu:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:figma:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:gemini:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:gemini:mark-light",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:gemini:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:github",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:github-copilot:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:github:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:gmail:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:google-docs:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:google-drive:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:google-sheets:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:google:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:google:mark-light",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:google:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:hermes-agent:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:hunyuan:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:hunyuan:mark-light",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:hunyuan:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:ima:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:kimi:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:kimi:mark-light",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:kimi:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:marvis:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:minimax:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:minimax:mark-light",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:minimax:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:notion:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:obsidian:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:obsidian:mark-light",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:obsidian:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:openai:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:openai:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:openclaw:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:qoderwork:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:qwen:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:qwen:mark-light",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:qwen:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:supabase:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:taobao:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:tencent-cloud:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:tencent-cloud:mark-light",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:tencent-cloud:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:tencent:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:tencent:mark-light",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:tencent:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:tencent:wordmark-cn",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:tongyi-lingma:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:trae-work:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:trae:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:trae:mark-light",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:trae:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:vercel:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:vscode:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:wechat-mini-program:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:wechat-mini-program:official-favicon",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:wechat:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:wecom:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:wecom:official-favicon",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:windsurf:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:windsurf:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:workbuddy:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:xiaohongshu:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:youtube:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:zhipu:mark",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:zhipu:mark-light",
+      "kind": "logo"
+    },
+    {
+      "id": "logo:zhipu:wordmark",
+      "kind": "logo"
+    },
+    {
+      "id": "lottie:audience-growth-story",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:binary-switch",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:conclusion-fireworks",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:continuous-cycle-loop",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:draft-document-build",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:gradient-card-reveal",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:gradient-reveal-vertical",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:grid-assembly",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:icon-state-morph",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:journey-loader",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:layered-gradient-shapes",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:linked-system-motion",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:location-pin-jump",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:menu-to-back",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:object-slice-reveal",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:organic-metaphor-cactus",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:progress-pill-sweep",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:property-value-change",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:risk-gradient-field",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:sequential-dots",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:settings-adjustment",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:staggered-dots",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:step-progress",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:stroke-emphasis-bounce",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:success-confirmation",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:switch-state-scrub",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:time-remap-comparison",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:trace-progress",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:vertical-scene-handoff",
+      "kind": "lottie"
+    },
+    {
+      "id": "lottie:vertical-scene-return",
+      "kind": "lottie"
+    },
+    {
+      "id": "motion-rule:counter-tick",
+      "kind": "motion-rule"
+    },
+    {
+      "id": "motion-rule:spring-pop-entrance",
+      "kind": "motion-rule"
+    },
+    {
+      "id": "motion-rule:steady-hold",
+      "kind": "motion-rule"
+    },
+    {
+      "id": "motion-rule:svg-path-draw",
+      "kind": "motion-rule"
+    },
+    {
+      "id": "scene-blueprint:compare",
+      "kind": "scene-blueprint"
+    },
+    {
+      "id": "scene-blueprint:compose",
+      "kind": "scene-blueprint"
+    },
+    {
+      "id": "scene-blueprint:focus",
+      "kind": "scene-blueprint"
+    },
+    {
+      "id": "scene-blueprint:source",
+      "kind": "scene-blueprint"
+    },
+    {
+      "id": "sfx:camera-shutter",
+      "kind": "sfx"
+    },
+    {
+      "id": "sfx:soft-whoosh",
+      "kind": "sfx"
+    },
+    {
+      "id": "sfx:typewriter-key",
+      "kind": "sfx"
+    },
+    {
+      "id": "svg:command-line",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:activity",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:book-open",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:chart-no-axes-combined",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:clock-3",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:cloud",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:code-xml",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:database",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:file-text",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:folder",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:gauge",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:git-branch",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:git-commit-horizontal",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:git-pull-request",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:key-round",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:lightbulb",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:mouse-pointer-click",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:network",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:search",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:server",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:shield-check",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:terminal",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:triangle-alert",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:users",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:lucide:workflow",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:primitive:document",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:primitive:dotted-route",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:primitive:envelope",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:primitive:gauge",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:primitive:key",
+      "kind": "svg"
+    },
+    {
+      "id": "svg:primitive:pulse-wave",
+      "kind": "svg"
+    },
+    {
+      "id": "texture:grain-neutral-512",
+      "kind": "texture"
+    },
+    {
+      "id": "transition:push-slide",
+      "kind": "transition"
+    },
+    {
+      "id": "transition:shared-morph",
+      "kind": "transition"
+    }
+  ],
+  "summary": {
+    "mapped": 144,
+    "unmapped": 19,
+    "ignored": 182
+  }
+}

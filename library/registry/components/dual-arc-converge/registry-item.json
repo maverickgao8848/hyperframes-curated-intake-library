@@ -1,0 +1,31 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "dual-arc-converge",
+  "type": "hyperframes:component",
+  "title": "Dual Arc Converge",
+  "description": "process|双来源汇聚为一个结论",
+  "tags": [
+    "demo",
+    "directed-video",
+    "migrated",
+    "process",
+    "流程"
+  ],
+  "files": [
+    {
+      "path": "dual-arc-converge/component.js",
+      "target": "compositions/components/dual-arc-converge/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

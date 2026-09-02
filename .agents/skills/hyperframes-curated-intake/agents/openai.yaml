@@ -1,0 +1,4 @@
+interface:
+  display_name: "HyperFrames Curated Intake"
+  short_description: "Co-direct scenes and prepare a verified HyperFrames handoff"
+  default_prompt: "Use $hyperframes-curated-intake to inspect my material, confirm the Frame and animated scenes, co-design every scene and adjacent-scene transition with me, and prepare a verified handoff packet for a separate HyperFrames build."

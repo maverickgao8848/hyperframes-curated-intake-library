@@ -1,0 +1,31 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "lamp-focus",
+  "type": "hyperframes:component",
+  "title": "Lamp Focus",
+  "description": "focus|灯光式聚焦关键定义",
+  "tags": [
+    "demo",
+    "directed-video",
+    "evidence",
+    "migrated",
+    "焦点"
+  ],
+  "files": [
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "lamp-focus/component.js",
+      "target": "compositions/components/lamp-focus/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

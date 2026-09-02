@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" fill="none">
+  <title>Generic teaching gauge</title>
+  <path id="gauge-arc" d="M120 344a260 260 0 0 1 520 0" stroke="var(--accent,currentColor)" stroke-width="28" stroke-linecap="round"/>
+  <g id="gauge-ticks" stroke="currentColor" stroke-width="8" stroke-linecap="round">
+    <path d="m142 300-34-12M181 218l-28-24M246 156l-18-34M326 124l-6-37M410 124l6-37M490 156l18-34M555 218l28-24M594 300l34-12"/>
+  </g>
+  <g id="gauge-needle" transform="rotate(34 380 344)">
+    <path d="M380 344 596 344" stroke="currentColor" stroke-width="18" stroke-linecap="round"/>
+    <circle cx="380" cy="344" r="28" fill="currentColor"/>
+  </g>
+</svg>
+

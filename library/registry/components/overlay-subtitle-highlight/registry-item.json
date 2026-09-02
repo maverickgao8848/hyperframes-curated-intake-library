@@ -1,0 +1,31 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "overlay-subtitle-highlight",
+  "type": "hyperframes:component",
+  "title": "Overlay Subtitle Highlight",
+  "description": "explain|Full-sentence subtitle with read current and unread states",
+  "tags": [
+    "definition",
+    "directed-video",
+    "evidence",
+    "migrated",
+    "text"
+  ],
+  "files": [
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "overlay-subtitle-highlight/component.js",
+      "target": "compositions/components/overlay-subtitle-highlight/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

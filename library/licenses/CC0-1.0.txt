@@ -1,0 +1,4 @@
+The original fixture-only assets in this library are dedicated to the public domain under CC0 1.0.
+
+The registry metadata entry identifies its own MIT license. Brand-like fixture artwork is an
+original generic test mark and is not an official third-party logo.

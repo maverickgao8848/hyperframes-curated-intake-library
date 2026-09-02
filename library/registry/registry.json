@@ -1,0 +1,603 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry.json",
+  "name": "mav-curated",
+  "homepage": "https://hyperframes.heygen.com",
+  "items": [
+    {
+      "name": "beat-freeze-cut",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "camcorder-hud",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "caption-kinetic-slam",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "caption-matrix-decode",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "caption-parallax-layers",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "chatgpt-exchange",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "code-typing",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "cross-warp-morph",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "domain-warp-dissolve",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "glitch",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "hw-callout-circle",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "hw-frame",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "hw-path-text",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "hw-pipeline",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "hw-underline",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "lower-third-bild",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "lt-bold-block",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "lt-mask-reveal",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "mk-callout-highlight",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "morph-text",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "news-ticker",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "notes-reveal",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "us-map-hex",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "vfx-text-cursor",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "weight-wave",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "x-post",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "yt-comment-card",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "yt-lcd-background",
+      "type": "hyperframes:block"
+    },
+    {
+      "name": "abstract-analogy",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "abstract-black-box",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "abstract-equation",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "abstract-iceberg",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "abstract-spectrum",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "abstract-versus",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "active-border",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "animated-beam",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "ascii-art",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "canvas-reveal",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "caption-blend-difference",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "card-stack",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "chart-area",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "chart-bar",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "chart-donut",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "chart-gauge",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "chart-heatmap",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "chart-horizontal-bar",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "chart-line",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "chart-multi-line",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "chart-sankey",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "chart-scatter",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "chart-sparkline",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "chart-stacked-bar",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "check-list",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "code-block",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "compare-scan",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "concept-pin",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "connector-draw",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "container-scroll",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "converge-summary",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "depth-card",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "dispatch-flight",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "distributed-globe",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "dither-reveal",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "dual-arc-converge",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "evidence-lens",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "evidence-timeline",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "flow-branching",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "flow-complex",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "flow-decision-tree",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "flow-fork-join",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "flow-loop",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "flow-sequence",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "flow-state-machine",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "flow-swimlane",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "focus-cards",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "folder-object",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "gauge-chart",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "glare-card",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "grain-overlay",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "grid-pixelate-wipe",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "hero-big-number",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "hero-big-type",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "hero-inversion-flash",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "hero-parallax",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "hero-pull-quote",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "icon-lucide-set",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "icon-stroke-weights",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "illustration-analytics",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "illustration-co-create",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "illustration-launch",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "illustration-prompt",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "illustration-retrieval",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "illustration-scene-library",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "illustration-thinking",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "inline-highlight",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "keyboard-object",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "lamp-focus",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "layout-grid",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "meter-bar",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "multi-step-loader",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "numbered-tag",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "overlay-concept-card",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "overlay-handoff",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "overlay-keyword-sticker",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "overlay-subtitle-highlight",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "parallax-images",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "pointer-proof",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "result-rows",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "scene-kicker",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "side-note",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "spotlight-focus",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "step-chain",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "sticker-label",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "sticky-reveal",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "story-cards-carousel",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "structure-concentric",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "structure-flow-chart",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "structure-funnel",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "structure-grid-map",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "structure-hub-spoke",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "structure-layered-stack",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "structure-matrix-2x2",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "structure-mind-map",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "structure-node-graph",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "structure-pyramid",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "structure-spectrum",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "structure-tree",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "structure-venn",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "svg-mask-reveal",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "teaching-bento",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "thinking-card-grid",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "thinking-compare-table",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "thinking-fishbone",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "thinking-gantt",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "thinking-kanban",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "thinking-swot",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "thinking-timeline-row",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "tracing-beam",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "typewriter",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "typewriter-block",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "ui-api-call",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "ui-browser",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "ui-chat-thread",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "ui-code-editor",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "ui-dashboard",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "ui-terminal",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "wavy-field",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "window-card",
+      "type": "hyperframes:component"
+    },
+    {
+      "name": "world-map-routes",
+      "type": "hyperframes:component"
+    }
+  ]
+}

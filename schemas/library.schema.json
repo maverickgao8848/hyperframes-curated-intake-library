@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hyperframes.local/schemas/library.schema.json",
+  "title": "HyperFrames Directed Video Building Block Library",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "revision", "entries"],
+  "properties": {
+    "schemaVersion": {"const": "hyperframes-directed-video-library/v1"},
+    "revision": {"type": "integer", "minimum": 1},
+    "entries": {"type": "array", "items": {"$ref": "#/$defs/entry"}}
+  },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "title", "tags", "capabilities", "source", "integration", "sha256", "license", "status"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*(?::[a-z0-9][a-z0-9._-]*)+$"},
+        "kind": {"enum": ["registry-block", "registry-component", "motion-rule", "scene-blueprint", "transition", "svg", "logo", "lottie", "template", "background", "texture", "sfx", "font"]},
+        "title": {"type": "string", "minLength": 1},
+        "description": {"type": "string"},
+        "tags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "capabilities": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "source": {"type": "object", "minProperties": 1},
+        "integration": {
+          "type": "object", "additionalProperties": false,
+          "required": ["mode", "timelineOwner", "renderTimeNetwork"],
+          "properties": {
+            "mode": {"enum": ["subcomposition", "host-dom", "inline", "image", "seek-adapter", "root-transition", "root-audio", "font-face"]},
+            "timelineOwner": {"enum": ["isolated", "host", "root", "none"]},
+            "renderTimeNetwork": {"const": false}
+          }
+        },
+        "preview": {"type": "string", "minLength": 1},
+        "parameters": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "required": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+            "optional": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+          }
+        },
+        "interface": {
+          "type": "object", "additionalProperties": false,
+          "properties": {
+            "props": {"type": "array", "items": {"$ref": "#/$defs/interfaceProp"}},
+            "eventTargets": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+          }
+        },
+        "routing": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "family": {"type": "string", "minLength": 1},
+            "teachingIntents": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+            "cognitiveActions": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+            "sceneRoles": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+            "evidenceTypes": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+            "requiredInputs": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+            "styleFit": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+            "aspectFit": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+            "durationMin": {"type": "number", "minimum": 0},
+            "durationMax": {"type": "number", "exclusiveMinimum": 0},
+            "densityFit": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+            "containerCost": {"type": "integer", "minimum": 0},
+            "heroEligible": {"type": "boolean"},
+            "avoid": {"type": "string", "minLength": 1},
+            "fallbackIds": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+          }
+        },
+        "provenance": {"type": "object", "minProperties": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "license": {"type": "object", "minProperties": 1},
+        "status": {"enum": ["ready", "disabled"]}
+      }
+    },
+    "interfaceProp": {
+      "type": "object", "additionalProperties": false,
+      "required": ["name", "type", "required", "nullable"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "type": {"enum": ["string", "number", "integer", "boolean", "array", "object"]},
+        "required": {"type": "boolean"},
+        "nullable": {"type": "boolean"}
+      }
+    }
+  }
+}

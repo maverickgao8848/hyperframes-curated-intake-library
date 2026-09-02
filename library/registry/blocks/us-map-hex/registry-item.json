@@ -1,0 +1,54 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "us-map-hex",
+  "type": "hyperframes:block",
+  "title": "Us Map Hex",
+  "description": "Migrated HyperFrames sub-composition: us-map-hex.",
+  "tags": [
+    "conditional",
+    "hyperframes",
+    "migrated"
+  ],
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "duration": 10,
+  "files": [
+    {
+      "path": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "target": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-400.woff2",
+      "target": "assets/fonts/Inter-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-700.woff2",
+      "target": "assets/fonts/Inter-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-400.woff2",
+      "target": "assets/fonts/JetBrainsMono-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-700.woff2",
+      "target": "assets/fonts/JetBrainsMono-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/vendor/gsap.min.js",
+      "target": "assets/vendor/gsap.min.js",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "us-map-hex.html",
+      "target": "compositions/us-map-hex.html",
+      "type": "hyperframes:composition"
+    }
+  ]
+}

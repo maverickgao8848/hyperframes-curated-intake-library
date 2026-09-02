@@ -1,0 +1,35 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "ui-api-call",
+  "type": "hyperframes:component",
+  "title": "Ui Api Call",
+  "description": "interface|Show project-provided API request and response data as an explicit mock",
+  "tags": [
+    "demo",
+    "directed-video",
+    "migrated",
+    "ui-mock"
+  ],
+  "files": [
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "ui-api-call/component.js",
+      "target": "compositions/components/ui-api-call/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "ui-mock-runtime.js",
+      "target": "compositions/components/ui-mock-runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "chart-scatter",
+  "type": "hyperframes:component",
+  "title": "Chart Scatter",
+  "description": "data|Show correlation and an optional size dimension",
+  "tags": [
+    "comparison",
+    "data",
+    "directed-video",
+    "evidence",
+    "migrated",
+    "summary"
+  ],
+  "files": [
+    {
+      "path": "chart-runtime.js",
+      "target": "compositions/components/chart-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "chart-scatter/component.js",
+      "target": "compositions/components/chart-scatter/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

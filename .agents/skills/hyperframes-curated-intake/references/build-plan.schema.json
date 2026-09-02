@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hyperframes.local/schemas/build-plan.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "state", "expectedSceneIds", "transitions", "scenes"],
+  "properties": {
+    "schemaVersion": {"const": "hyperframes-build-plan/v2"},
+    "state": {"enum": ["intake-approved", "build-selected"]},
+    "expectedSceneIds": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+    "transitions": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["boundaryId", "fromScene", "toScene", "catalogId", "catalogKind", "selection", "state", "role", "implementation", "durationSeconds", "purpose", "continuity", "sameBackground", "perceptualAnchor", "colorDependency"],
+        "properties": {
+          "boundaryId": {"type": "string", "minLength": 1},
+          "fromScene": {"type": "string", "minLength": 1},
+          "toScene": {"type": "string", "minLength": 1},
+          "catalogId": {"type": "string", "pattern": "^(?:registry-block|transition|motion-rule):.+$"},
+          "catalogKind": {"enum": ["registry-block", "transition", "motion-rule"]},
+          "selection": {"const": "required"},
+          "state": {"const": "selected-for-build"},
+          "role": {"enum": ["primary", "accent"]},
+          "implementation": {"enum": ["shader-runtime", "css-gsap", "subcomposition"]},
+          "durationSeconds": {"type": "number", "minimum": 0.1, "maximum": 1.5},
+          "purpose": {"type": "string", "minLength": 1},
+          "continuity": {"type": "string", "minLength": 1},
+          "sameBackground": {"type": "boolean"},
+          "perceptualAnchor": {"type": "string", "minLength": 1},
+          "colorDependency": {"enum": ["independent", "supporting", "required"]}
+        }
+      }
+    },
+    "scenes": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["sceneId", "compositionSrc", "sceneContract", "classification", "selectionStatus", "integrations"],
+        "properties": {
+          "sceneId": {"type": "string", "minLength": 1},
+          "compositionSrc": {"type": "string", "minLength": 1},
+          "sceneContract": {"type": "string", "minLength": 1},
+          "classification": {"type": "object"},
+          "selectionStatus": {"enum": ["open", "directed", "final"]},
+          "integrations": {
+            "type": "array",
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "required": ["id", "selection", "state", "role", "responsibility", "slot", "target"],
+              "properties": {
+                "id": {"type": "string", "minLength": 1},
+                "selection": {"enum": ["required", "preferred"]},
+                "state": {"const": "selected-for-build"},
+                "role": {"enum": ["hero", "support"]},
+                "responsibility": {"type": "string", "minLength": 1},
+                "slot": {"type": "string", "minLength": 1},
+                "target": {"type": "string", "minLength": 1},
+                "props": {"type": "object"}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

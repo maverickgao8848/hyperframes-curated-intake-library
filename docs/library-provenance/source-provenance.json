@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "hyperframes-visual-director/source-provenance-v1",
+  "recordedAt": "2026-08-31",
+  "talkcraft": {
+    "repository": "https://github.com/Vincentwei1021/video-talkcraft.git",
+    "commit": "05691f5f25d91d211f793f5bb0d6941d3ef5723d",
+    "authorizationNote": "docs/library-provenance/talkcraft-partner-authorization.md"
+  },
+  "hyperframesReferenceRepository": {
+    "path": "C:/Users/buend/Desktop/mav-works/mav-content-fac",
+    "commit": "b752ef5d13db88b90cd0652db953cacdacea692a"
+  },
+  "canonicalUiMotionLibrary": {
+    "path": "C:/Users/buend/Desktop/mav-works/mav-content-fac/.agents/skills/hyperframes-ui-motion-library",
+    "trackingStatus": "workspace-local-untracked",
+    "manifestSha256": "sha256:a1b3e8730dcc445d8450681550f4a17872a460507eb199f395c1baef3b365034",
+    "sourceNotesSha256": "sha256:fa1487ff1abc72bf76bea5e82c36b886a9b7bbfbc2500376efab0ec0abcd64f9",
+    "contractTest": "passed",
+    "sourceModel": "The maintained local Skill is the canonical source. WeChat and ChatGPT are clean-room HyperFrames-native implementations; Film Credits derives from a user-supplied HTML/GSAP snippet. No Remotion port is claimed for these three blocks."
+  },
+  "blocks": [
+    {
+      "id": "registry-block:wechat-desktop-exchange",
+      "aspect": "16:9",
+      "canonicalSource": {
+        "type": "hyperframes-native-clean-room",
+        "path": ".agents/skills/hyperframes-ui-motion-library/assets/library/compositions/wechat-desktop-exchange.html",
+        "sha256": "sha256:e7678d16a5ea807ad51c062718b73840128dd9030b341be21541ebdfd43a792f"
+      },
+      "derivedTarget": {
+        "path": "library/candidates/visual-director/blocks/wechat-desktop-exchange.html",
+        "sha256": "sha256:2e3e19eb5136aac03266603cda2c1620e0539e88332ac92d0ed0ab084a5a3b6e",
+        "changes": ["local GSAP dependency", "long-text wrapping"]
+      },
+      "remotionSource": null,
+      "sourceStatus": "verified",
+      "verification": {"libraryContractTest": "passed", "hyperframesCheck": "passed", "samples": 15, "snapshotsReviewed": true, "offlineDerivedTarget": true},
+      "portGate": "passed-as-hyperframes-native-source"
+    },
+    {
+      "id": "registry-block:chatgpt-desktop-exchange",
+      "aspect": "16:9",
+      "canonicalSource": {
+        "type": "hyperframes-native-clean-room",
+        "path": ".agents/skills/hyperframes-ui-motion-library/assets/library/compositions/chatgpt-desktop-exchange.html",
+        "sha256": "sha256:44ebeee49717e4c3a974e6c2f8a6e7308d4ac5038f65b9ed5a33f5345d9199e1"
+      },
+      "derivedTarget": {
+        "path": "library/candidates/visual-director/blocks/chatgpt-desktop-exchange.html",
+        "sha256": "sha256:423b15cf433ae6cd480526ecc0e2dadfcf76e9cf87c6eff153affdb5c50070f6",
+        "changes": ["local GSAP dependency", "long-text wrapping", "compactMode variable"]
+      },
+      "remotionSource": null,
+      "relatedTalkCraftReference": {
+        "repository": "https://github.com/Vincentwei1021/video-talkcraft.git",
+        "commit": "05691f5f25d91d211f793f5bb0d6941d3ef5723d",
+        "path": "template/cards/chat-gpt.tsx",
+        "sha256": "sha256:6b16ddb4eb3c816dd4f081888e6014d1af44b63c9a3f4638bfe196ee120f2d77",
+        "relationship": "catalog reference only; the canonical library declares the maintained block a clean-room reconstruction"
+      },
+      "sourceStatus": "verified",
+      "verification": {"libraryContractTest": "passed", "hyperframesCheck": "passed", "samples": 15, "snapshotsReviewed": true, "offlineDerivedTarget": true},
+      "portGate": "passed-as-hyperframes-native-source"
+    },
+    {
+      "id": "registry-block:film-credits-stagger",
+      "aspect": "16:9",
+      "canonicalSource": {
+        "type": "user-supplied-html-gsap",
+        "path": ".agents/skills/hyperframes-ui-motion-library/assets/library/compositions/film-credits-stagger.html",
+        "sha256": "sha256:8662a6680adf4c73425298df366579c4f8f7857f836e14b4e35d569bf1d7bb3c"
+      },
+      "derivedTarget": {
+        "path": "library/candidates/visual-director/blocks/film-credits-stagger.html",
+        "sha256": "sha256:f75373b3c36fd1acc1e862105fd161b452a840a08bcc30ce15c6b6407e03f93f",
+        "changes": ["local GSAP dependency", "long-name wrapping"]
+      },
+      "remotionSource": null,
+      "sourceStatus": "verified",
+      "verification": {"libraryContractTest": "passed", "hyperframesCheck": "passed", "samples": 15, "snapshotsReviewed": true, "offlineDerivedTarget": true},
+      "portGate": "passed-as-user-supplied-hyperframes-source"
+    }
+  ]
+}

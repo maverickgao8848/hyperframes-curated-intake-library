@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hyperframes.local/schemas/curated-usage.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["majorScenes", "transitions", "custom"],
+  "properties": {
+    "majorScenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "curatedItems", "missIds", "integrationEvidence", "beatEvidence", "textEffects", "ambientEvidence"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "curatedItems": {
+            "type": "array",
+            "items": {"type": "string", "pattern": "^registry-(?:block|component):.+$"},
+            "uniqueItems": true
+          },
+          "missIds": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1},
+            "uniqueItems": true
+          },
+          "integrationEvidence": {
+            "type": "array",
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "required": ["id", "selector", "implementation"],
+              "properties": {
+                "id": {"type": "string", "pattern": "^registry-(?:block|component):.+$"},
+                "selector": {"type": "string", "minLength": 1},
+                "implementation": {"enum": ["subcomposition", "host-dom", "inline"]}
+              }
+            }
+          },
+          "beatEvidence": {
+            "type": "array",
+            "items": {
+              "type": "object", "additionalProperties": false, "required": ["id", "selector"],
+              "properties": {
+                "id": {"type": "string", "minLength": 1},
+                "selector": {"type": "string", "minLength": 1}
+              }
+            }
+          },
+          "textEffects": {
+            "type": "array",
+            "items": {
+              "type": "object", "additionalProperties": false, "required": ["id", "effect", "selector"],
+              "properties": {
+                "id": {"type": "string", "minLength": 1},
+                "effect": {"type": "string", "minLength": 1},
+                "selector": {"type": "string", "minLength": 1}
+              }
+            }
+          },
+          "ambientEvidence": {
+            "type": ["object", "null"],
+            "properties": {
+              "selector": {"type": "string", "minLength": 1},
+              "purpose": {"type": "string", "minLength": 1}
+            },
+            "required": ["selector", "purpose"],
+            "additionalProperties": false
+          }
+        },
+        "anyOf": [
+          {"properties": {"curatedItems": {"minItems": 1}}},
+          {"properties": {"missIds": {"minItems": 1}}}
+        ]
+      }
+    },
+    "transitions": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["boundaryId", "fromScene", "toScene", "catalogId", "implementation", "controllerSelector"],
+        "properties": {
+          "boundaryId": {"type": "string", "minLength": 1},
+          "fromScene": {"type": "string", "minLength": 1},
+          "toScene": {"type": "string", "minLength": 1},
+          "catalogId": {"type": "string", "pattern": "^(?:registry-block|transition|motion-rule):.+$"},
+          "implementation": {"enum": ["shader-runtime", "css-gsap", "subcomposition"]},
+          "controllerSelector": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "custom": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["name"],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "missId": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

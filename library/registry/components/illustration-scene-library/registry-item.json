@@ -1,0 +1,46 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "illustration-scene-library",
+  "type": "hyperframes:component",
+  "title": "Illustration Scene Library",
+  "description": "chapter-cover|Select one of the same six frozen chapter scenes",
+  "tags": [
+    "chapter",
+    "directed-video",
+    "illustration",
+    "migrated",
+    "transition"
+  ],
+  "files": [
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "frozen-icon-assets.js",
+      "target": "compositions/components/frozen-icon-assets.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "frozen-illustration-assets.js",
+      "target": "compositions/components/frozen-illustration-assets.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "illustration-runtime.js",
+      "target": "compositions/components/illustration-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "illustration-scene-library/component.js",
+      "target": "compositions/components/illustration-scene-library/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

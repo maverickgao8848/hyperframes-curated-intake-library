@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" fill="none">
+  <title>Generic signal trace</title>
+  <path id="pulse-wave" d="M0 146h102l24-28 22 54 34-114 40 168 34-80h92l28-24 30 48 30-112 40 166 36-78h98l26-24 28 48 32-112 38 166 38-78h92l34-28 24 58 34-128 40 184 34-88h136" stroke="var(--accent,currentColor)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+

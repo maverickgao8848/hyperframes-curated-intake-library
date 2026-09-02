@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "hyperframes-directed-video-library-import/v1",
+  "sourceCatalogSha256": "a5b06680212a3b5f17c8a6a19af6b6633b6844f55208195a7ddbfede83535fb1",
+  "catalogSha256": "b7059afd4792e28784172baa17cd86229229966234c9dd8daece25a70a526796",
+  "retainedEntries": 13,
+  "importedEntries": 332,
+  "hyperframes": {
+    "ready": 43,
+    "disabled": 8
+  },
+  "components": {
+    "ready": 111,
+    "disabled": 1
+  },
+  "assets": {
+    "background": 4,
+    "font": 8,
+    "logo": 94,
+    "lottie": 30,
+    "sfx": 2,
+    "svg": 30,
+    "texture": 1
+  },
+  "excluded": [
+    "brand FRAME.md references",
+    "runtime-only catalog records",
+    "licenses as selectable blocks",
+    "packed visual-index sources"
+  ]
+}
