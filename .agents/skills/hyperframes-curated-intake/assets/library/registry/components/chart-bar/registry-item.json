@@ -1,0 +1,54 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "chart-bar",
+  "type": "hyperframes:component",
+  "title": "Chart Bar",
+  "description": "data|Compare discrete signed quantities",
+  "tags": [
+    "comparison",
+    "data",
+    "directed-video",
+    "evidence",
+    "migrated",
+    "summary"
+  ],
+  "routing": {
+    "family": "data",
+    "purpose": "Compare discrete category values with vertical bars.",
+    "useWhen": [
+      "Several categories share one quantitative scale."
+    ],
+    "avoidWhen": [
+      "Labels are too long for vertical category layout."
+    ],
+    "expects": [
+      "Category labels, values, and unit"
+    ],
+    "motion": "progressive",
+    "fallbackIds": [
+      "registry-component:chart-horizontal-bar"
+    ]
+  },
+  "files": [
+    {
+      "path": "chart-bar/component.js",
+      "target": "compositions/components/chart-bar/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "chart-runtime.js",
+      "target": "compositions/components/chart-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

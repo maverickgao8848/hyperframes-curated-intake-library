@@ -1,0 +1,45 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "evidence-timeline",
+  "type": "hyperframes:component",
+  "title": "Evidence Timeline",
+  "description": "sequence|按时间组织证据与事件",
+  "tags": [
+    "demo",
+    "directed-video",
+    "migrated",
+    "process",
+    "序列"
+  ],
+  "routing": {
+    "family": "evidence",
+    "purpose": "Place sourced events in chronological evidentiary order.",
+    "useWhen": [
+      "The claim depends on when documented events occurred."
+    ],
+    "avoidWhen": [
+      "Causality is independent of chronology."
+    ],
+    "expects": [
+      "Dated events and source citations"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "evidence-timeline/component.js",
+      "target": "compositions/components/evidence-timeline/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

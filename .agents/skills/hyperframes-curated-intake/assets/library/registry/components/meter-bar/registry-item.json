@@ -1,0 +1,40 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "meter-bar",
+  "type": "hyperframes:component",
+  "title": "Meter Bar",
+  "description": "status|占比完成度与对比",
+  "tags": [
+    "directed-video",
+    "evidence",
+    "migrated",
+    "summary",
+    "状态"
+  ],
+  "routing": {
+    "family": "data",
+    "purpose": "Fill a linear meter toward a threshold.",
+    "useWhen": [
+      "One bounded value changes within a compact horizontal space."
+    ],
+    "avoidWhen": [
+      "Multiple categories require independent comparison."
+    ],
+    "expects": [
+      "Linear value, range, threshold, and label"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "meter-bar/component.js",
+      "target": "compositions/components/meter-bar/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

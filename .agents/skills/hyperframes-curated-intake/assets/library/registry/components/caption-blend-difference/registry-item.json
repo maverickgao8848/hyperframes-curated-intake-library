@@ -1,0 +1,33 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "caption-blend-difference",
+  "type": "hyperframes:component",
+  "title": "Caption Blend Difference",
+  "description": "Migrated HyperFrames inline component: caption-blend-difference.",
+  "tags": [
+    "explicit",
+    "hyperframes",
+    "migrated"
+  ],
+  "routing": {
+    "family": "emphasis",
+    "purpose": "Keep captions legible by dynamically inverting against footage.",
+    "useWhen": [
+      "Text crosses backgrounds with sharply changing luminance."
+    ],
+    "avoidWhen": [
+      "Brand color must remain fixed regardless of contrast."
+    ],
+    "expects": [
+      "Caption text and underlying footage"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "caption-blend-difference.html",
+      "target": "compositions/components/caption-blend-difference.html",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

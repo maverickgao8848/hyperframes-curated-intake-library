@@ -1,0 +1,45 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "dither-reveal",
+  "type": "hyperframes:component",
+  "title": "Dither Reveal",
+  "description": "reveal|以有序抖动阈值揭示媒体",
+  "tags": [
+    "directed-video",
+    "hook",
+    "migrated",
+    "transition",
+    "揭示"
+  ],
+  "routing": {
+    "family": "emphasis",
+    "purpose": "Reveal content through a deliberate pixel-dither threshold.",
+    "useWhen": [
+      "A digital texture can pace an asset's entrance."
+    ],
+    "avoidWhen": [
+      "Small text or fine evidence would become unreadable."
+    ],
+    "expects": [
+      "Target media and threshold progression"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "dither-reveal/component.js",
+      "target": "compositions/components/dither-reveal/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

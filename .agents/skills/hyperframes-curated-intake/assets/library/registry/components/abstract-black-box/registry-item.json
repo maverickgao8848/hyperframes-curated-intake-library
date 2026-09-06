@@ -1,0 +1,50 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "abstract-black-box",
+  "type": "hyperframes:component",
+  "title": "Abstract Black Box",
+  "description": "concept|Explain inputs through an unknown process to outputs",
+  "tags": [
+    "abstract",
+    "comparison",
+    "definition",
+    "directed-video",
+    "migrated"
+  ],
+  "routing": {
+    "family": "concept",
+    "purpose": "Explain a system through inputs and outputs while hiding internals.",
+    "useWhen": [
+      "Behavior matters but implementation detail does not."
+    ],
+    "avoidWhen": [
+      "The internal mechanism is the teaching objective."
+    ],
+    "expects": [
+      "Named inputs, outputs, and observed behavior"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "abstract-black-box/component.js",
+      "target": "compositions/components/abstract-black-box/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "abstract-runtime.js",
+      "target": "compositions/components/abstract-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

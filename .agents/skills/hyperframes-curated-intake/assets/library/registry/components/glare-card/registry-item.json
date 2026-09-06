@@ -1,0 +1,45 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "glare-card",
+  "type": "hyperframes:component",
+  "title": "Glare Card",
+  "description": "depth|用受控高光引导卡片阅读焦点",
+  "tags": [
+    "chapter",
+    "directed-video",
+    "migrated",
+    "transition",
+    "深度"
+  ],
+  "routing": {
+    "family": "emphasis",
+    "purpose": "Move a controlled glare across a featured card.",
+    "useWhen": [
+      "A premium surface cue should draw attention to one object."
+    ],
+    "avoidWhen": [
+      "Glare would obscure detailed text or evidence."
+    ],
+    "expects": [
+      "Card content and light direction"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "glare-card/component.js",
+      "target": "compositions/components/glare-card/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

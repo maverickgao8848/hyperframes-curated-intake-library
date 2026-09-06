@@ -1,0 +1,51 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "chart-sparkline",
+  "type": "hyperframes:component",
+  "title": "Chart Sparkline",
+  "description": "data|Show up to four compact metric trends",
+  "tags": [
+    "comparison",
+    "data",
+    "directed-video",
+    "evidence",
+    "migrated",
+    "summary"
+  ],
+  "routing": {
+    "family": "data",
+    "purpose": "Embed a compact trend beside a summary value.",
+    "useWhen": [
+      "A small space needs directional history without full axes."
+    ],
+    "avoidWhen": [
+      "Exact points and annotations require close reading."
+    ],
+    "expects": [
+      "Ordered values and summary label"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "chart-runtime.js",
+      "target": "compositions/components/chart-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "chart-sparkline/component.js",
+      "target": "compositions/components/chart-sparkline/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

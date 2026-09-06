@@ -1,0 +1,50 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "abstract-iceberg",
+  "type": "hyperframes:component",
+  "title": "Abstract Iceberg",
+  "description": "concept|Separate visible and hidden parts with a declared ratio",
+  "tags": [
+    "abstract",
+    "comparison",
+    "definition",
+    "directed-video",
+    "migrated"
+  ],
+  "routing": {
+    "family": "structure",
+    "purpose": "Separate visible symptoms from deeper hidden causes.",
+    "useWhen": [
+      "A small observable surface rests on substantial unseen structure."
+    ],
+    "avoidWhen": [
+      "All relevant factors are equally visible."
+    ],
+    "expects": [
+      "Visible items and hidden layers"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "abstract-iceberg/component.js",
+      "target": "compositions/components/abstract-iceberg/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "abstract-runtime.js",
+      "target": "compositions/components/abstract-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

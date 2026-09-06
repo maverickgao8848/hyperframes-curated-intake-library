@@ -1,0 +1,45 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "layout-grid",
+  "type": "hyperframes:component",
+  "title": "Layout Grid",
+  "description": "comparison|在网格中比较多个对象",
+  "tags": [
+    "comparison",
+    "directed-video",
+    "evidence",
+    "migrated",
+    "对比"
+  ],
+  "routing": {
+    "family": "structure",
+    "purpose": "Expose the grid governing alignment of page elements.",
+    "useWhen": [
+      "Spacing and layout relationships need explicit explanation."
+    ],
+    "avoidWhen": [
+      "The final design should be shown without construction guides."
+    ],
+    "expects": [
+      "Columns, rows, gutters, and aligned elements"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "layout-grid/component.js",
+      "target": "compositions/components/layout-grid/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

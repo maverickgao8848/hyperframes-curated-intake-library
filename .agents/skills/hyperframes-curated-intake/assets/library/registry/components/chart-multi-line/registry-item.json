@@ -1,0 +1,51 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "chart-multi-line",
+  "type": "hyperframes:component",
+  "title": "Chart Multi Line",
+  "description": "data|Compare up to three aligned trends",
+  "tags": [
+    "comparison",
+    "data",
+    "directed-video",
+    "evidence",
+    "migrated",
+    "summary"
+  ],
+  "routing": {
+    "family": "data",
+    "purpose": "Compare several trends on the same ordered scale.",
+    "useWhen": [
+      "Relative trajectories and crossings explain the claim."
+    ],
+    "avoidWhen": [
+      "Series use incompatible scales or become visually crowded."
+    ],
+    "expects": [
+      "Named series and aligned ordered points"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "chart-multi-line/component.js",
+      "target": "compositions/components/chart-multi-line/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "chart-runtime.js",
+      "target": "compositions/components/chart-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

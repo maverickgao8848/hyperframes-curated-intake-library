@@ -1,0 +1,51 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "chart-gauge",
+  "type": "hyperframes:component",
+  "title": "Chart Gauge",
+  "description": "data|range_metric|spec_mono_220|Show one metric in the Spec Mono 220 degree syntax",
+  "tags": [
+    "comparison",
+    "data",
+    "directed-video",
+    "evidence",
+    "migrated",
+    "summary"
+  ],
+  "routing": {
+    "family": "data",
+    "purpose": "Judge a current value against a bounded target range.",
+    "useWhen": [
+      "Status relative to thresholds matters more than history."
+    ],
+    "avoidWhen": [
+      "No meaningful minimum, maximum, or target exists."
+    ],
+    "expects": [
+      "Value, range, threshold, and label"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "chart-gauge/component.js",
+      "target": "compositions/components/chart-gauge/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "chart-runtime.js",
+      "target": "compositions/components/chart-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

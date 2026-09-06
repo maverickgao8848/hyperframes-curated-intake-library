@@ -1,0 +1,50 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "flow-loop",
+  "type": "hyperframes:component",
+  "title": "Flow Loop",
+  "description": "structure|Explain finite iteration and its exit condition",
+  "tags": [
+    "comparison",
+    "diagram",
+    "directed-video",
+    "migrated",
+    "process"
+  ],
+  "routing": {
+    "family": "process",
+    "purpose": "Trace a repeatable sequence back to its entry condition.",
+    "useWhen": [
+      "Iteration and feedback are central to the mechanism."
+    ],
+    "avoidWhen": [
+      "The process executes only once."
+    ],
+    "expects": [
+      "Stages, loop condition, and exit condition"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "diagram-runtime.js",
+      "target": "compositions/components/diagram-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "flow-loop/component.js",
+      "target": "compositions/components/flow-loop/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

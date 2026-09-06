@@ -1,0 +1,45 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "card-stack",
+  "type": "hyperframes:component",
+  "title": "Card Stack",
+  "description": "depth|堆叠卡片展示优先级和顺序",
+  "tags": [
+    "chapter",
+    "directed-video",
+    "migrated",
+    "transition",
+    "深度"
+  ],
+  "routing": {
+    "family": "structure",
+    "purpose": "Arrange related cards as an ordered depth stack.",
+    "useWhen": [
+      "A collection has priority, sequence, or layered history."
+    ],
+    "avoidWhen": [
+      "All cards must be compared simultaneously."
+    ],
+    "expects": [
+      "Card content and stack order"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "card-stack/component.js",
+      "target": "compositions/components/card-stack/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

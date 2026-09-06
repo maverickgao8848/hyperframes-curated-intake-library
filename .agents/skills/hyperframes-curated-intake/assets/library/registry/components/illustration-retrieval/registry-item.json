@@ -1,0 +1,60 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "illustration-retrieval",
+  "type": "hyperframes:component",
+  "title": "Illustration Retrieval",
+  "description": "chapter-cover|Retrieval and knowledge chapter cover",
+  "tags": [
+    "chapter",
+    "directed-video",
+    "illustration",
+    "migrated",
+    "transition"
+  ],
+  "routing": {
+    "family": "process",
+    "purpose": "Illustrate information being found and brought back.",
+    "useWhen": [
+      "The mechanism involves search followed by retrieval."
+    ],
+    "avoidWhen": [
+      "The information is already present in context."
+    ],
+    "expects": [
+      "Query object, retrieved result, title, and caption"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "frozen-icon-assets.js",
+      "target": "compositions/components/frozen-icon-assets.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "frozen-illustration-assets.js",
+      "target": "compositions/components/frozen-illustration-assets.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "illustration-retrieval/component.js",
+      "target": "compositions/components/illustration-retrieval/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "illustration-runtime.js",
+      "target": "compositions/components/illustration-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

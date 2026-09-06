@@ -1,0 +1,33 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "grid-pixelate-wipe",
+  "type": "hyperframes:component",
+  "title": "Grid Pixelate Wipe",
+  "description": "Migrated HyperFrames inline component: grid-pixelate-wipe.",
+  "tags": [
+    "hyperframes",
+    "migrated",
+    "signature"
+  ],
+  "routing": {
+    "family": "concept",
+    "purpose": "Transition between visuals through an ordered pixel grid.",
+    "useWhen": [
+      "A digital scene change should expose spatial structure."
+    ],
+    "avoidWhen": [
+      "The transition must preserve continuous motion."
+    ],
+    "expects": [
+      "Outgoing media, incoming media, and grid scale"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "grid-pixelate-wipe.html",
+      "target": "compositions/components/grid-pixelate-wipe.html",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

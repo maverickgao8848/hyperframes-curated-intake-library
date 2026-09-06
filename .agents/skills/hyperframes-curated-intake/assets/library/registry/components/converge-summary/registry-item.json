@@ -1,0 +1,40 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "converge-summary",
+  "type": "hyperframes:component",
+  "title": "Converge Summary",
+  "description": "relationship|多个要点收拢为一个结论",
+  "tags": [
+    "comparison",
+    "directed-video",
+    "migrated",
+    "process",
+    "关系"
+  ],
+  "routing": {
+    "family": "structure",
+    "purpose": "Bring several argument threads into one summary outcome.",
+    "useWhen": [
+      "Independent strands resolve into a shared conclusion."
+    ],
+    "avoidWhen": [
+      "The strands remain separate or conflict."
+    ],
+    "expects": [
+      "Input conclusions and final synthesis"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "converge-summary/component.js",
+      "target": "compositions/components/converge-summary/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

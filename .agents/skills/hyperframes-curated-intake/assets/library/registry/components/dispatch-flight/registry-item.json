@@ -1,0 +1,40 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "dispatch-flight",
+  "type": "hyperframes:component",
+  "title": "Dispatch Flight",
+  "description": "relationship|任务或数据在容器之间分发",
+  "tags": [
+    "comparison",
+    "directed-video",
+    "migrated",
+    "process",
+    "关系"
+  ],
+  "routing": {
+    "family": "process",
+    "purpose": "Trace an item being dispatched from origin to destination.",
+    "useWhen": [
+      "Delivery or handoff is the operational story."
+    ],
+    "avoidWhen": [
+      "No movement between distinct endpoints occurs."
+    ],
+    "expects": [
+      "Origin, destination, payload, and status"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "dispatch-flight/component.js",
+      "target": "compositions/components/dispatch-flight/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

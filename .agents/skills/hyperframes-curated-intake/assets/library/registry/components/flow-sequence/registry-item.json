@@ -1,0 +1,53 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "flow-sequence",
+  "type": "hyperframes:component",
+  "title": "Flow Sequence",
+  "description": "structure|Explain ordered messages across two to five roles",
+  "tags": [
+    "comparison",
+    "diagram",
+    "directed-video",
+    "migrated",
+    "process"
+  ],
+  "routing": {
+    "family": "process",
+    "purpose": "Lead the audience through a strictly ordered series of actions.",
+    "useWhen": [
+      "Each step depends on completion of the previous one."
+    ],
+    "avoidWhen": [
+      "The workflow branches, loops, or permits reordering."
+    ],
+    "expects": [
+      "Ordered step names and current step"
+    ],
+    "motion": "progressive",
+    "fallbackIds": [
+      "registry-component:step-chain"
+    ]
+  },
+  "files": [
+    {
+      "path": "diagram-runtime.js",
+      "target": "compositions/components/diagram-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "flow-sequence/component.js",
+      "target": "compositions/components/flow-sequence/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

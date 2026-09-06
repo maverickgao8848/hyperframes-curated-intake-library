@@ -1,0 +1,45 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "evidence-lens",
+  "type": "hyperframes:component",
+  "title": "Evidence Lens",
+  "description": "证据聚焦｜把原文、数值或界面状态放大成可核验的视觉证据。",
+  "tags": [
+    "aceternity-inspired",
+    "directed-video",
+    "evidence",
+    "lens",
+    "teaching"
+  ],
+  "routing": {
+    "family": "evidence",
+    "purpose": "Magnify a bounded region of source evidence.",
+    "useWhen": [
+      "A small detail must be inspected without losing context."
+    ],
+    "avoidWhen": [
+      "The entire source needs equal-resolution reading."
+    ],
+    "expects": [
+      "Source media, lens bounds, and annotation"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "evidence-lens/component.js",
+      "target": "compositions/components/evidence-lens/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

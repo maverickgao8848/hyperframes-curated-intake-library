@@ -1,0 +1,33 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "inline-highlight",
+  "type": "hyperframes:component",
+  "title": "Inline Highlight",
+  "description": "Migrated HyperFrames inline component: inline-highlight.",
+  "tags": [
+    "auto",
+    "hyperframes",
+    "migrated"
+  ],
+  "routing": {
+    "family": "emphasis",
+    "purpose": "Highlight an exact phrase without removing surrounding context.",
+    "useWhen": [
+      "A small textual distinction must persist during explanation."
+    ],
+    "avoidWhen": [
+      "The whole sentence carries equal weight."
+    ],
+    "expects": [
+      "Text range and highlight state"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "inline-highlight.html",
+      "target": "compositions/components/inline-highlight.html",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

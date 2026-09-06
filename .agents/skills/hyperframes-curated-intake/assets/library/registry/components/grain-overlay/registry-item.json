@@ -1,0 +1,33 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "grain-overlay",
+  "type": "hyperframes:component",
+  "title": "Grain Overlay",
+  "description": "Migrated HyperFrames inline component: grain-overlay.",
+  "tags": [
+    "explicit",
+    "hyperframes",
+    "migrated"
+  ],
+  "routing": {
+    "family": "concept",
+    "purpose": "Add restrained film grain to unify a visual atmosphere.",
+    "useWhen": [
+      "Texture should make clean digital layers feel tactile."
+    ],
+    "avoidWhen": [
+      "Noise would degrade small text or source evidence."
+    ],
+    "expects": [
+      "Target region and grain intensity"
+    ],
+    "motion": "entrance-only"
+  },
+  "files": [
+    {
+      "path": "grain-overlay.html",
+      "target": "compositions/components/grain-overlay.html",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}
