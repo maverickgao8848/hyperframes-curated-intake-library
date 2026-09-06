@@ -1,0 +1,68 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "caption-camera-follow",
+  "type": "hyperframes:block",
+  "title": "Caption Camera Follow",
+  "description": "Migrated HyperFrames sub-composition: caption-camera-follow.",
+  "tags": [
+    "conditional",
+    "hyperframes",
+    "migrated"
+  ],
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "duration": 9,
+  "routing": {
+    "family": "emphasis",
+    "purpose": "Keep a caption attached to a moving subject.",
+    "useWhen": [
+      "Spoken emphasis must follow a subject through the shot."
+    ],
+    "avoidWhen": [
+      "The target is static or frequently occluded."
+    ],
+    "expects": [
+      "Caption text and tracked subject position"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "target": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-400.woff2",
+      "target": "assets/fonts/Inter-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-700.woff2",
+      "target": "assets/fonts/Inter-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-400.woff2",
+      "target": "assets/fonts/JetBrainsMono-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-700.woff2",
+      "target": "assets/fonts/JetBrainsMono-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/vendor/gsap.min.js",
+      "target": "assets/vendor/gsap.min.js",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "caption-camera-follow.html",
+      "target": "compositions/caption-camera-follow.html",
+      "type": "hyperframes:composition"
+    }
+  ]
+}

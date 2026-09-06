@@ -1,0 +1,43 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "film-credits-stagger",
+  "type": "hyperframes:block",
+  "title": "Film Credits Stagger",
+  "description": "Verified HyperFrames scene block: Film Credits Stagger.",
+  "tags": [
+    "curated",
+    "evidence",
+    "scene"
+  ],
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "duration": 4.8,
+  "routing": {
+    "family": "evidence",
+    "purpose": "Sequence credited names and roles with cinematic pacing.",
+    "useWhen": [
+      "Authorship or contribution must close the piece clearly."
+    ],
+    "avoidWhen": [
+      "The ending needs a single immediate call to action."
+    ],
+    "expects": [
+      "Names, roles, and credit order"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "assets/vendor/gsap.min.js",
+      "target": "assets/vendor/gsap.min.js",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "film-credits-stagger.html",
+      "target": "compositions/film-credits-stagger.html",
+      "type": "hyperframes:composition"
+    }
+  ]
+}

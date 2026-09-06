@@ -1,0 +1,68 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "caption-matrix-decode",
+  "type": "hyperframes:block",
+  "title": "Caption Matrix Decode",
+  "description": "Migrated HyperFrames sub-composition: caption-matrix-decode.",
+  "tags": [
+    "hyperframes",
+    "migrated",
+    "signature"
+  ],
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "duration": 8,
+  "routing": {
+    "family": "concept",
+    "purpose": "Decode scrambled symbols into a meaningful caption.",
+    "useWhen": [
+      "The message is framed as discovery or decryption."
+    ],
+    "avoidWhen": [
+      "Immediate legibility is more important than reveal."
+    ],
+    "expects": [
+      "Final caption and decode duration"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "target": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-400.woff2",
+      "target": "assets/fonts/Inter-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-700.woff2",
+      "target": "assets/fonts/Inter-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-400.woff2",
+      "target": "assets/fonts/JetBrainsMono-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-700.woff2",
+      "target": "assets/fonts/JetBrainsMono-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/vendor/gsap.min.js",
+      "target": "assets/vendor/gsap.min.js",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "caption-matrix-decode.html",
+      "target": "compositions/caption-matrix-decode.html",
+      "type": "hyperframes:composition"
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+<!doctype html>
+<html
+  lang="zh-CN"
+  data-resolution="landscape"
+  data-composition-variables='[
+    {"id":"contactName","type":"string","role":"content","label":"Contact name","default":"项目负责人"},
+    {"id":"clientAvatar","type":"string","role":"content","label":"Client avatar path","default":"assets/avatars/client-01.png"},
+    {"id":"selfAvatar","type":"string","role":"content","label":"Self avatar path","default":"assets/avatars/mav.png"},
+    {"id":"speaker1","type":"string","role":"content","label":"Speaker 1","default":"client"},
+    {"id":"type1","type":"string","role":"content","label":"Message type 1","default":"text"},
+    {"id":"message1","type":"string","role":"content","label":"Message 1","default":"这份周报能不能每天自动汇总？"},
+    {"id":"meta1","type":"string","role":"content","label":"Message meta 1","default":""},
+    {"id":"speaker2","type":"string","role":"content","label":"Speaker 2","default":"self"},
+    {"id":"type2","type":"string","role":"content","label":"Message type 2","default":"voice"},
+    {"id":"message2","type":"string","role":"content","label":"Message 2","default":""},
+    {"id":"meta2","type":"string","role":"content","label":"Message meta 2","default":"8"},
+    {"id":"speaker3","type":"string","role":"content","label":"Speaker 3","default":"client"},
+    {"id":"type3","type":"string","role":"content","label":"Message type 3","default":"media"},
+    {"id":"message3","type":"string","role":"content","label":"Message 3","default":"周报异常截图"},
+    {"id":"meta3","type":"string","role":"content","label":"Message meta 3","default":"0:07"},
+    {"id":"speaker4","type":"string","role":"content","label":"Speaker 4","default":"self"},
+    {"id":"type4","type":"string","role":"content","label":"Message type 4","default":"text"},
+    {"id":"message4","type":"string","role":"content","label":"Message 4","default":"可以，我先把高风险项标出来。"},
+    {"id":"meta4","type":"string","role":"content","label":"Message meta 4","default":""}
+  ]'
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+  </head>
+  <body>
+    <template>
+      <script src="assets/vendor/gsap.min.js"></script>
+      <style>
+        @font-face { font-family: "Microsoft YaHei"; src: local("Microsoft YaHei"); }
+        @font-face { font-family: "PingFang SC"; src: local("PingFang SC"); }
+        * { box-sizing: border-box; }
+        #wdx-root {
+          position: relative; width: 1920px; height: 1080px; overflow: hidden;
+          background: #f6f6f6; color: #222;
+          font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+          -webkit-font-smoothing: antialiased;
+        }
+        .wdx-header {
+          position: absolute; inset: 0 0 auto; height: 72px; z-index: 4;
+          display: flex; align-items: center; padding: 0 28px;
+          border-bottom: 1px solid #e5e5e5; background: #fff;
+        }
+        .wdx-contact { font-size: 24px; font-weight: 600; }
+        .wdx-header-tools { margin-left: auto; display: flex; align-items: center; gap: 24px; color: #555; }
+        .wdx-tool { width: 32px; height: 32px; display: grid; place-items: center; }
+        .wdx-tool svg { width: 27px; height: 27px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+        .wdx-dots { font: 700 25px/1 Arial; letter-spacing: 4px; transform: translateY(-4px); }
+        .wdx-viewport { position: absolute; inset: 72px 0 168px; overflow: hidden; background: #f7f7f7; }
+        .wdx-thread { position: absolute; left: 0; top: 0; width: 100%; padding: 42px 52px 58px; }
+        .wdx-time { margin: 0 auto 34px; width: fit-content; color: #707070; font-size: 16px; }
+        .wdx-entry { display: flex; align-items: flex-start; gap: 14px; width: 100%; margin-bottom: 24px; }
+        .wdx-entry.self { flex-direction: row-reverse; }
+        .wdx-avatar { width: 52px; height: 52px; flex: 0 0 52px; border-radius: 7px; object-fit: cover; background: #d0d0d0; }
+        .wdx-content { position: relative; max-width: 720px; overflow-wrap: anywhere; word-break: break-word; }
+        .wdx-bubble {
+          position: relative; min-height: 52px; padding: 12px 17px; border-radius: 8px;
+          background: #fff; border: 1px solid #ededed; font-size: 22px; line-height: 30px;
+          box-shadow: 0 1px 2px rgba(0,0,0,.03);
+        }
+        .wdx-entry.self .wdx-bubble { background: #95ec69; border-color: #8ce260; }
+        .wdx-bubble::before {
+          content: ""; position: absolute; left: -6px; top: 18px; width: 12px; height: 12px;
+          background: inherit; border-left: inherit; border-bottom: inherit; transform: rotate(45deg);
+        }
+        .wdx-entry.self .wdx-bubble::before { left: auto; right: -6px; transform: rotate(225deg); }
+        .wdx-char { opacity: 0; }
+        .wdx-voice { width: 250px; display: flex; align-items: center; justify-content: flex-end; gap: 12px; }
+        .wdx-entry.client .wdx-voice { justify-content: flex-start; }
+        .wdx-voice-duration { font-size: 21px; }
+        .wdx-wave { display: flex; align-items: center; gap: 3px; height: 24px; }
+        .wdx-wave span { width: 3px; border-radius: 2px; background: #202020; transform-origin: center; }
+        .wdx-wave span:nth-child(1) { height: 8px; }
+        .wdx-wave span:nth-child(2) { height: 15px; }
+        .wdx-wave span:nth-child(3) { height: 22px; }
+        .wdx-media {
+          position: relative; width: 316px; height: 184px; overflow: hidden; border-radius: 9px;
+          background:
+            linear-gradient(145deg, rgba(255,255,255,.12), rgba(0,0,0,.28)),
+            radial-gradient(circle at 34% 32%, #8ca9a1 0 10%, transparent 11%),
+            linear-gradient(135deg, #d9ddd2 0 34%, #7d948b 34% 63%, #4f625d 63%);
+          box-shadow: 0 2px 8px rgba(0,0,0,.12);
+        }
+        .wdx-media-title {
+          position: absolute; left: 14px; top: 12px; max-width: 210px; padding: 5px 9px;
+          border-radius: 5px; background: rgba(0,0,0,.72); color: #fff; font-size: 15px;
+        }
+        .wdx-play {
+          position: absolute; left: 50%; top: 50%; width: 52px; height: 52px; transform: translate(-50%,-50%);
+          display: grid; place-items: center; border: 2px solid rgba(255,255,255,.92); border-radius: 50%;
+          background: rgba(0,0,0,.18); color: #fff; font: 20px/1 Arial;
+        }
+        .wdx-media-meta { position: absolute; right: 12px; bottom: 9px; color: #fff; font-size: 16px; text-shadow: 0 1px 4px rgba(0,0,0,.7); }
+        .wdx-composer {
+          position: absolute; inset: auto 0 0; height: 168px; z-index: 4;
+          border-top: 1px solid #dedede; background: #fff; padding: 18px 26px 16px;
+        }
+        .wdx-input-line { height: 60px; border-radius: 10px; background: #fafafa; border: 1px solid #ededed; }
+        .wdx-caret { width: 2px; height: 31px; margin: 14px 0 0 16px; background: #16c875; }
+        .wdx-composer-row { display: flex; align-items: center; gap: 25px; height: 70px; color: #555; }
+        .wdx-composer-icon { width: 28px; height: 28px; display: grid; place-items: center; font-size: 27px; }
+        .wdx-send {
+          margin-left: auto; width: 76px; height: 38px; border-radius: 7px; display: grid; place-items: center;
+          background: #f1f1f1; color: #686868; font-size: 17px;
+        }
+      </style>
+
+      <div id="wdx-root" data-composition-id="wechat-desktop-exchange" data-fps="60" data-start="0" data-duration="5.6" data-width="1920" data-height="1080">
+        <header class="wdx-header">
+          <div id="wdx-contact" class="wdx-contact">项目负责人</div>
+          <div class="wdx-header-tools">
+            <span class="wdx-tool"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-4 3v-3H4z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg></span>
+            <span class="wdx-tool"><svg viewBox="0 0 24 24"><path d="M7 3h3l2 5-2 2a15 15 0 0 0 4 4l2-2 5 2v3a3 3 0 0 1-3 3C10 20 4 14 4 6a3 3 0 0 1 3-3z"/></svg></span>
+            <span class="wdx-dots">···</span>
+          </div>
+        </header>
+        <div class="wdx-viewport"><div id="wdx-thread" class="wdx-thread"><div class="wdx-time">刚刚</div></div></div>
+        <div class="wdx-composer">
+          <div class="wdx-input-line"><div class="wdx-caret"></div></div>
+          <div class="wdx-composer-row">
+            <span class="wdx-composer-icon">☺</span><span class="wdx-composer-icon">◇</span><span class="wdx-composer-icon">▱</span><span class="wdx-composer-icon">✂</span><span class="wdx-composer-icon">♩</span>
+            <span class="wdx-send">发送</span>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        (() => {
+          window.__timelines = window.__timelines || {};
+          const vars = window.__hyperframes && typeof window.__hyperframes.getVariables === "function" ? window.__hyperframes.getVariables() : {};
+          const value = (id, fallback = "") => typeof vars[id] === "string" && vars[id].trim() ? vars[id].trim() : fallback;
+          const speaker = (raw, fallback) => raw === "self" || raw === "client" ? raw : fallback;
+          const kind = (raw) => raw === "voice" || raw === "media" ? raw : "text";
+          const clientAvatar = value("clientAvatar", "assets/avatars/client-01.png");
+          const selfAvatar = value("selfAvatar", "assets/avatars/mav.png");
+          document.getElementById("wdx-contact").textContent = value("contactName", "项目负责人");
+
+          const defaults = [
+            ["client", "text", "这份周报能不能每天自动汇总？", ""],
+            ["self", "voice", "", "8"],
+            ["client", "media", "周报异常截图", "0:07"],
+            ["self", "text", "可以，我先把高风险项标出来。", ""],
+          ];
+          const items = defaults.map((fallback, index) => ({
+            speaker: speaker(value(`speaker${index + 1}`, fallback[0]), fallback[0]),
+            type: kind(value(`type${index + 1}`, fallback[1])),
+            text: value(`message${index + 1}`, fallback[2]),
+            meta: value(`meta${index + 1}`, fallback[3]),
+          })).filter((item) => item.type !== "text" || item.text);
+
+          const thread = document.getElementById("wdx-thread");
+          const entries = items.map((item, index) => {
+            const entry = document.createElement("div");
+            entry.className = `wdx-entry ${item.speaker}`;
+            entry.id = `wdx-entry-${index + 1}`;
+            const avatar = document.createElement("img");
+            avatar.className = "wdx-avatar";
+            avatar.src = item.speaker === "self" ? selfAvatar : clientAvatar;
+            avatar.alt = "";
+            const content = document.createElement("div");
+            content.className = "wdx-content";
+            const chars = [];
+            const waves = [];
+
+            if (item.type === "voice") {
+              const bubble = document.createElement("div");
+              bubble.className = "wdx-bubble wdx-voice";
+              const duration = document.createElement("span");
+              duration.className = "wdx-voice-duration";
+              duration.textContent = `${item.meta || "6"}″`;
+              const wave = document.createElement("span");
+              wave.className = "wdx-wave";
+              for (let w = 0; w < 3; w += 1) { const bar = document.createElement("span"); wave.appendChild(bar); waves.push(bar); }
+              bubble.append(duration, wave);
+              content.appendChild(bubble);
+            } else if (item.type === "media") {
+              const media = document.createElement("div");
+              media.className = "wdx-media";
+              media.innerHTML = `<span class="wdx-media-title"></span><span class="wdx-play">▶</span><span class="wdx-media-meta"></span>`;
+              media.querySelector(".wdx-media-title").textContent = item.text || "媒体预览";
+              media.querySelector(".wdx-media-meta").textContent = item.meta || "0:07";
+              content.appendChild(media);
+            } else {
+              const bubble = document.createElement("div");
+              bubble.className = "wdx-bubble";
+              Array.from(item.text).forEach((char, charIndex) => {
+                const span = document.createElement("span");
+                span.className = "wdx-char";
+                span.id = `wdx-char-${index + 1}-${charIndex + 1}`;
+                span.textContent = char;
+                bubble.appendChild(span);
+                chars.push(span);
+              });
+              content.appendChild(bubble);
+            }
+            entry.append(avatar, content);
+            thread.appendChild(entry);
+            return { entry, chars, waves };
+          });
+
+          const viewport = document.querySelector(".wdx-viewport");
+          const scrollDistance = Math.max(0, thread.scrollHeight - viewport.clientHeight);
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo(".wdx-header", { opacity: 0 }, { opacity: 1, duration: .25 }, 0);
+          const starts = [.35, 1.55, 2.75, 3.95];
+          entries.forEach(({ entry, chars, waves }, index) => {
+            const start = starts[index];
+            tl.fromTo(entry, { opacity: 0, y: 16, scale: .98 }, { opacity: 1, y: 0, scale: 1, duration: .36, ease: "back.out(1.3)" }, start);
+            if (chars.length) tl.to(chars, { opacity: 1, duration: .01, stagger: Math.min(.03, .5 / chars.length), ease: "none" }, start + .15);
+            if (waves.length) tl.fromTo(waves, { scaleY: .45 }, { scaleY: 1, duration: .18, stagger: .08, repeat: 2, yoyo: true, ease: "sine.inOut" }, start + .18);
+            if (index >= 2 && scrollDistance > 0) tl.to(thread, { y: -scrollDistance * (index === 2 ? .55 : 1), duration: .46, ease: "power2.out" }, start + .2);
+          });
+          window.__timelines["wechat-desktop-exchange"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "chatgpt-desktop-exchange",
+  "type": "hyperframes:block",
+  "title": "ChatGPT Desktop Exchange",
+  "description": "Verified HyperFrames scene block: ChatGPT Desktop Exchange.",
+  "tags": [
+    "curated",
+    "evidence",
+    "scene"
+  ],
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "duration": 14.9,
+  "routing": {
+    "family": "interface",
+    "purpose": "Present a verifiable ChatGPT desktop interaction.",
+    "useWhen": [
+      "The narrative depends on an authentic prompt-response exchange."
+    ],
+    "avoidWhen": [
+      "A generic chat metaphor is sufficient."
+    ],
+    "expects": [
+      "Prompt, response, and desktop state"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "assets/vendor/gsap.min.js",
+      "target": "assets/vendor/gsap.min.js",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "chatgpt-desktop-exchange.html",
+      "target": "compositions/chatgpt-desktop-exchange.html",
+      "type": "hyperframes:composition"
+    }
+  ]
+}

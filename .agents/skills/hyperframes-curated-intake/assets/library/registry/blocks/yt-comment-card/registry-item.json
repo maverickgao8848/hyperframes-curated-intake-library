@@ -1,0 +1,68 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "yt-comment-card",
+  "type": "hyperframes:block",
+  "title": "Yt Comment Card",
+  "description": "Migrated HyperFrames sub-composition: yt-comment-card.",
+  "tags": [
+    "auto",
+    "hyperframes",
+    "migrated"
+  ],
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "duration": 8,
+  "routing": {
+    "family": "evidence",
+    "purpose": "Display an attributed YouTube comment as audience evidence.",
+    "useWhen": [
+      "A viewer reaction substantiates reception or sentiment."
+    ],
+    "avoidWhen": [
+      "Aggregate comment trends are the real subject."
+    ],
+    "expects": [
+      "Comment, author label, and provenance"
+    ],
+    "motion": "entrance-only"
+  },
+  "files": [
+    {
+      "path": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "target": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-400.woff2",
+      "target": "assets/fonts/Inter-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-700.woff2",
+      "target": "assets/fonts/Inter-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-400.woff2",
+      "target": "assets/fonts/JetBrainsMono-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-700.woff2",
+      "target": "assets/fonts/JetBrainsMono-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/vendor/gsap.min.js",
+      "target": "assets/vendor/gsap.min.js",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "yt-comment-card.html",
+      "target": "compositions/yt-comment-card.html",
+      "type": "hyperframes:composition"
+    }
+  ]
+}

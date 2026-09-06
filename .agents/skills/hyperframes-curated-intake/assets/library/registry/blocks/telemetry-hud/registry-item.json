@@ -1,0 +1,68 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "telemetry-hud",
+  "type": "hyperframes:block",
+  "title": "Telemetry Hud",
+  "description": "Migrated HyperFrames sub-composition: telemetry-hud.",
+  "tags": [
+    "auto",
+    "hyperframes",
+    "migrated"
+  ],
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "duration": 4.5,
+  "routing": {
+    "family": "data",
+    "purpose": "Monitor changing telemetry in a heads-up display.",
+    "useWhen": [
+      "Several live measurements explain system behavior."
+    ],
+    "avoidWhen": [
+      "Values are retrospective and do not change."
+    ],
+    "expects": [
+      "Metric names, live values, and thresholds"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "target": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-400.woff2",
+      "target": "assets/fonts/Inter-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-700.woff2",
+      "target": "assets/fonts/Inter-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-400.woff2",
+      "target": "assets/fonts/JetBrainsMono-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-700.woff2",
+      "target": "assets/fonts/JetBrainsMono-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/vendor/gsap.min.js",
+      "target": "assets/vendor/gsap.min.js",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "telemetry-hud.html",
+      "target": "compositions/telemetry-hud.html",
+      "type": "hyperframes:composition"
+    }
+  ]
+}

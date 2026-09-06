@@ -1,0 +1,68 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "cross-warp-morph",
+  "type": "hyperframes:block",
+  "title": "Cross Warp Morph",
+  "description": "Migrated HyperFrames sub-composition: cross-warp-morph.",
+  "tags": [
+    "conditional",
+    "hyperframes",
+    "migrated"
+  ],
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "duration": 4,
+  "routing": {
+    "family": "concept",
+    "purpose": "Warp one visual form across the frame into another.",
+    "useWhen": [
+      "A conceptual transformation links two related states."
+    ],
+    "avoidWhen": [
+      "The two visuals have no meaningful correspondence."
+    ],
+    "expects": [
+      "Source form, destination form, and morph axis"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "target": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-400.woff2",
+      "target": "assets/fonts/Inter-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-700.woff2",
+      "target": "assets/fonts/Inter-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-400.woff2",
+      "target": "assets/fonts/JetBrainsMono-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-700.woff2",
+      "target": "assets/fonts/JetBrainsMono-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/vendor/gsap.min.js",
+      "target": "assets/vendor/gsap.min.js",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "cross-warp-morph.html",
+      "target": "compositions/cross-warp-morph.html",
+      "type": "hyperframes:composition"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "hw-underline",
+  "type": "hyperframes:block",
+  "title": "Hw Underline",
+  "description": "Migrated HyperFrames sub-composition: hw-underline.",
+  "tags": [
+    "auto",
+    "hyperframes",
+    "migrated"
+  ],
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "duration": 4,
+  "routing": {
+    "family": "emphasis",
+    "purpose": "Draw an informal underline beneath a key phrase.",
+    "useWhen": [
+      "A particular phrase deserves conversational emphasis."
+    ],
+    "avoidWhen": [
+      "The entire paragraph carries equal importance."
+    ],
+    "expects": [
+      "Phrase bounds and underline style"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "assets/fonts/BarlowCondensed-Bold.woff2",
+      "target": "assets/fonts/BarlowCondensed-Bold.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "target": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-400.woff2",
+      "target": "assets/fonts/Inter-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-700.woff2",
+      "target": "assets/fonts/Inter-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-400.woff2",
+      "target": "assets/fonts/JetBrainsMono-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-700.woff2",
+      "target": "assets/fonts/JetBrainsMono-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/vendor/gsap.min.js",
+      "target": "assets/vendor/gsap.min.js",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "hw-underline.html",
+      "target": "compositions/hw-underline.html",
+      "type": "hyperframes:composition"
+    }
+  ]
+}

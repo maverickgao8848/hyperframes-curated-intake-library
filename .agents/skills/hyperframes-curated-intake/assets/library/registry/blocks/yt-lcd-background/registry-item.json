@@ -1,0 +1,68 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "yt-lcd-background",
+  "type": "hyperframes:block",
+  "title": "Yt Lcd Background",
+  "description": "Migrated HyperFrames sub-composition: yt-lcd-background.",
+  "tags": [
+    "conditional",
+    "hyperframes",
+    "migrated"
+  ],
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "duration": 10,
+  "routing": {
+    "family": "concept",
+    "purpose": "Set content against a responsive LCD-style pixel field.",
+    "useWhen": [
+      "A technological atmosphere should react behind foreground content."
+    ],
+    "avoidWhen": [
+      "The background would compete with detailed evidence."
+    ],
+    "expects": [
+      "Foreground bounds, pixel scale, and activity level"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "target": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-400.woff2",
+      "target": "assets/fonts/Inter-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-700.woff2",
+      "target": "assets/fonts/Inter-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-400.woff2",
+      "target": "assets/fonts/JetBrainsMono-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-700.woff2",
+      "target": "assets/fonts/JetBrainsMono-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/vendor/gsap.min.js",
+      "target": "assets/vendor/gsap.min.js",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "yt-lcd-background.html",
+      "target": "compositions/yt-lcd-background.html",
+      "type": "hyperframes:composition"
+    }
+  ]
+}

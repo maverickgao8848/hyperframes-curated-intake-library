@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html
+  lang="zh-CN"
+  data-resolution="landscape"
+  data-composition-variables='[
+    {"id":"hero","type":"string","role":"content","label":"Home question","default":"我们先从哪里开始呢？"},
+    {"id":"suggestion1","type":"string","role":"content","label":"Suggestion 1","default":"分析一份周报，并找出真正影响交付的异常"},
+    {"id":"suggestion2","type":"string","role":"content","label":"Suggestion 2","default":"把异常整理成负责人可以立刻执行的动作"},
+    {"id":"prompt","type":"string","role":"content","label":"User prompt","default":"请判断这份周报里的异常"},
+    {"id":"intro1","type":"string","role":"content","label":"Answer introduction 1","default":"关键不是重讲数据，而是判断哪些异常会影响交付。"},
+    {"id":"intro2","type":"string","role":"content","label":"Answer introduction 2","default":"再给负责人一个可以立刻执行的动作："},
+    {"id":"tableHeadUse","type":"string","role":"content","label":"Table heading 1","default":"异常"},
+    {"id":"tableHeadTool","type":"string","role":"content","label":"Table heading 2","default":"判断"},
+    {"id":"tableHeadWhy","type":"string","role":"content","label":"Table heading 3","default":"建议动作"},
+    {"id":"row1Use","type":"string","role":"content","label":"Row 1 item","default":"🏅 交付延期"},
+    {"id":"row1Tool","type":"string","role":"content","label":"Row 1 judgment","default":"高风险"},
+    {"id":"row1Why","type":"string","role":"content","label":"Row 1 action","default":"确认负责人和补救时间"},
+    {"id":"row2Use","type":"string","role":"content","label":"Row 2 item","default":"🏢 库存偏低"},
+    {"id":"row2Tool","type":"string","role":"content","label":"Row 2 judgment","default":"需关注"},
+    {"id":"row2Why","type":"string","role":"content","label":"Row 2 action","default":"核对需求，及时补货"},
+    {"id":"row3Use","type":"string","role":"content","label":"Row 3 item","default":"📱 转化下降"},
+    {"id":"row3Tool","type":"string","role":"content","label":"Row 3 judgment","default":"待观察"},
+    {"id":"row3Why","type":"string","role":"content","label":"Row 3 action","default":"对比渠道与活动变化"},
+    {"id":"row4Use","type":"string","role":"content","label":"Row 4 item","default":"💬 格式缺失"},
+    {"id":"row4Tool","type":"string","role":"content","label":"Row 4 judgment","default":"低风险"},
+    {"id":"row4Why","type":"string","role":"content","label":"Row 4 action","default":"自动补齐后复核"},
+    {"id":"compactMode","type":"string","role":"layout","label":"Compact mode","default":"false"}
+  ]'
+>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Microsoft YaHei"; src: local("Microsoft YaHei"); }
+      @font-face { font-family: "PingFang SC"; src: local("PingFang SC"); }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #fff; }
+      body { font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif; color: #171717; }
+      #cgd-root { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: #fff; }
+      #cgd-root.compact .table, #cgd-root.compact #answer-two { display: none; }
+      #cgd-root.compact .thread { top: 220px; }
+      .rail {
+        position: absolute; inset: 0 auto 0 0; width: 58px; border-right: 1px solid #ececec;
+        background: #fff; display: flex; flex-direction: column; align-items: center; z-index: 5;
+      }
+      .brand { width: 58px; height: 58px; display: grid; place-items: center; }
+      .brand svg { width: 28px; height: 28px; }
+      .rail-tools { display: grid; gap: 15px; margin-top: 26px; }
+      .rail-button {
+        width: 40px; height: 40px; display: grid; place-items: center; border-radius: 10px;
+        color: #242424; font-size: 25px; font-family: Arial, sans-serif;
+      }
+      .rail-button svg { width: 25px; height: 25px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+      .avatar {
+        margin-top: auto; margin-bottom: 24px; width: 34px; height: 34px; border-radius: 50%;
+        display: grid; place-items: center; background: #8749ad; color: #fff; font: 500 12px/1 Arial;
+      }
+      .top-switch {
+        position: absolute; top: 8px; left: 50%; width: 320px; height: 54px; transform: translateX(-50%);
+        border-radius: 30px; background: #f6f6f6; display: grid; grid-template-columns: 1fr 1fr;
+        padding: 2px; color: #686868; font-size: 23px; z-index: 4;
+      }
+      .top-switch span { display: grid; place-items: center; border-radius: 28px; }
+      .top-switch .active { background: #fff; color: #161616; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+      .top-voice {
+        position: absolute; right: 34px; top: 16px; width: 38px; height: 38px; display: grid; place-items: center;
+      }
+      .top-voice svg { width: 28px; height: 28px; fill: none; stroke: #111; stroke-width: 2; }
+      .home-state { position: absolute; inset: 0; }
+      .hero-question {
+        position: absolute; top: 362px; left: 58px; width: 1862px; text-align: center;
+        font-size: 35px; font-weight: 500; letter-spacing: -.03em;
+      }
+      .composer {
+        position: absolute; left: 500px; top: 450px; width: 1120px; height: 78px; border-radius: 42px;
+        background: #fff; border: 1px solid #e8e8e8; box-shadow: 0 8px 28px rgba(0,0,0,.09);
+        display: flex; align-items: center; padding: 0 16px 0 25px; z-index: 4;
+      }
+      .plus { width: 42px; flex: 0 0 42px; font: 300 39px/1 Arial; color: #212121; transform: translateY(-1px); }
+      .typed {
+        position: relative; flex: 1; min-width: 0; height: 34px; font-size: 25px; line-height: 34px;
+        color: #232323; white-space: nowrap; overflow: hidden;
+      }
+      .home-placeholder { color: #707070; }
+      #prompt-chars { position: absolute; left: 0; top: 0; }
+      .prompt-char { opacity: 0; }
+      .cursor { display: none; }
+      .composer-actions { margin-left: auto; display: flex; align-items: center; gap: 20px; color: #747474; }
+      .quality { font-size: 20px; display: flex; align-items: center; gap: 8px; }
+      .chev { width: 10px; height: 10px; border-right: 1.5px solid #888; border-bottom: 1.5px solid #888; transform: rotate(45deg) translateY(-3px); }
+      .mic svg { width: 25px; height: 25px; fill: none; stroke: #1d1d1d; stroke-width: 2; }
+      .send {
+        width: 54px; height: 54px; border-radius: 50%; background: #050505; color: #fff;
+        display: grid; place-items: center;
+      }
+      .send svg { width: 25px; height: 25px; fill: none; stroke: #fff; stroke-width: 2.2; }
+      .suggestions { position: absolute; top: 575px; left: 524px; width: 1070px; display: grid; gap: 27px; }
+      .suggestion { display: flex; align-items: center; gap: 20px; color: #8b8b8b; font-size: 22px; white-space: nowrap; }
+      .suggestion-icon { width: 28px; text-align: center; color: #161616; }
+      .conversation { position: absolute; inset: 0; opacity: 0; visibility: hidden; }
+      .thread { position: absolute; left: 320px; top: 150px; width: 1280px; height: 710px; overflow: hidden; }
+      .user-bubble {
+        margin-left: auto; width: fit-content; max-width: 620px; padding: 16px 25px; border-radius: 28px;
+        background: #f1f1f1; font-size: 24px; line-height: 1.45; opacity: 0; overflow-wrap: anywhere;
+      }
+      .answer { width: 1160px; margin-top: 38px; font-size: 24px; line-height: 1.62; }
+      .answer-line { margin-bottom: 18px; }
+      .answer-word { opacity: 0; display: inline-block; margin-right: .18em; }
+      .table { margin-top: 24px; width: 1160px; border-top: 1px solid #d8d8d8; }
+      .row {
+        display: grid; grid-template-columns: 230px 180px 1fr; min-height: 70px; align-items: center;
+        border-bottom: 1px solid #e1e1e1; font-size: 21px; opacity: 0;
+      }
+      .row > div { padding: 15px 18px 15px 0; }
+      .header { min-height: 52px; font-weight: 700; color: #353535; }
+      .risk { font-weight: 700; }
+      .chip {
+        display: inline-flex; margin-left: 12px; padding: 3px 9px; border: 1px solid #d5d5d5;
+        border-radius: 999px; color: #707070; font-size: 12px; vertical-align: 2px;
+      }
+      .bottom-composer {
+        position: absolute; left: 470px; top: 928px; width: 980px; height: 70px; border-radius: 38px;
+        background: #fff; border: 1px solid #e8e8e8; box-shadow: 0 8px 26px rgba(0,0,0,.08);
+        display: flex; align-items: center; padding: 0 14px 0 24px; opacity: 0;
+      }
+      .bottom-placeholder { flex: 1; color: #707070; font-size: 21px; }
+      .bottom-send { width: 48px; height: 48px; border-radius: 50%; background: #050505; display: grid; place-items: center; }
+      .bottom-send svg { width: 22px; height: 22px; fill: none; stroke: #fff; stroke-width: 2.2; }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-t477" id="cgd-root" data-composition-id="chatgpt-desktop-exchange" data-fps="60" data-start="0" data-duration="14.9" data-width="1920" data-height="1080">
+      <aside class="rail" data-hf-id="cgd-rail">
+        <div class="brand" data-hf-id="cgd-brand">
+          <svg data-hf-id="hf-qx4u" viewBox="0 0 32 32" aria-hidden="true"><path data-hf-id="hf-oiva" d="M16 3.5c4.8 0 8.8 3.7 9.2 8.4a8.1 8.1 0 0 1-1.2 15 8.1 8.1 0 0 1-13.6.9A8.1 8.1 0 0 1 3.7 16a8.1 8.1 0 0 1 12.3-9.8c2.8-2.1 6.7-2 9.3.3" fill="none" stroke="#171717" stroke-width="2" stroke-linecap="round" /><path data-hf-id="hf-yqm1" d="M10 12.5 16 9l6 3.5v7L16 23l-6-3.5z" fill="none" stroke="#171717" stroke-width="2" /></svg>
+        </div>
+        <div class="rail-tools" data-hf-id="cgd-tools">
+          <div data-hf-id="hf-5tcl" class="rail-button"><svg data-hf-id="hf-y9f5" viewBox="0 0 24 24"><path data-hf-id="hf-540d" d="M5 19h11a3 3 0 0 0 3-3V7" /><path data-hf-id="hf-apjf" d="M15 4h5v5" /><path data-hf-id="hf-ysqz" d="M20 4 10 14" /><path data-hf-id="hf-h4as" d="M5 8v11" /></svg></div>
+          <div data-hf-id="hf-anm1" class="rail-button"><svg data-hf-id="hf-svtx" viewBox="0 0 24 24"><circle data-hf-id="hf-1u1w" cx="10" cy="10" r="6" /><path data-hf-id="hf-2601" d="m15 15 5 5" /></svg></div>
+          <div data-hf-id="hf-buj4" class="rail-button"><svg data-hf-id="hf-u2r0" viewBox="0 0 24 24"><path data-hf-id="hf-wllw" d="M20 11.5a8 8 0 0 1-8 8H5l-2 2v-6a8 8 0 1 1 17-4z" /></svg></div>
+        </div>
+        <div class="avatar" data-hf-id="cgd-avatar">MA</div>
+      </aside>
+
+      <div class="top-switch" data-hf-id="cgd-switch"><span data-hf-id="hf-9m8u" class="active">聊天</span><span data-hf-id="hf-29v4">工作</span></div>
+      <div class="top-voice" data-hf-id="cgd-top-voice"><svg data-hf-id="hf-tofz" viewBox="0 0 24 24"><path data-hf-id="hf-0hvp" d="M7 8a6 6 0 1 0 2-4" /><path data-hf-id="hf-htz2" d="M6 3v6h6" /></svg></div>
+
+      <section class="home-state" data-hf-id="cgd-home">
+        <div class="hero-question" data-hf-id="cgd-hero">我们先从哪里开始呢？</div>
+        <div class="composer" data-hf-id="cgd-composer">
+          <div data-hf-id="hf-94up" class="plus">+</div>
+          <div class="typed" data-hf-id="cgd-typed"><span data-hf-id="hf-au07" class="home-placeholder" id="cgd-home-placeholder">询问 ChatGPT</span><span data-hf-id="hf-8gf8" id="prompt-chars"></span><span data-hf-id="hf-dan4" class="cursor" id="cgd-cursor"></span></div>
+          <div data-hf-id="hf-f1vo" class="composer-actions">
+            <div data-hf-id="hf-xm8x" class="quality">高 <span data-hf-id="hf-9h45" class="chev"></span></div>
+            <div data-hf-id="hf-54up" class="mic"><svg data-hf-id="hf-uvd2" viewBox="0 0 24 24"><rect data-hf-id="hf-2din" x="9" y="3" width="6" height="12" rx="3" /><path data-hf-id="hf-342a" d="M5 11a7 7 0 0 0 14 0M12 18v3" /></svg></div>
+            <div data-hf-id="hf-zz65" class="send" id="cgd-send"><svg data-hf-id="hf-uh21" viewBox="0 0 24 24"><path data-hf-id="hf-bzki" d="M6 12h12M13 7l5 5-5 5" /></svg></div>
+          </div>
+        </div>
+        <div class="suggestions" data-hf-id="cgd-suggestions">
+          <div data-hf-id="hf-0amk" class="suggestion"><span data-hf-id="hf-mhqj" class="suggestion-icon">◈</span><span data-hf-id="hf-go8p">分析一份周报，并找出真正影响交付的异常</span></div>
+          <div data-hf-id="hf-8wkk" class="suggestion"><span data-hf-id="hf-cncx" class="suggestion-icon">🤖</span><span data-hf-id="hf-84ys">把异常整理成负责人可以立刻执行的动作</span></div>
+        </div>
+      </section>
+
+      <section class="conversation" id="cgd-conversation" data-hf-id="cgd-conversation">
+        <div class="thread" id="cgd-thread" data-hf-id="cgd-thread">
+          <div data-hf-id="hf-perc" class="user-bubble" id="cgd-user-bubble">请判断这份周报里的异常</div>
+          <div class="answer" data-hf-id="cgd-answer">
+            <div data-hf-id="hf-qb37" class="answer-line" id="answer-one">关键不是重讲数据，而是判断哪些异常会影响交付。</div>
+            <div data-hf-id="hf-hc1b" class="answer-line" id="answer-two">再给负责人一个可以立刻执行的动作：</div>
+            <div class="table" data-hf-id="cgd-table">
+              <div data-hf-id="hf-03xv" class="row header"><div data-hf-id="hf-961m">异常</div><div data-hf-id="hf-lvqr">判断</div><div data-hf-id="hf-x3vw">建议动作</div></div>
+              <div data-hf-id="hf-thy4" class="row"><div data-hf-id="hf-zs9m">🏅 交付延期</div><div data-hf-id="hf-0yne" class="risk">高风险</div><div data-hf-id="hf-7c9q">确认负责人和补救时间 <span data-hf-id="hf-ld5r" class="chip">演示数据</span></div></div>
+              <div data-hf-id="hf-lt04" class="row"><div data-hf-id="hf-fcao">🏢 库存偏低</div><div data-hf-id="hf-ipao" class="risk">需关注</div><div data-hf-id="hf-skzz">核对需求，及时补货 <span data-hf-id="hf-qhcv" class="chip">演示数据</span></div></div>
+              <div data-hf-id="hf-km31" class="row"><div data-hf-id="hf-3sy4">📱 转化下降</div><div data-hf-id="hf-e487" class="risk">待观察</div><div data-hf-id="hf-ykyj">对比渠道与活动变化 <span data-hf-id="hf-q31u" class="chip">演示数据</span></div></div>
+              <div data-hf-id="hf-l0e2" class="row"><div data-hf-id="hf-ql4v">💬 格式缺失</div><div data-hf-id="hf-eoxk" class="risk">低风险</div><div data-hf-id="hf-6sh2">自动补齐后复核 <span data-hf-id="hf-poqt" class="chip">演示数据</span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-composer" id="cgd-bottom-composer" data-hf-id="cgd-bottom-composer">
+          <div data-hf-id="hf-fkud" class="plus">+</div><div data-hf-id="hf-akh6" class="bottom-placeholder">询问 ChatGPT</div>
+          <div data-hf-id="hf-qey0" class="bottom-send"><svg data-hf-id="hf-vnz4" viewBox="0 0 24 24"><path data-hf-id="hf-3ndi" d="M6 12h12M13 7l5 5-5 5" /></svg></div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const vars = window.__hyperframes && typeof window.__hyperframes.getVariables === "function" ? window.__hyperframes.getVariables() : {};
+      const value = (id, fallback = "") => typeof vars[id] === "string" && vars[id].trim() ? vars[id].trim() : fallback;
+      document.getElementById("cgd-root").classList.toggle("compact", value("compactMode", "false").toLowerCase() === "true");
+      document.querySelector(".hero-question").textContent = value("hero", "我们先从哪里开始呢？");
+      const suggestionCopy = document.querySelectorAll(".suggestion span:last-child");
+      suggestionCopy[0].textContent = value("suggestion1", "分析一份周报，并找出真正影响交付的异常");
+      suggestionCopy[1].textContent = value("suggestion2", "把异常整理成负责人可以立刻执行的动作");
+      const prompt = value("prompt", "请判断这份周报里的异常");
+      document.getElementById("cgd-user-bubble").textContent = prompt;
+      document.getElementById("answer-one").textContent = value("intro1", "关键不是重讲数据，而是判断哪些异常会影响交付。");
+      document.getElementById("answer-two").textContent = value("intro2", "再给负责人一个可以立刻执行的动作：");
+      const headerCells = document.querySelectorAll(".table .header > div");
+      headerCells[0].textContent = value("tableHeadUse", "异常");
+      headerCells[1].textContent = value("tableHeadTool", "判断");
+      headerCells[2].textContent = value("tableHeadWhy", "建议动作");
+      const rowFallbacks = [
+        ["🏅 交付延期", "高风险", "确认负责人和补救时间"],
+        ["🏢 库存偏低", "需关注", "核对需求，及时补货"],
+        ["📱 转化下降", "待观察", "对比渠道与活动变化"],
+        ["💬 格式缺失", "低风险", "自动补齐后复核"],
+      ];
+      const tableRows = document.querySelectorAll(".table .row:not(.header)");
+      tableRows.forEach((row, index) => {
+        const cells = row.children;
+        cells[0].textContent = value(`row${index + 1}Use`, rowFallbacks[index][0]);
+        cells[1].textContent = value(`row${index + 1}Tool`, rowFallbacks[index][1]);
+        cells[2].firstChild.textContent = `${value(`row${index + 1}Why`, rowFallbacks[index][2])} `;
+      });
+      const promptHost = document.getElementById("prompt-chars");
+      prompt.split("").forEach((char, index) => {
+        const span = document.createElement("span");
+        span.className = "prompt-char";
+        span.id = `cgd-prompt-${index}`;
+        span.textContent = char;
+        promptHost.appendChild(span);
+      });
+
+      const wrapWords = (id) => {
+        const node = document.getElementById(id);
+        const chars = node.textContent.split("");
+        node.textContent = "";
+        chars.forEach((char, index) => {
+          const span = document.createElement("span");
+          span.className = "answer-word";
+          span.id = `${id}-${index}`;
+          span.textContent = char;
+          node.appendChild(span);
+        });
+      };
+      wrapWords("answer-one");
+      wrapWords("answer-two");
+
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo(".rail, .top-switch, .top-voice", { opacity: 0 }, { opacity: 1, duration: .35 }, 0);
+      tl.fromTo(".hero-question", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: .5, ease: "power2.out" }, .2);
+      tl.fromTo("#cgd-composer", { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: .55, ease: "power2.out" }, .35);
+      tl.fromTo(".suggestion", { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: .35, stagger: .16 }, .65);
+      tl.to("#cgd-home-placeholder", { opacity: 0, duration: .18 }, .88);
+      tl.to(".prompt-char", { opacity: 1, duration: .01, stagger: .115 }, 1.05);
+      tl.to("#cgd-cursor", { opacity: 0, duration: .08, repeat: 3, yoyo: true }, 2.35);
+      tl.to("#cgd-send", { scale: .86, duration: .08, ease: "power2.out" }, 3.05);
+      tl.to("#cgd-send", { scale: 1, duration: .16, ease: "power2.out" }, 3.13);
+      tl.to(".hero-question, .suggestions", { opacity: 0, y: -18, duration: .28 }, 3.18);
+      tl.to("#cgd-composer", { opacity: 0, y: 16, duration: .24 }, 3.2);
+      tl.set(".home-state", { autoAlpha: 0 }, 3.42);
+      tl.set("#cgd-conversation", { autoAlpha: 1 }, 3.42);
+      tl.fromTo("#cgd-user-bubble", { y: 18, opacity: 0, scale: .96 }, { y: 0, opacity: 1, scale: 1, duration: .4, ease: "power2.out" }, 3.48);
+      tl.fromTo("#cgd-bottom-composer", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: .36, ease: "power2.out" }, 3.56);
+      tl.to("#answer-one .answer-word", { opacity: 1, duration: .055, stagger: .075 }, 4.05);
+      tl.to("#answer-two .answer-word", { opacity: 1, duration: .055, stagger: .075 }, 6.55);
+      tl.fromTo(".row", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .42, stagger: .52, ease: "power2.out" }, 8.05);
+      tl.to("#cgd-thread", { y: -34, duration: .65, ease: "power2.inOut" }, 12.25);
+      window.__timelines["chatgpt-desktop-exchange"] = tl;
+    </script>
+  </body>
+</html>

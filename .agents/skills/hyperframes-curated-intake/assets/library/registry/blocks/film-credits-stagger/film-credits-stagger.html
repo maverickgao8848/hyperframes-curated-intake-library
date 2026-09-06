@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" data-resolution="landscape" data-composition-variables="[
+    {&quot;id&quot;:&quot;role1&quot;,&quot;type&quot;:&quot;string&quot;,&quot;role&quot;:&quot;content&quot;,&quot;label&quot;:&quot;Credit role 1&quot;,&quot;default&quot;:&quot;DIRECTED BY&quot;},
+    {&quot;id&quot;:&quot;name1&quot;,&quot;type&quot;:&quot;string&quot;,&quot;role&quot;:&quot;content&quot;,&quot;label&quot;:&quot;Credit name 1&quot;,&quot;default&quot;:&quot;GSAP MOTION STUDIO&quot;},
+    {&quot;id&quot;:&quot;role2&quot;,&quot;type&quot;:&quot;string&quot;,&quot;role&quot;:&quot;content&quot;,&quot;label&quot;:&quot;Credit role 2&quot;,&quot;default&quot;:&quot;PRODUCED BY&quot;},
+    {&quot;id&quot;:&quot;name2&quot;,&quot;type&quot;:&quot;string&quot;,&quot;role&quot;:&quot;content&quot;,&quot;label&quot;:&quot;Credit name 2&quot;,&quot;default&quot;:&quot;GREENSOCK INC.&quot;},
+    {&quot;id&quot;:&quot;foreground&quot;,&quot;type&quot;:&quot;color&quot;,&quot;label&quot;:&quot;Text color&quot;,&quot;default&quot;:&quot;#f5f3ef&quot;},
+    {&quot;id&quot;:&quot;accent&quot;,&quot;type&quot;:&quot;color&quot;,&quot;label&quot;:&quot;Accent color&quot;,&quot;default&quot;:&quot;#9f8b69&quot;},
+    {&quot;id&quot;:&quot;background&quot;,&quot;type&quot;:&quot;color&quot;,&quot;label&quot;:&quot;Background color&quot;,&quot;default&quot;:&quot;#080808&quot;}
+  ]">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1920, height=1080">
+  </head>
+  <body>
+    <template>
+      <script src="assets/vendor/gsap.min.js"></script>
+      <style>
+        @font-face {
+          font-family: "PingFang SC";
+          src: local("PingFang SC");
+        }
+        @font-face {
+          font-family: "Microsoft YaHei";
+          src: local("Microsoft YaHei");
+        }
+        #fc-root {
+          position: absolute;
+          inset: 0;
+          width: 1920px;
+          height: 1080px;
+          overflow: hidden;
+          color: var(--foreground);
+          font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+        }
+        .fc-background {
+          position: absolute;
+          inset: 0;
+          background: var(--background);
+        }
+        .fc-background::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: -270px;
+          width: 1420px;
+          height: 470px;
+          transform: translateX(-50%);
+          border-radius: 50%;
+          background: radial-gradient(
+            ellipse at center,
+            rgba(255, 244, 220, 0.25) 0%,
+            rgba(132, 160, 224, 0.13) 38%,
+            rgba(8, 8, 8, 0) 72%
+          );
+          filter: blur(34px);
+          opacity: 0.82;
+          mix-blend-mode: screen;
+        }
+        .fc-scene {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+        .film-credits-container {
+          position: relative;
+          width: 1240px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          gap: 18px;
+          letter-spacing: 0.12em;
+        }
+        .film-credits-container::before {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 88px;
+          height: 2px;
+          background: var(--accent);
+          transform: translate(-50%, -50%);
+          opacity: 0.72;
+        }
+        .credit {
+          position: relative;
+          display: block;
+          width: 100%;
+          margin: 0;
+          transform: translateY(120px);
+          opacity: 0;
+          line-height: 1.08;
+          text-wrap: balance;
+        }
+        .credit-role {
+          font-size: 46.08px;
+          font-weight: 400;
+          letter-spacing: 0.24em;
+          color: color-mix(in srgb, var(--foreground) 72%, transparent);
+        }
+        .credit-name {
+          font-size: 68px;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          max-width: 1500px;
+          margin-inline: auto;
+          overflow-wrap: anywhere;
+        }
+        .credit:nth-of-type(2) {
+          margin-bottom: 58px;
+        }
+      </style>
+
+      <div data-hf-id="hf-8fk1" id="fc-root" data-composition-id="film-credits-stagger" data-fps="60" data-start="0" data-duration="4.8" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-1ev2" class="fc-background"></div>
+        <div data-hf-id="hf-gwdn" id="fc-scene" class="clip fc-scene" data-start="0" data-duration="4.8" data-track-index="1">
+          <div data-hf-id="hf-rd7l" class="film-credits-container">
+            <p data-hf-id="hf-uq9h" id="fc-role-1" class="credit credit-role" data-var-text="role1">DIRECTED BY</p>
+            <p data-hf-id="hf-w6ws" id="fc-name-1" class="credit credit-name" data-var-text="name1">
+              GSAP MOTION STUDIO
+            </p>
+            <p data-hf-id="hf-lzh7" id="fc-role-2" class="credit credit-role" data-var-text="role2">PRODUCED BY</p>
+            <p data-hf-id="hf-yhzm" id="fc-name-2" class="credit credit-name" data-var-text="name2">
+              GREENSOCK INC.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        (() => {
+          window.__timelines = window.__timelines || {};
+          const credits = gsap.utils.toArray("#fc-root .credit");
+          const tl = gsap.timeline({ paused: true });
+
+          tl.fromTo(
+            credits,
+            { y: 120, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              stagger: 0.35,
+              duration: 1,
+              ease: "power2.out",
+              immediateRender: false,
+            },
+            0.2,
+          );
+
+          window.__timelines["film-credits-stagger"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

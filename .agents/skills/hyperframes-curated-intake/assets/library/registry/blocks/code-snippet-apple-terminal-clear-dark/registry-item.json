@@ -1,0 +1,68 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "code-snippet-apple-terminal-clear-dark",
+  "type": "hyperframes:block",
+  "title": "Code Snippet Apple Terminal Clear Dark",
+  "description": "Migrated HyperFrames sub-composition: code-snippet-apple-terminal-clear-dark.",
+  "tags": [
+    "auto",
+    "hyperframes",
+    "migrated"
+  ],
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "duration": 7,
+  "routing": {
+    "family": "interface",
+    "purpose": "Show terminal commands in a restrained dark Apple shell.",
+    "useWhen": [
+      "The exact command sequence is operational evidence."
+    ],
+    "avoidWhen": [
+      "The content is source code rather than shell activity."
+    ],
+    "expects": [
+      "Commands, outputs, and prompt labels"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "target": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-400.woff2",
+      "target": "assets/fonts/Inter-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-700.woff2",
+      "target": "assets/fonts/Inter-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-400.woff2",
+      "target": "assets/fonts/JetBrainsMono-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-700.woff2",
+      "target": "assets/fonts/JetBrainsMono-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/vendor/gsap.min.js",
+      "target": "assets/vendor/gsap.min.js",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "code-snippet-apple-terminal-clear-dark.html",
+      "target": "compositions/code-snippet-apple-terminal-clear-dark.html",
+      "type": "hyperframes:composition"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "before-after-wipe",
+  "type": "hyperframes:block",
+  "title": "Before After Wipe",
+  "description": "Migrated HyperFrames sub-composition: before-after-wipe.",
+  "tags": [
+    "auto",
+    "hyperframes",
+    "migrated"
+  ],
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "duration": 4,
+  "routing": {
+    "family": "compare",
+    "purpose": "Compare before and after states with a controllable wipe.",
+    "useWhen": [
+      "Two aligned visuals show a concrete transformation."
+    ],
+    "avoidWhen": [
+      "The source frames are not spatially comparable."
+    ],
+    "expects": [
+      "Matched before and after media"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "target": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-400.woff2",
+      "target": "assets/fonts/Inter-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-700.woff2",
+      "target": "assets/fonts/Inter-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-400.woff2",
+      "target": "assets/fonts/JetBrainsMono-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-700.woff2",
+      "target": "assets/fonts/JetBrainsMono-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/vendor/gsap.min.js",
+      "target": "assets/vendor/gsap.min.js",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "before-after-wipe.html",
+      "target": "compositions/before-after-wipe.html",
+      "type": "hyperframes:composition"
+    }
+  ]
+}

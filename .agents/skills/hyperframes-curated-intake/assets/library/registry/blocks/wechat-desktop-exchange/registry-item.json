@@ -1,0 +1,43 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "wechat-desktop-exchange",
+  "type": "hyperframes:block",
+  "title": "WeChat Desktop Exchange",
+  "description": "Verified HyperFrames scene block: WeChat Desktop Exchange.",
+  "tags": [
+    "curated",
+    "evidence",
+    "scene"
+  ],
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "duration": 5.6,
+  "routing": {
+    "family": "interface",
+    "purpose": "Present a verifiable WeChat desktop conversation.",
+    "useWhen": [
+      "The exact product conversation is primary evidence."
+    ],
+    "avoidWhen": [
+      "A platform-neutral message thread is sufficient."
+    ],
+    "expects": [
+      "Participants, messages, and desktop state"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "assets/vendor/gsap.min.js",
+      "target": "assets/vendor/gsap.min.js",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "wechat-desktop-exchange.html",
+      "target": "compositions/wechat-desktop-exchange.html",
+      "type": "hyperframes:composition"
+    }
+  ]
+}

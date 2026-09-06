@@ -1,0 +1,68 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "stitched-text-draw",
+  "type": "hyperframes:block",
+  "title": "Stitched Text Draw",
+  "description": "Migrated HyperFrames sub-composition: stitched-text-draw.",
+  "tags": [
+    "hyperframes",
+    "migrated",
+    "signature"
+  ],
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "duration": 4,
+  "routing": {
+    "family": "emphasis",
+    "purpose": "Draw stitched lettering as a crafted line of text.",
+    "useWhen": [
+      "A tactile handmade quality reinforces a short statement."
+    ],
+    "avoidWhen": [
+      "Dense copy needs fast conventional typography."
+    ],
+    "expects": [
+      "Text, stitch path, and thread color"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "target": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-400.woff2",
+      "target": "assets/fonts/Inter-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-700.woff2",
+      "target": "assets/fonts/Inter-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-400.woff2",
+      "target": "assets/fonts/JetBrainsMono-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-700.woff2",
+      "target": "assets/fonts/JetBrainsMono-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/vendor/gsap.min.js",
+      "target": "assets/vendor/gsap.min.js",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "stitched-text-draw.html",
+      "target": "compositions/stitched-text-draw.html",
+      "type": "hyperframes:composition"
+    }
+  ]
+}

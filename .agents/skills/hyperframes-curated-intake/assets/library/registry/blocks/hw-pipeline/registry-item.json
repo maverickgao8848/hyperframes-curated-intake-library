@@ -1,0 +1,73 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "hw-pipeline",
+  "type": "hyperframes:block",
+  "title": "Hw Pipeline",
+  "description": "Migrated HyperFrames sub-composition: hw-pipeline.",
+  "tags": [
+    "auto",
+    "hyperframes",
+    "migrated"
+  ],
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "duration": 7,
+  "routing": {
+    "family": "process",
+    "purpose": "Explain a pipeline with hand-drawn stages and connectors.",
+    "useWhen": [
+      "A friendly teaching beat follows work through ordered stages."
+    ],
+    "avoidWhen": [
+      "The system contains consequential branching."
+    ],
+    "expects": [
+      "Stage names, connectors, and active stage"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "assets/fonts/BarlowCondensed-Bold.woff2",
+      "target": "assets/fonts/BarlowCondensed-Bold.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "target": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-400.woff2",
+      "target": "assets/fonts/Inter-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-700.woff2",
+      "target": "assets/fonts/Inter-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-400.woff2",
+      "target": "assets/fonts/JetBrainsMono-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-700.woff2",
+      "target": "assets/fonts/JetBrainsMono-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/vendor/gsap.min.js",
+      "target": "assets/vendor/gsap.min.js",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "hw-pipeline.html",
+      "target": "compositions/hw-pipeline.html",
+      "type": "hyperframes:composition"
+    }
+  ]
+}

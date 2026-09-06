@@ -1,0 +1,68 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "testimonial-proof-card",
+  "type": "hyperframes:block",
+  "title": "Testimonial Proof Card",
+  "description": "Migrated HyperFrames sub-composition: testimonial-proof-card.",
+  "tags": [
+    "auto",
+    "hyperframes",
+    "migrated"
+  ],
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "duration": 4.5,
+  "routing": {
+    "family": "evidence",
+    "purpose": "Present a testimonial with explicit source attribution.",
+    "useWhen": [
+      "A human statement substantiates the narrative claim."
+    ],
+    "avoidWhen": [
+      "The quote is hypothetical or unattributed."
+    ],
+    "expects": [
+      "Quote, person, role, and provenance"
+    ],
+    "motion": "entrance-only"
+  },
+  "files": [
+    {
+      "path": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "target": "assets/fonts/BarlowCondensed-ExtraBold.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-400.woff2",
+      "target": "assets/fonts/Inter-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/Inter-700.woff2",
+      "target": "assets/fonts/Inter-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-400.woff2",
+      "target": "assets/fonts/JetBrainsMono-400.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/fonts/JetBrainsMono-700.woff2",
+      "target": "assets/fonts/JetBrainsMono-700.woff2",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "assets/vendor/gsap.min.js",
+      "target": "assets/vendor/gsap.min.js",
+      "type": "hyperframes:asset"
+    },
+    {
+      "path": "testimonial-proof-card.html",
+      "target": "compositions/testimonial-proof-card.html",
+      "type": "hyperframes:composition"
+    }
+  ]
+}
