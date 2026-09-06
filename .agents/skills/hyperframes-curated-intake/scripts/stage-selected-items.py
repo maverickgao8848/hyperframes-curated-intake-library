@@ -2,150 +2,87 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
-import re
-import subprocess
 from pathlib import Path
 
-from _curation import catalog_index, copy_verified, entry_source_paths, load_json, write_json
+from jsonschema import Draft202012Validator
+
+from _curation import catalog_index, copy_verified, entry_source_paths, load_catalog, load_json, object_sha256, sha256, source_target_for_asset, unique, validate_production_review, validate_recipe_resolutions, validate_storyboard, write_json
+from _registry import default_library
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Stage only exact Registry items selected by the official HyperFrames plan.")
+    parser = argparse.ArgumentParser(description="Stage approved Blocks, Components, SVG, Lottie, and media with one receipt format.")
     parser.add_argument("--project", type=Path, required=True)
-    parser.add_argument("--library", type=Path, required=True)
-    parser.add_argument("--item", action="append", required=True, help="Exact catalog ID or Registry name.")
-    parser.add_argument("--method", choices=("auto", "local", "official"), default="auto")
-    parser.add_argument("--npx", default="npx")
+    parser.add_argument("--library", type=Path, default=default_library(), help="Library containing catalog.json (default: skill assets/library)")
+    parser.add_argument("--item", action="append", default=[])
+    parser.add_argument("--all-required", action="store_true")
+    parser.add_argument("--method", choices=("auto", "local"), default="auto")
+    parser.add_argument("--npx", default="npx", help="Deprecated; v3 stages verified local catalog sources.")
     return parser.parse_args()
 
 
-def resolve_item(index: dict[str, dict], value: str) -> dict:
-    if value in index:
-        return index[value]
-    matches = [entry for entry in index.values() if entry.get("source", {}).get("name") == value]
-    if len(matches) != 1:
-        raise SystemExit(f"Registry item does not resolve uniquely: {value}")
-    return matches[0]
-
-
-def integration_markers(path: Path) -> list[dict[str, str]]:
-    try:
-        source = path.read_text(encoding="utf-8")
-    except UnicodeDecodeError:
-        return []
-    markers: list[dict[str, str]] = []
-    seen: set[tuple[str, str]] = set()
-
-    def add(kind: str, value: str) -> None:
-        value = value.strip()
-        key = (kind, value)
-        if len(value) < 5 or key in seen or value in {"root", "clip", "frame", "container"}:
-            return
-        seen.add(key)
-        markers.append({"kind": kind, "value": value})
-
-    for value in re.findall(r"\bid\s*=\s*['\"]([^'\"]+)['\"]", source):
-        add("id", value)
-    for group in re.findall(r"\bclass\s*=\s*['\"]([^'\"]+)['\"]", source):
-        for value in group.split():
-            add("class", value)
-    for value in re.findall(r"(?<![\w-])\.([a-zA-Z][\w-]{4,})", source):
-        add("class", value)
-    for value in re.findall(r"(?<![\w-])(--[a-zA-Z][\w-]{4,})", source):
-        add("css-var", value)
-    return markers[:12]
+def required_ids(storyboard: dict, resolutions: dict[tuple[str, str], str]) -> list[str]:
+    return unique(
+        resolutions.get((scene["id"], binding["id"]), binding["id"])
+        for scene in storyboard["scenes"]
+        for binding in scene["uses"]
+        if binding["required"] and not binding["id"].startswith("authored:")
+    )
 
 
 def main() -> int:
     args = parse_args()
-    project = args.project.resolve()
-    library = args.library.resolve()
+    project, library = args.project.resolve(), args.library.resolve()
+    compiled = load_json(project / ".hyperframes" / "compiled" / "storyboard.json")
+    if compiled.get("schemaVersion") != "hyperframes-storyboard-compiled/v3":
+        raise SystemExit("Only hyperframes-storyboard-compiled/v3 can be staged")
+    storyboard = compiled["storyboard"]
+    validate_storyboard(storyboard)
     curation = load_json(project / ".hyperframes" / "curation.json")
-    build_plan = load_json(project / ".hyperframes" / "build-plan.json")
-    catalog = load_json(library / "catalog.json")
+    review = curation.get("review") if isinstance(curation.get("review"), dict) else {}
+    try:
+        validate_production_review(storyboard, review)
+    except ValueError as error:
+        raise SystemExit(str(error)) from error
+    curation_schema = load_json(Path(__file__).resolve().parents[1] / "references" / "curation.schema.json")
+    errors = list(Draft202012Validator(curation_schema).iter_errors(curation))
+    if errors:
+        raise SystemExit("Invalid curation: " + "; ".join(error.message for error in errors))
+    storyboard_hash = object_sha256(storyboard)
+    if curation.get("storyboardHash") != storyboard_hash:
+        raise SystemExit("Exact Storyboard hash does not match curation")
+    try:
+        resolutions = validate_recipe_resolutions(storyboard, curation, library)
+    except (OSError, ValueError) as error:
+        raise SystemExit(str(error)) from error
+    catalog, catalog_name = load_catalog(library)
     index = catalog_index(catalog)
-    allowed = set(curation.get("palette", {}).get("blocks", []) + curation.get("palette", {}).get("components", []))
-    entries = [resolve_item(index, value) for value in args.item]
-    selected_ids = {
-        str(item.get("id"))
-        for scene in build_plan.get("scenes", [])
-        if isinstance(scene, dict)
-        for item in scene.get("integrations", [])
-        if isinstance(item, dict) and item.get("state") == "selected-for-build"
-    } | {
-        str(item.get("catalogId"))
-        for item in build_plan.get("transitions", [])
-        if isinstance(item, dict) and item.get("state") == "selected-for-build" and item.get("catalogId")
-    }
-    outside_plan = sorted(str(entry["id"]) for entry in entries if entry["id"] not in selected_ids)
-    if outside_plan:
-        raise SystemExit("Registry items are outside the exact Build Plan selection: " + ", ".join(outside_plan))
-    if curation.get("policy") == "approved-only":
-        outside = sorted(str(entry["id"]) for entry in entries if entry["id"] not in allowed)
-        if outside:
-            raise SystemExit("approved-only blocks out-of-palette staging: " + ", ".join(outside))
-    method = args.method
-    if method == "auto":
-        method = "official" if curation.get("registry", {}).get("mode") == "http" else "local"
-    receipt_items: list[dict] = []
-    for entry in entries:
-        if entry.get("status") != "ready" or entry.get("kind") not in {"registry-block", "registry-component"}:
-            raise SystemExit(f"Not a ready Registry Block/Component: {entry.get('id')}")
-        name = str(entry.get("source", {}).get("name") or str(entry["id"]).split(":", 1)[1])
-        if method == "official":
-            command = [args.npx, "hyperframes", "add", name, "--dir", str(project), "--json", "--no-clipboard"]
-            completed = subprocess.run(command, capture_output=True, text=True)
-            if completed.returncode:
-                raise SystemExit(f"Official hyperframes add failed for {name}:\n{completed.stderr or completed.stdout}")
-            destination_root = project / ("compositions/library" if entry["kind"] == "registry-block" else "compositions/components/library")
-            entry_source = (library / str(entry.get("source", {}).get("entry", ""))).resolve()
-            copied_files: list[dict[str, str]] = []
-            entry_path: str | None = None
-            signature_markers: list[dict[str, str]] = []
-            for source, target, _ in entry_source_paths(library, entry):
-                installed = destination_root / target
-                if installed.is_file():
-                    copied_files.append({
-                        "path": installed.relative_to(project).as_posix(),
-                        "sha256": hashlib.sha256(installed.read_bytes()).hexdigest(),
-                    })
-                if source.resolve() == entry_source:
-                    entry_path = installed.relative_to(project).as_posix()
-                    signature_markers = integration_markers(source)
-            receipt_items.append({
-                "id": entry["id"], "name": name, "kind": entry["kind"], "method": "official",
-                "integration": entry.get("integration", {}), "entryPath": entry_path,
-                "signatureMarkers": signature_markers, "files": copied_files, "command": command,
-            })
-            continue
-        destination_root = project / ("compositions/library" if entry["kind"] == "registry-block" else "compositions/components/library")
-        copied_files = []
-        entry_source = (library / str(entry.get("source", {}).get("entry", ""))).resolve()
-        entry_path: str | None = None
-        signature_markers: list[dict[str, str]] = []
+    selected = required_ids(storyboard, resolutions) if args.all_required else args.item
+    if not selected:
+        raise SystemExit("Pass --all-required or at least one --item")
+    approved = set(curation.get("selectedIds", []))
+    outside = sorted(set(selected) - approved)
+    if outside:
+        raise SystemExit("Items are outside the approved Storyboard selection: " + ", ".join(outside))
+    items = []
+    for item_id in unique(selected):
+        entry = index.get(item_id)
+        if not entry or entry.get("status") != "ready":
+            raise SystemExit(f"Not a ready catalog item: {item_id}")
+        files = []
         for source, target, expected in entry_source_paths(library, entry):
-            target_path = destination_root / target
-            copied_hash = copy_verified(source, target_path, expected)
-            copied_files.append({"path": target_path.relative_to(project).as_posix(), "sha256": copied_hash})
-            if source.resolve() == entry_source:
-                entry_path = target_path.relative_to(project).as_posix()
-                signature_markers = integration_markers(source)
-        if not copied_files:
-            raise SystemExit(f"No stageable source files for {entry['id']}")
-        receipt_items.append({
-            "id": entry["id"], "name": name, "kind": entry["kind"], "method": "local",
-            "integration": entry.get("integration", {}), "entryPath": entry_path,
-            "signatureMarkers": signature_markers, "files": copied_files,
-        })
-    receipt = {
-        "schemaVersion": "hyperframes-curated-staging-receipt/v1",
-        "policy": curation.get("policy"),
-        "items": sorted(receipt_items, key=lambda item: item["id"]),
-    }
-    output = project / ".hyperframes" / "staging-receipt.json"
-    write_json(output, receipt)
-    print(f"Staged {len(receipt_items)} exact item(s); wrote {output}.")
+            if entry["kind"] == "registry-block":
+                destination = Path("compositions/library") / target
+            elif entry["kind"] == "registry-component":
+                destination = Path("compositions/components/library") / target
+            else:
+                destination = source_target_for_asset(entry, source)
+            copied = copy_verified(source, project / destination, expected or entry.get("sha256"))
+            files.append({"sourcePath": source.relative_to(library).as_posix(), "sourceHash": sha256(source), "destinationPath": destination.as_posix(), "destinationHash": copied})
+        items.append({"id": item_id, "kind": entry["kind"], "required": item_id in required_ids(storyboard, resolutions), "license": entry.get("license", {}), "provenance": {"catalogRevision": catalog.get("revision"), "catalog": catalog_name}, "integration": entry.get("integration", {}), "files": files, "recipeResolutions": [claim for claim in curation.get("recipeResolutions", []) if claim.get("resolvedId") == item_id]})
+    receipt = {"schemaVersion": "hyperframes-curated-staging-receipt/v3", "storyboardHash": object_sha256(storyboard), "items": items}
+    write_json(project / ".hyperframes" / "staging-receipt.json", receipt)
+    print(f"Staged {len(items)} approved item(s).")
     return 0
 
 

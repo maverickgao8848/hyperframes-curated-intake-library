@@ -1,141 +1,127 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://hyperframes.local/schemas/curation.json",
-  "type": "object",
-  "additionalProperties": false,
-  "required": ["schemaVersion", "policy", "frame", "registry", "palette", "selectionEvidence", "requiredAssets", "forbidden", "onMiss", "catalogMisses"],
+  "$id": "https://hyperframes.local/schemas/curation-v2.json",
+  "type": "object", "additionalProperties": false,
+  "required": ["schemaVersion", "policy", "frame", "registry", "storyboardHash", "needs", "selectedIds", "catalogMisses"],
   "properties": {
-    "schemaVersion": {"const": "hyperframes-curated-intake/v3"},
+    "schemaVersion": {"enum": ["hyperframes-curated-intake/v4", "hyperframes-curated-intake/v5"]},
     "policy": {"enum": ["approved-first", "approved-only", "open"]},
-    "frame": {
-      "type": "object",
-      "required": ["preset", "projectPath", "sourcePath", "sourceSha256", "treatment"],
-      "properties": {
-        "preset": {"type": "string"},
-        "projectPath": {"const": "frame.md"},
-        "sourcePath": {"type": "string"},
-        "sourceSha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
-        "treatment": {"type": ["string", "null"]},
-        "projectModified": {"type": "object"}
-      }
-    },
+    "frame": {"type": "object", "required": ["preset", "projectPath", "sourcePath", "sourceSha256"], "properties": {"preset": {"type": "string"}, "projectPath": {"const": "frame.md"}, "sourcePath": {"type": "string"}, "sourceSha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "treatment": {"type": ["string", "null"]}}, "additionalProperties": true},
     "registry": {"type": "object"},
-    "palette": {
-      "type": "object",
-      "required": ["blocks", "components", "transitions", "media"],
-      "properties": {
-        "blocks": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
-        "components": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
-        "transitions": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
-        "media": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
-      }
+    "storyboardHash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "needs": {"type": "array"},
+    "selectedIds": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "catalogMisses": {"type": "array", "items": {"$ref": "#/$defs/miss"}},
+    "recipeResolutions": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/recipeResolution"}},
+    "review": {"$ref": "#/$defs/review"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"schemaVersion": {"const": "hyperframes-curated-intake/v4"}}, "required": ["schemaVersion"]},
+      "then": {"properties": {"needs": {"items": {"$ref": "#/$defs/legacyNeed"}}}}
     },
-    "selectionEvidence": {
+    {
+      "if": {"properties": {"schemaVersion": {"const": "hyperframes-curated-intake/v5"}}, "required": ["schemaVersion"]},
+      "then": {"required": ["review"], "properties": {"needs": {"items": {"$ref": "#/$defs/needV5"}}}}
+    }
+  ],
+  "$defs": {
+    "need": {"type": "object", "additionalProperties": false, "required": ["sceneId", "eventId", "lane", "query", "affordances", "candidates", "selectedRef", "result", "rejections"], "properties": {"sceneId": {"type": "string"}, "eventId": {"type": ["string", "null"]}, "lane": {"enum": ["block", "component", "primitive", "recipe", "motion", "transition"]}, "query": {"type": "string", "minLength": 1}, "affordances": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}, "candidates": {"type": "array"}, "selectedRef": {"type": ["string", "null"]}, "result": {"enum": ["recommended", "no_recommendation"]}, "rejections": {"type": "array", "items": {"type": "object", "required": ["id", "reason"], "properties": {"id": {"type": "string"}, "reason": {"type": "string"}, "filterResults": {"type": "array", "items": {"type": "object"}}}, "additionalProperties": false}}}},
+    "needV5": {"allOf": [{"$ref": "#/$defs/need"}, {"properties": {"candidates": {"items": {"$ref": "#/$defs/candidateAudit"}}}}]},
+    "candidateAudit": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["query", "sceneNeeds", "storyboardSha256", "tier", "selectionAuthority", "favorite", "avoid", "registryFiltered"],
+      "required": ["id", "semanticTier", "matchedFamily", "matchedUseWhen", "matchedPurpose", "avoidConflicts", "expectsEvidence", "hardFilterResults", "motionPreference", "repetitionApplied", "fallbackTrace", "source"],
       "properties": {
-        "query": {"type": "string", "minLength": 1},
-        "sceneNeeds": {
+        "id": {"type": "string", "minLength": 1},
+        "semanticTier": {"enum": ["exact", "compatible", "fallback"]},
+        "matchedFamily": {"type": "boolean"},
+        "matchedUseWhen": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "matchedPurpose": {"type": "boolean"},
+        "avoidConflicts": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "expectsEvidence": {
           "type": "array",
-          "minItems": 1,
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["id", "title", "query", "device", "hero", "visualPattern", "heroVisual", "cognitiveAction", "evidenceType", "narrativeScale", "componentBudget", "mediaCandidates", "deviceCandidates", "candidateIds", "incomingTransition", "outgoingTransition"],
+            "required": ["expectation", "evidence"],
             "properties": {
-              "id": {"type": "string", "minLength": 1},
-              "title": {"type": "string", "minLength": 1},
-              "query": {"type": "string", "minLength": 1},
-              "device": {"type": "string", "minLength": 1},
-              "hero": {"type": "boolean"},
-              "visualPattern": {"type": "string", "minLength": 1},
-              "heroVisual": {"type": "object"},
-              "cognitiveAction": {"type": "string", "minLength": 1},
-              "evidenceType": {"type": "string", "minLength": 1},
-              "narrativeScale": {"enum": ["support-beat", "standard-scene", "chapter-peak"]},
-              "componentBudget": {"type": "integer", "minimum": 0, "maximum": 2},
-              "mediaCandidates": {
-                "type": "array",
-                "maxItems": 3,
-                "items": {"$ref": "#/$defs/mediaCandidate"}
-              },
-              "deviceCandidates": {
-                "type": "array",
-                "maxItems": 3,
-                "items": {"$ref": "#/$defs/deviceCandidate"}
-              },
-              "candidateIds": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
-              "incomingTransition": {"$ref": "#/$defs/transitionCandidate"},
-              "outgoingTransition": {"$ref": "#/$defs/transitionCandidate"}
+              "expectation": {"type": "string", "minLength": 1},
+              "evidence": {"type": "string", "minLength": 1}
             }
           }
         },
-        "storyboardSha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
-        "tier": {"type": "string", "minLength": 1},
-        "selectionAuthority": {"const": "approved-storyboard-spec"},
-        "favorite": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
-        "avoid": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
-        "registryFiltered": {"type": "integer", "minimum": 0}
+        "hardFilterResults": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["filter", "passed"],
+            "properties": {
+              "filter": {"type": "string", "minLength": 1},
+              "passed": {"type": "boolean"},
+              "detail": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "motionPreference": {"enum": ["preferred", "acceptable", "mismatch"]},
+        "repetitionApplied": {"type": "boolean"},
+        "fallbackTrace": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "source": {"type": "object", "minProperties": 1}
       }
     },
-    "requiredAssets": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
-    "forbidden": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
-    "onMiss": {"enum": ["record-and-customize", "stop-and-request-exception"]},
-    "catalogMisses": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "additionalProperties": true,
-        "required": ["id", "need", "query", "tier", "returnedCandidates", "rejectionReason"],
-        "properties": {
-          "id": {"type": "string", "minLength": 1},
-          "need": {"type": "string", "minLength": 1},
-          "query": {"type": "string", "minLength": 1},
-          "tier": {"type": "string", "minLength": 1},
-          "returnedCandidates": {"type": "array", "items": {"type": "string"}},
-          "rejectionReason": {"type": "string", "minLength": 1}
-        }
-      }
-    }
-  },
-  "$defs": {
-    "mediaCandidate": {
+    "legacyNeed": {"allOf": [{"$ref": "#/$defs/need"}, {"properties": {"candidates": {"items": {"$ref": "#/$defs/legacyCandidateAudit"}}}}]},
+    "legacyCandidateAudit": {
       "type": "object",
-      "additionalProperties": false,
-      "required": ["id", "rationale"],
+      "required": ["id", "score", "provenance"],
       "properties": {
-        "id": {"type": "string", "minLength": 1},
-        "rationale": {"type": "string", "minLength": 1}
-      }
+        "id": {"type": "string"},
+        "score": {"type": "number"},
+        "provenance": {"type": "object"}
+      },
+      "additionalProperties": true
     },
-    "deviceCandidate": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["id", "role", "responsibility", "rationale", "compatibility", "compatibilityChecks", "catalogRouting"],
+    "review": {
+      "type": "object", "additionalProperties": false,
+      "required": ["state", "storyboardHash", "source", "unresolvedSceneIds"],
       "properties": {
-        "id": {"type": "string", "minLength": 1},
-        "role": {"enum": ["hero", "support"]},
-        "responsibility": {"type": "string", "minLength": 1},
-        "rationale": {"type": "string", "minLength": 1},
-        "compatibility": {"const": "passed"},
-        "compatibilityChecks": {"type": "array", "minItems": 1, "items": {"type": "string"}},
-        "catalogRouting": {"type": "object"}
-      }
+        "state": {"enum": ["approved", "needs-review"]},
+        "storyboardHash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "source": {"enum": ["automated-agent-attestation", "migration-report"]},
+        "unresolvedSceneIds": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "reviewer": {"$ref": "#/$defs/automatedReviewer"},
+        "sceneReviews": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/sceneReview"}}
+      },
+      "allOf": [{"if": {"properties": {"state": {"const": "approved"}}}, "then": {"required": ["reviewer", "sceneReviews"], "properties": {"unresolvedSceneIds": {"maxItems": 0}, "source": {"const": "automated-agent-attestation"}}}}, {"if": {"properties": {"state": {"const": "needs-review"}}}, "then": {"properties": {"unresolvedSceneIds": {"minItems": 1}, "source": {"const": "migration-report"}}, "not": {"anyOf": [{"required": ["reviewer"]}, {"required": ["sceneReviews"]}]}}}]
     },
-    "transitionCandidate": {
-      "type": ["object", "null"],
-      "additionalProperties": false,
-      "required": ["boundaryId", "catalogId", "role", "purpose", "sameBackground", "perceptualAnchor", "colorDependency"],
+    "automatedReviewer": {
+      "type": "object", "additionalProperties": false,
+      "required": ["type", "workflow", "rubricVersion"],
       "properties": {
-        "boundaryId": {"type": "string", "minLength": 1},
-        "catalogId": {"type": "string", "minLength": 1},
-        "role": {"enum": ["primary", "accent"]},
-        "purpose": {"type": "string", "minLength": 1},
-        "sameBackground": {"type": "boolean"},
-        "perceptualAnchor": {"type": "string", "minLength": 1},
-        "colorDependency": {"enum": ["independent", "supporting", "required"]}
-      }
-    }
+        "type": {"const": "automated-agent"},
+        "workflow": {"enum": ["curated-intake", "visual-director"]},
+        "rubricVersion": {"const": "motion-attestation/v1"},
+        "modelId": {"type": "string", "pattern": "\\S"},
+        "runProvenance": {"type": "object", "minProperties": 1}
+      },
+      "anyOf": [{"required": ["modelId"]}, {"required": ["runProvenance"]}]
+    },
+    "sceneReview": {
+      "type": "object", "additionalProperties": false,
+      "required": ["sceneId", "decision", "motionQuote", "conclusion", "rationale"],
+      "properties": {
+        "sceneId": {"type": "string", "minLength": 1},
+        "decision": {"enum": ["internal-change", "static-reason"]},
+        "motionQuote": {"type": "string", "minLength": 1},
+        "conclusion": {"type": "object"},
+        "rationale": {"type": "string", "pattern": "\\S"}
+      },
+      "allOf": [
+        {"if": {"properties": {"decision": {"const": "internal-change"}}}, "then": {"properties": {"conclusion": {"type": "object", "additionalProperties": false, "required": ["before", "after", "direction"], "properties": {"before": {"type": "string", "pattern": "\\S"}, "after": {"type": "string", "pattern": "\\S"}, "direction": {"type": "string", "pattern": "\\S"}}}}}},
+        {"if": {"properties": {"decision": {"const": "static-reason"}}}, "then": {"properties": {"conclusion": {"type": "object", "additionalProperties": false, "required": ["object", "reason", "reasonType"], "properties": {"object": {"type": "string", "pattern": "\\S"}, "reason": {"type": "string", "pattern": "\\S"}, "reasonType": {"enum": ["readability", "evidence-preservation", "timing-lock", "source-fidelity", "accessibility"]}}}}}}
+      ]
+    },
+    "recipeResolution": {"type": "object", "additionalProperties": false, "required": ["sceneId", "id", "required", "resolvedId", "provenance"], "properties": {"sceneId": {"type": "string", "minLength": 1}, "id": {"type": "string", "pattern": "^recipe:[^:]+$"}, "required": {"type": "boolean"}, "resolvedId": {"type": "string", "minLength": 1, "not": {"pattern": "^recipe:"}}, "provenance": {"type": "object", "additionalProperties": false, "required": ["library", "catalog", "catalogRevision", "catalogSha256", "aliases", "aliasesSha256", "sourceFiles", "status", "license", "integration"], "properties": {"library": {"const": "selected-library"}, "catalog": {"const": "catalog.json"}, "catalogRevision": {"type": "integer"}, "catalogSha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "aliases": {"const": "legacy-component-aliases.json"}, "aliasesSha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "sourceFiles": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "object", "additionalProperties": false, "required": ["path", "sha256"], "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}}}, "status": {"const": "ready"}, "license": {"type": "object", "minProperties": 1}, "integration": {"type": "object", "minProperties": 1}}}}},
+    "miss": {"type": "object", "additionalProperties": false, "required": ["id", "sceneId", "eventId", "lane", "need", "returnedCandidates", "rejectionReason"], "properties": {"id": {"type": "string"}, "sceneId": {"type": "string"}, "eventId": {"type": ["string", "null"]}, "lane": {"type": "string"}, "need": {"type": "string"}, "returnedCandidates": {"type": "array", "items": {"type": "string"}}, "result": {"enum": ["no_recommendation"]}, "rejectionReason": {"type": "string", "minLength": 1}, "reason": {"enum": ["unresolved-recipe"]}, "required": {"type": "boolean"}, "source": {"type": "object", "minProperties": 1}, "provenance": {"type": "object", "minProperties": 1}}}
   }
 }

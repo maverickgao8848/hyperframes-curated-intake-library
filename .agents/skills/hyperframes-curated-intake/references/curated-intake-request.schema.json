@@ -4,12 +4,41 @@
   "additionalProperties": false,
   "required": ["schemaVersion", "parentPlanPath", "parentPlanHash", "clusterId", "segmentIds", "approvedScope", "lockedDecisions", "inheritedVisualPolicy", "timing", "assets", "questionsStillOpen"],
   "properties": {
-    "schemaVersion": {"const": "hyperframes-visual-director/curated-request-v1"},
+    "schemaVersion": {"const": "hyperframes-visual-director/curated-request-v3"},
     "parentPlanPath": {"type": "string", "minLength": 1},
     "parentPlanHash": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
     "clusterId": {"type": "string", "minLength": 1},
     "segmentIds": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
-    "approvedScope": {"type": "object"},
+    "approvedScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["segmentIds", "ranges", "messages", "animationSentencesLocked", "segmentSceneMap", "sceneLocks"],
+      "properties": {
+        "segmentIds": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "ranges": {"type": "array", "items": {"type": "object"}},
+        "messages": {"type": "array", "items": {"type": "string"}},
+        "animationSentencesLocked": {"type": "boolean"},
+        "segmentSceneMap": {
+          "type": "object",
+          "additionalProperties": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+        },
+        "sceneLocks": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "timing": {"type": "boolean"},
+              "content": {"type": "boolean"},
+              "visual": {"type": "boolean"},
+              "uses": {"type": "boolean"},
+              "motion": {"type": "boolean"},
+              "next": {"type": "boolean"}
+            }
+          }
+        }
+      }
+    },
     "lockedDecisions": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
     "inheritedVisualPolicy": {"type": "object"},
     "timing": {"type": "object", "required": ["precision"], "properties": {"precision": {"enum": ["word", "sentence", "estimated"]}}, "additionalProperties": true},
@@ -17,4 +46,3 @@
     "questionsStillOpen": {"type": "array", "items": {"type": "string"}}
   }
 }
-

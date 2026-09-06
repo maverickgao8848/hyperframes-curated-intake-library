@@ -2,40 +2,51 @@
 
 ## Intake preflight
 
-`scripts/verify-handoff.py` establishes that the packet is ready for HyperFrames:
+`verify-handoff.py` checks the Storyboard v3 schema; unique scene and use IDs; continuous numeric
+timing; adjacent transition targets; required staging; relative paths; stale compiled caches;
+routed parent hash and scope; and the absence of authored composition HTML. Required catalog uses
+must resolve. Missing optional uses remain visible as warnings instead of disappearing.
 
-- every canonical artifact exists and matches its manifest hash;
-- every Storyboard scene appears in the handoff manifest, scene-contract directory, and Build Plan;
-- scene identity and paths match across all intake artifacts;
-- Frame provenance is current;
-- required media exists inside the project and matches its hash;
-- directed integrations resolve to the palette and Build Plan;
-- every scene contract preserves the approved teaching classification and narrative scale;
-- every required integration is represented as a scene gate;
-- an `N`-scene packet contains exactly `N−1` adjacent-boundary transition contracts;
-- every transition connects the correct neighboring scene IDs, resolves to the palette, appears in the Build Plan, and carries a required integration gate;
-- same-background transitions are color-independent and declare a perceptual anchor that remains visible without palette contrast;
-- the project contains no authored composition HTML;
-- `HANDOFF.md` contains the complete copy-ready protocol.
+Preparation, staging, and handoff verification require an external automated-agent attestation for
+the exact Storyboard hash. Every scene longer than three seconds needs one record containing its full
+verbatim motion quote, supported agent provenance, decision, structured conclusion, and rationale.
+The CLI checks only structure/hash/quote/provenance/coverage/conflicts; semantic accept/reject belongs
+to the versioned agent rubric. Resolved recipe claims are re-read and revalidated against the selected
+library's catalog, aliases and sources on every phase; unresolved or stale claims fail closed.
+The Schema and every production boundary accept exactly `motion-attestation/v1`; rejection messages
+report both the actual value and that sole supported value.
 
-## Later Build verification
+It also rejects creative content in the manifest and rejects HANDOFF sections that duplicate scene
+content, catalog IDs, timing maps, transition maps, or long prompts. Production does not implicitly
+migrate v2; its fail-fast message names the explicit v2-to-v3 migration command.
 
-Run `npx hyperframes check`, then `scripts/verify-curation.py --project <project>`.
+## Build evidence
 
-The build verifier uses the manifest scene list as the expected set and confirms:
+This is a later Build responsibility; Curated Intake publishes the gate and still stops at the
+verified handoff. Before the builder opens the final preview, it performs one
+compare-correct-recheck pass against the approved Storyboard v3, `frame.md`, delivery requirements,
+and [motion-contract.md](motion-contract.md):
 
-- every declared composition exists at its canonical path;
-- every composition ID, sidecar stem, Build Plan scene ID, and usage scene ID matches;
-- every selected item has a valid staging receipt;
-- every Block has a real staged `data-composition-src` host in its declared scene;
-- every Component contributes staged structural and runtime signatures to its declared scene;
-- every required asset appears in the intended scene;
-- every beat, text cue, and active ambient plan binds to a visible production selector;
-- every required integration reaches integrated evidence;
-- every planned transition reaches staged and integrated evidence with matching boundary ID, catalog ID, from/to scene IDs, implementation mode, and production controller;
-- every transition controller exposes the declared boundary markers and executable shader/runtime or CSS/GSAP wiring;
-- boundary snapshots cover the outgoing side, transition midpoint, and incoming side;
-- catalog misses satisfy the active policy;
-- coverage reports expected, built, integrated, and verified counts separately.
+1. **Compare the running work.** Inspect every scene and adjacent transition in the actual
+   composition. Confirm that content and visual direction agree, each required action visibly
+   happens, transitions connect, and the ending holds long enough to read. For every selected Block,
+   Component, primitive, template, motion, or transition, verify its real runtime call and visible
+   responsibility; documentation, staged files, or a passing technical check alone are not evidence
+   that it was used. Use snapshots for static layout and consecutive timeline points or actual
+   playback for motion and continuity.
+2. **Correct what the comparison finds.** Within the approved requirements, fix missing or weak
+   actions, occlusion, layout, typography, Frame/theme drift, and selected items that are staged but
+   not functionally used. Do not rewrite the approved Storyboard to make an implementation pass. If
+   creative authorities conflict, use the existing conflict-resolution and user-lock rules.
+3. **Recheck before delivery.** Reinspect every changed scene and its neighboring transitions, then
+   rerun the affected technical checks. For timeline changes, verify forward playback, backward seek,
+   and direct seek. Update affected derived files and existing evidence in place, and enter the normal
+   final-preview flow only after every finding from this pass is resolved.
 
-The verification report treats candidate and unused staged counts as facts. Completion depends on required integrations, complete scene coverage, complete adjacent-boundary coverage, and observable implementation evidence.
+`verify-curation.py` contributes to this pass by validating the actual project against Storyboard v3
+`uses`, `motion`, and `next`. Each required use must be staged and have runtime evidence for its
+stated responsibilities. Scenes longer than three seconds need evidence for the declared internal
+semantic change unless `motion` records an explicit static reason. Opening, settle, final hold,
+outgoing, midpoint, and incoming states must be seek-stable. Report intake validity separately from
+runtime fidelity; selectors, candidate audit, and needs-review state remain in external evidence
+only. Reuse the project's existing evidence locations; this gate does not introduce a new report.

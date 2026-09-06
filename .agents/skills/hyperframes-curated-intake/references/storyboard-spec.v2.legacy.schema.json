@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hyperframes.local/schemas/curated-storyboard-v2.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "title", "message", "duration", "timing_mode", "creative_profile", "scenes"],
+  "properties": {
+    "schema": {"const": "hyperframes-storyboard/v2"},
+    "title": {"type": "string", "minLength": 1},
+    "message": {"type": "string", "minLength": 1},
+    "duration": {"type": "string", "pattern": "^\\d+(?:\\.\\d+)?s$"},
+    "timing_mode": {"enum": ["approximate", "locked"]},
+    "throughline": {"type": "string", "minLength": 1},
+    "creative_profile": {"const": "dense-signature-v1"},
+    "scenes": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/scene"}}
+  },
+  "$defs": {
+    "scene": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "title", "window", "takeaway", "visual_thesis", "focus", "choreography", "reuse", "exit"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "title": {"type": "string", "minLength": 1},
+        "window": {"type": "string", "pattern": "^\\d+(?:\\.\\d+)?-\\d+(?:\\.\\d+)?s$"},
+        "semantic_tags": {"type": "array", "uniqueItems": true, "items": {"enum": ["data", "concept", "emotion", "demo", "versus", "structure", "flow", "evidence"]}},
+        "narrative_role": {"enum": ["hook", "bridge", "summary", "cta"]},
+        "available_inputs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "aspect": {"enum": ["16:9", "9:16", "1:1"]},
+        "duration_seconds": {"type": "number", "exclusiveMinimum": 0},
+        "hero_required": {"type": "boolean"},
+        "source_anchor": {"type": "object", "additionalProperties": false, "required": ["source", "anchor"], "properties": {"source": {"type": "string", "minLength": 1}, "anchor": {"type": "string", "minLength": 1}}},
+        "takeaway": {"type": "string", "minLength": 1},
+        "visual_thesis": {"type": "object", "additionalProperties": false, "required": ["subject", "change", "semantic_bridge"], "properties": {"subject": {"type": "string", "minLength": 1}, "change": {"type": "string", "minLength": 1}, "semantic_bridge": {"type": "string", "minLength": 1}}},
+        "focus": {"type": "object", "additionalProperties": false, "required": ["primary"], "properties": {"primary": {"type": "string", "minLength": 1}, "secondary": {"type": "string", "minLength": 1}}},
+        "choreography": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/event"}},
+        "reuse": {"type": "array", "items": {"$ref": "#/$defs/reuse"}},
+        "exit": {"$ref": "#/$defs/exit"},
+        "exceptions": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "tempo_override": {"enum": ["measured", "rapid"]}
+      }
+    },
+    "event": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "window", "target", "change", "purpose", "role"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "window": {"type": "string", "pattern": "^(?:0|[1-9]\\d?|100)-(?:0|[1-9]\\d?|100)%$"},
+        "target": {"type": "string", "pattern": "^#[A-Za-z][A-Za-z0-9_-]*$"},
+        "change": {"type": "string", "minLength": 1},
+        "purpose": {"type": "string", "minLength": 1},
+        "via": {"type": "string", "pattern": "^(?:registry-block|registry-component|svg|lottie|recipe|motion-rule|transition|authored):.+$"},
+        "role": {"enum": ["primary", "secondary", "annotation", "confirmation"]}
+      }
+    },
+    "reuse": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "target", "responsibility", "required"],
+      "properties": {"id": {"type": "string", "pattern": "^(?:registry-block|registry-component|svg|lottie|recipe|motion-rule|transition|authored):.+$"}, "target": {"type": "string", "pattern": "^#[A-Za-z][A-Za-z0-9_-]*$"}, "responsibility": {"type": "string", "minLength": 1}, "required": {"type": "boolean"}}
+    },
+    "exit": {
+      "type": "object", "additionalProperties": false, "required": ["state", "to_scene"],
+      "properties": {"state": {"type": "string", "minLength": 1}, "to_scene": {"type": ["string", "null"], "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"}, "via": {"type": "string", "pattern": "^(?:registry-block|registry-component|svg|lottie|recipe|motion-rule|transition|authored):.+$"}}
+    }
+  }
+}

@@ -10,6 +10,84 @@
     "revision": {"type": "integer", "minimum": 1},
     "entries": {"type": "array", "items": {"$ref": "#/$defs/entry"}}
   },
+  "allOf": [
+    {
+      "if": {
+        "properties": {"revision": {"const": 14}},
+        "required": ["revision"]
+      },
+      "then": {
+        "properties": {
+          "entries": {
+            "items": {
+              "allOf": [
+                {"$ref": "#/$defs/entry"},
+                {
+                  "if": {
+                    "properties": {
+                      "kind": {"enum": ["registry-block", "registry-component", "svg", "lottie"]}
+                    },
+                    "required": ["kind"]
+                  },
+                  "then": {
+                    "required": ["routing"],
+                    "properties": {
+                      "routing": {"$ref": "#/$defs/directingRoutingV14"}
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"revision": {"const": 15}},
+        "required": ["revision"]
+      },
+      "then": {
+        "properties": {
+          "entries": {
+            "items": {
+              "allOf": [
+                {"$ref": "#/$defs/entry"},
+                {
+                  "if": {
+                    "properties": {
+                      "kind": {"enum": ["registry-block", "registry-component", "svg", "lottie"]}
+                    },
+                    "required": ["kind"]
+                  },
+                  "then": {
+                    "required": ["routing"],
+                    "properties": {
+                      "routing": {"$ref": "#/$defs/directingRoutingV15"}
+                    },
+                    "not": {
+                      "anyOf": [
+                        {"required": ["semantic_tags"]},
+                        {"required": ["narrative_roles"]},
+                        {"required": ["granularity"]},
+                        {"required": ["selection_role"]},
+                        {"required": ["motionHooks"]},
+                        {"required": ["supports"]},
+                        {"required": ["compatibleRecipes"]},
+                        {"required": ["affordances"]},
+                        {"required": ["avoid"]},
+                        {"required": ["heroEligible"]}
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
   "$defs": {
     "entry": {
       "type": "object",
@@ -20,6 +98,10 @@
         "kind": {"enum": ["registry-block", "registry-component", "motion-rule", "scene-blueprint", "transition", "svg", "logo", "lottie", "template", "background", "texture", "sfx", "font"]},
         "title": {"type": "string", "minLength": 1},
         "description": {"type": "string"},
+        "granularity": {"enum": ["scene", "element"]},
+        "selection_role": {"enum": ["content", "motion", "transition", "asset"]},
+        "semantic_tags": {"type": "array", "items": {"enum": ["data", "concept", "emotion", "demo", "versus", "structure", "flow", "evidence"]}, "uniqueItems": true},
+        "narrative_roles": {"type": "array", "items": {"enum": ["hook", "bridge", "summary", "cta"]}, "uniqueItems": true},
         "tags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
         "capabilities": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
         "source": {"type": "object", "minProperties": 1},
@@ -33,6 +115,24 @@
           }
         },
         "preview": {"type": "string", "minLength": 1},
+        "aspectSupport": {"type": "array", "items": {"enum": ["16:9", "9:16", "1:1"]}, "uniqueItems": true},
+        "dimensions": {
+          "type": "object", "additionalProperties": false,
+          "required": ["width", "height"],
+          "properties": {
+            "width": {"type": "integer", "minimum": 1},
+            "height": {"type": "integer", "minimum": 1}
+          }
+        },
+        "fps": {"type": "number", "exclusiveMinimum": 0},
+        "duration": {"type": "number", "exclusiveMinimum": 0},
+        "framePolicy": {"enum": ["native-evidence", "frame-governed", "source-preserve"]},
+        "motionHooks": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "heroEligible": {"type": "boolean"},
+        "supports": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "compatibleRecipes": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "affordances": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "avoid": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
         "parameters": {
           "type": "object",
           "additionalProperties": false,
@@ -48,31 +148,78 @@
             "eventTargets": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
           }
         },
-        "routing": {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "family": {"type": "string", "minLength": 1},
-            "teachingIntents": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
-            "cognitiveActions": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
-            "sceneRoles": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
-            "evidenceTypes": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
-            "requiredInputs": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
-            "styleFit": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
-            "aspectFit": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
-            "durationMin": {"type": "number", "minimum": 0},
-            "durationMax": {"type": "number", "exclusiveMinimum": 0},
-            "densityFit": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
-            "containerCost": {"type": "integer", "minimum": 0},
-            "heroEligible": {"type": "boolean"},
-            "avoid": {"type": "string", "minLength": 1},
-            "fallbackIds": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
-          }
-        },
+        "routing": {"$ref": "#/$defs/routing"},
         "provenance": {"type": "object", "minProperties": 1},
         "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
         "license": {"type": "object", "minProperties": 1},
         "status": {"enum": ["ready", "disabled"]}
+      }
+    },
+    "routing": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "family": {"type": "string", "minLength": 1},
+        "purpose": {"type": "string", "minLength": 1},
+        "useWhen": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "avoidWhen": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "expects": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "motion": {"type": "string", "minLength": 1},
+        "teachingIntents": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "cognitiveActions": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "sceneRoles": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "evidenceTypes": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "requiredInputs": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "styleFit": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "aspectFit": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "durationMin": {"type": "number", "minimum": 0},
+        "durationMax": {"type": "number", "exclusiveMinimum": 0},
+        "densityFit": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "containerCost": {"type": "integer", "minimum": 0},
+        "heroEligible": {"type": "boolean"},
+        "avoid": {"type": "string", "minLength": 1},
+        "fallbackIds": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+      }
+    },
+    "nonPlaceholderText": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!\\s*(?:[Tt][Bb][Dd]|[Tt][Oo][Dd][Oo]|[Pp][Ll][Aa][Cc][Ee][Hh][Oo][Ll][Dd][Ee][Rr]|[Nn]/[Aa]|待定|占位)\\s*$).*\\S.*$",
+      "not": {"enum": ["TBD", "TODO", "placeholder", "PLACEHOLDER", "待定", "占位", "N/A", "n/a"]}
+    },
+    "directingRoutingV14": {
+      "$ref": "#/$defs/routing",
+      "required": ["family", "purpose", "useWhen", "avoidWhen", "expects", "motion"],
+      "properties": {
+        "family": {"enum": ["data", "process", "structure", "compare", "interface", "concept", "emphasis", "evidence"]},
+        "purpose": {"$ref": "#/$defs/nonPlaceholderText"},
+        "useWhen": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/nonPlaceholderText"}, "uniqueItems": true},
+        "avoidWhen": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/nonPlaceholderText"}, "uniqueItems": true},
+        "expects": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/nonPlaceholderText"}, "uniqueItems": true},
+        "motion": {"enum": ["entrance-only", "progressive", "stateful"]},
+        "fallbackIds": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^[a-z][a-z0-9-]*(?::[a-z0-9][a-z0-9._-]*)+$"},
+          "uniqueItems": true
+        }
+      }
+    },
+    "directingRoutingV15": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["family", "purpose", "useWhen", "avoidWhen", "expects", "motion"],
+      "properties": {
+        "family": {"enum": ["data", "process", "structure", "compare", "interface", "concept", "emphasis", "evidence"]},
+        "purpose": {"$ref": "#/$defs/nonPlaceholderText"},
+        "useWhen": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/nonPlaceholderText"}, "uniqueItems": true},
+        "avoidWhen": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/nonPlaceholderText"}, "uniqueItems": true},
+        "expects": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/nonPlaceholderText"}, "uniqueItems": true},
+        "motion": {"enum": ["entrance-only", "progressive", "stateful"]},
+        "fallbackIds": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^[a-z][a-z0-9-]*(?::[a-z0-9][a-z0-9._-]*)+$"},
+          "uniqueItems": true
+        }
       }
     },
     "interfaceProp": {

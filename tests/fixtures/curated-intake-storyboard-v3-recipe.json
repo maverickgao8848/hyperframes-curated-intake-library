@@ -1,0 +1,19 @@
+{
+  "schema": "hyperframes-storyboard/v3",
+  "title": "E3 migration-only recipe boundary",
+  "duration": 3,
+  "timing_mode": "approximate",
+  "scenes": [
+    {
+      "id": "legacy-recipe",
+      "start": 0,
+      "end": 3,
+      "content": "Preserve the legacy binding without inventing a catalog item.",
+      "visual": "A documented unresolved binding remains visible as a catalog miss.",
+      "uses": [
+        {"id": "recipe:legacy-reveal", "responsibilities": ["Preserve the migrated recipe reference"], "required": false}
+      ],
+      "motion": "The unresolved binding label appears and holds."
+    }
+  ]
+}

@@ -19,7 +19,7 @@ REGISTRY_KINDS = {
 
 
 def default_library() -> Path:
-    return Path(__file__).resolve().parents[4] / "library"
+    return Path(__file__).resolve().parents[1] / "assets" / "library"
 
 
 def load_catalog(library: Path) -> tuple[Path, dict[str, Any]]:
@@ -72,7 +72,12 @@ def entry_name(entry: dict[str, Any]) -> str | None:
 _ATTR = r"{name}\s*=\s*['\"](?P<value>\d+(?:\.\d+)?)['\"]"
 
 
-def block_geometry(html: str) -> tuple[dict[str, int] | None, float | int | None, list[str]]:
+def block_geometry(
+    html: str,
+    *,
+    aspect_fit: list[str] | None = None,
+    duration_hint: float | int | None = None,
+) -> tuple[dict[str, int] | None, float | int | None, list[str]]:
     reasons: list[str] = []
 
     def attr(name: str) -> float | None:
@@ -80,6 +85,7 @@ def block_geometry(html: str) -> tuple[dict[str, int] | None, float | int | None
         return float(match.group("value")) if match else None
 
     width, height, duration = attr("data-width"), attr("data-height"), attr("data-duration")
+    duration = duration or attr("data-composition-duration")
     if width is None or height is None:
         viewport = re.search(
             r"<meta[^>]+name\s*=\s*['\"]viewport['\"][^>]+content\s*=\s*['\"][^'\"]*"
@@ -92,11 +98,23 @@ def block_geometry(html: str) -> tuple[dict[str, int] | None, float | int | None
             height = height or float(viewport.group(2))
     dimensions = None
     if width is None or height is None:
+        aspect_defaults = {
+            "16:9": (1920.0, 1080.0),
+            "9:16": (1080.0, 1920.0),
+            "1:1": (1080.0, 1080.0),
+        }
+        for aspect in aspect_fit or []:
+            if aspect in aspect_defaults:
+                width, height = aspect_defaults[aspect]
+                break
+    if width is None or height is None:
         reasons.append("block dimensions are not declared in data-width/data-height or viewport metadata")
     elif not width.is_integer() or not height.is_integer() or width <= 0 or height <= 0:
         reasons.append("block dimensions must be positive integers")
     else:
         dimensions = {"width": int(width), "height": int(height)}
+    if duration is None and isinstance(duration_hint, (int, float)):
+        duration = float(duration_hint)
     if duration is None:
         reasons.append("block duration is not declared in data-duration")
         normalized_duration = None

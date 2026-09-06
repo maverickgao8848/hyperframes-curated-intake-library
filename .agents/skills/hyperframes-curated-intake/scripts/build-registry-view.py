@@ -7,6 +7,7 @@ import argparse
 import json
 import shutil
 import sys
+from copy import deepcopy
 from pathlib import Path
 from typing import Any
 
@@ -24,6 +25,9 @@ from _registry import (
     source_files,
     write_json,
 )
+
+
+DIRECTING_FIELDS = ("family", "purpose", "useWhen", "avoidWhen", "expects", "motion", "fallbackIds")
 
 
 def _parser() -> argparse.ArgumentParser:
@@ -107,7 +111,11 @@ def _map_entry(library: Path, output: Path, entry: dict[str, Any]) -> tuple[dict
     dimensions = duration = None
     if kind == "registry-block" and not reasons:
         entry_path = next(path for _, path, is_entry in resolved if is_entry)
-        dimensions, duration, geometry_reasons = block_geometry(entry_path.read_text(encoding="utf-8"))
+        dimensions, duration, geometry_reasons = block_geometry(
+            entry_path.read_text(encoding="utf-8"),
+            aspect_fit=entry.get("aspectSupport") if isinstance(entry.get("aspectSupport"), list) else None,
+            duration_hint=entry.get("duration"),
+        )
         reasons.extend(geometry_reasons)
     if reasons:
         return None, sorted(set(reasons))
@@ -145,6 +153,10 @@ def _map_entry(library: Path, output: Path, entry: dict[str, Any]) -> tuple[dict
     if kind == "registry-block":
         metadata["dimensions"] = dimensions
         metadata["duration"] = duration
+    routing = entry.get("routing") if isinstance(entry.get("routing"), dict) else {}
+    directing = {field: deepcopy(routing[field]) for field in DIRECTING_FIELDS if field in routing}
+    if directing:
+        metadata["routing"] = directing
     metadata["files"] = sorted(files, key=lambda item: (item["path"], item["target"], item["type"]))
     write_json(item_dir / "registry-item.json", metadata)
     return {"name": name, "type": registry_type}, []

@@ -1,221 +1,77 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://hyperframes.local/schemas/curated-storyboard-spec.json",
+  "$id": "https://hyperframes.local/schemas/curated-storyboard-v3.json",
+  "title": "HyperFrames Storyboard v3",
   "type": "object",
   "additionalProperties": false,
-  "required": ["format", "duration", "message", "arc", "audience", "creative_boldness", "timing_policy", "transitions", "frames"],
+  "required": ["schema", "title", "duration", "timing_mode", "scenes"],
   "properties": {
-    "format": {"type": "string", "minLength": 1},
-    "duration": {"type": "string", "minLength": 1},
-    "message": {"type": "string", "minLength": 1},
-    "arc": {"type": "string", "minLength": 1},
-    "audience": {"type": "string", "minLength": 1},
-    "creative_boldness": {"enum": ["restrained", "balanced", "bold"]},
-    "timing_policy": {
-      "type": "object", "additionalProperties": false, "required": ["mode"],
-      "properties": {
-        "mode": {"enum": ["locked", "bounded", "editorial"]},
-        "tolerance_seconds": {"type": "number", "minimum": 0}
-      }
-    },
-    "throughline_prop": {
-      "type": "object", "additionalProperties": false, "required": ["id", "identity"],
-      "properties": {
-        "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
-        "identity": {"type": "string", "minLength": 1}
-      }
-    },
-    "transitions": {
-      "type": "array",
-      "items": {"$ref": "#/$defs/transition"}
-    },
-    "frames": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/frame"}}
+    "schema": {"const": "hyperframes-storyboard/v3"},
+    "title": {"$ref": "#/$defs/nonEmptyString"},
+    "message": {"$ref": "#/$defs/nonEmptyString"},
+    "duration": {"type": "number", "exclusiveMinimum": 0},
+    "timing_mode": {"enum": ["approximate", "locked"]},
+    "scenes": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/scene"}}
   },
   "$defs": {
-    "frame": {
+    "nonEmptyString": {"type": "string", "minLength": 1, "pattern": "\\S"},
+    "sceneId": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "catalogOrAuthoredUseId": {"type": "string", "pattern": "^(?:background|font|logo|lottie|motion-rule|registry-block|registry-component|scene-blueprint|sfx|svg|template|texture|transition|authored):[a-z0-9][a-z0-9._/:-]*$"},
+    "migrationOnlyRecipeUseId": {"type": "string", "pattern": "^recipe:[a-z0-9][a-z0-9._/:-]*$"},
+    "useId": {"anyOf": [{"$ref": "#/$defs/catalogOrAuthoredUseId"}, {"$ref": "#/$defs/migrationOnlyRecipeUseId"}]},
+    "use": {
       "type": "object", "additionalProperties": false,
-      "required": [
-        "id", "title", "duration", "scene", "source_relation", "animation", "teaching_goal",
-        "teaching_intent", "cognitive_action", "scene_role", "evidence_type", "narrative_scale",
-        "visual_intent", "motion_intent", "visual_pattern", "density", "hero_visual",
-        "component_budget", "device", "device_candidates", "hero", "blueprint",
-        "ambient", "text_plan", "construction", "narrative"
-      ],
+      "required": ["id", "responsibilities", "required"],
       "properties": {
-        "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
-        "title": {"type": "string", "minLength": 1},
-        "duration": {"type": "string", "pattern": "^\\d+(?:\\.\\d+)?s$"},
-        "scene": {"type": "string", "minLength": 1},
-        "voiceover": {"type": "string", "minLength": 1},
-        "source_relation": {"enum": ["preserve", "augment", "replace", "designed"]},
-        "animation": {"enum": ["source-only", "augment", "authored"]},
-        "teaching_goal": {"type": "string", "minLength": 1},
-        "teaching_intent": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
-        "cognitive_action": {"enum": ["notice", "explain", "compare", "predict", "apply", "verify", "remember"]},
-        "scene_role": {"enum": ["hook", "definition", "comparison", "evidence", "process", "demo", "chapter", "transition", "summary", "close"]},
-        "evidence_type": {"enum": ["none", "text", "quote", "number", "timeseries", "table", "process", "hierarchy", "trace", "interface", "image", "video", "map", "illustration"]},
-        "narrative_scale": {"enum": ["support-beat", "standard-scene", "chapter-peak"]},
-        "visual_intent": {"type": "string", "minLength": 1},
-        "motion_intent": {"type": "string", "minLength": 1},
-        "visual_pattern": {"enum": ["object-metaphor", "prop-timeline", "signal-trace", "gauge-comparison", "annotated-object", "editorial-type-impact", "screenshot-focus-lens", "spatial-workspace", "icon-constellation", "data-landscape"]},
-        "density": {"enum": ["sparse", "comfortable", "dense"]},
-        "hero_visual": {
-          "type": "object", "additionalProperties": false,
-          "required": ["subject", "medium", "source", "final_state"],
-          "properties": {
-            "subject": {"type": "string", "minLength": 1},
-            "medium": {"enum": ["image", "video", "logo", "svg", "dom", "component"]},
-            "source": {"type": "string", "minLength": 1},
-            "final_state": {"type": "string", "minLength": 1}
-          }
-        },
-        "component_budget": {"type": "integer", "minimum": 0, "maximum": 2},
-        "device": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
-        "device_candidates": {
-          "type": "array", "maxItems": 3,
-          "items": {
-            "type": "object", "additionalProperties": false,
-            "required": ["id", "role", "responsibility", "rationale"],
-            "properties": {
-              "id": {"type": "string", "pattern": "^registry-(?:block|component):.+$"},
-              "role": {"enum": ["hero", "support"]},
-              "responsibility": {"type": "string", "minLength": 1},
-              "rationale": {"type": "string", "minLength": 1}
-            }
-          }
-        },
-        "construction": {
-          "type": "object", "additionalProperties": false,
-          "required": ["composition", "focal_hierarchy", "layers"],
-          "properties": {
-            "composition": {"type": "string", "minLength": 1},
-            "focal_hierarchy": {"type": "string", "minLength": 1},
-            "continuity": {"type": "string", "minLength": 1},
-            "layers": {
-              "type": "array", "minItems": 1,
-              "items": {
-                "type": "object", "additionalProperties": false,
-                "required": ["id", "role", "content", "slot", "z_index"],
-                "properties": {
-                  "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
-                  "role": {"enum": ["background", "hero", "evidence", "support", "annotation", "transition", "foreground"]},
-                  "content": {"type": "string", "minLength": 1},
-                  "slot": {"type": "string", "minLength": 1},
-                  "z_index": {"type": "integer"},
-                  "motion_role": {"type": "string", "minLength": 1}
-                }
-              }
-            }
-          }
-        },
-        "integrations": {
-          "type": "array",
-          "items": {
-            "type": "object", "additionalProperties": false,
-            "required": ["id", "selection", "role", "responsibility", "slot", "target"],
-            "properties": {
-              "id": {"type": "string", "pattern": "^registry-(?:block|component):.+$"},
-              "selection": {"enum": ["required", "preferred"]},
-              "role": {"enum": ["hero", "support"]},
-              "responsibility": {"type": "string", "minLength": 1},
-              "slot": {"type": "string", "minLength": 1},
-              "target": {"type": "string", "minLength": 1},
-              "props": {"type": "object"}
-            }
-          }
-        },
-        "asset_bindings": {
-          "type": "array",
-          "items": {
-            "type": "object", "additionalProperties": false,
-            "required": ["id", "role", "target"],
-            "properties": {
-              "id": {"type": "string", "minLength": 1},
-              "path": {"type": "string", "minLength": 1},
-              "role": {"type": "string", "minLength": 1},
-              "target": {"type": "string", "minLength": 1},
-              "required": {"type": "boolean"}
-            }
-          }
-        },
-        "hero": {"type": "boolean"},
-        "blueprint": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
-        "beats": {"type": "array", "items": {"$ref": "#/$defs/beat"}},
-        "ambient": {"$ref": "#/$defs/ambient"},
-        "text_plan": {"$ref": "#/$defs/textPlan"},
-        "prop_state": {"type": "string", "minLength": 1},
-        "diversity_exception": {"type": "string", "minLength": 1},
-        "must_preserve": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
-        "avoid": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
-        "available_inputs": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
-        "candidate_items": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
-        "narrative": {"type": "string", "minLength": 1}
+        "id": {"$ref": "#/$defs/useId"},
+        "responsibilities": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/nonEmptyString"}},
+        "required": {"type": "boolean"}
       }
     },
-    "transition": {
+    "next": {
       "type": "object", "additionalProperties": false,
-      "required": ["boundary_id", "from_scene", "to_scene", "catalog_id", "catalog_kind", "selection", "role", "implementation", "duration_seconds", "purpose", "continuity", "same_background", "perceptual_anchor", "color_dependency"],
-      "properties": {
-        "boundary_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
-        "from_scene": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
-        "to_scene": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
-        "catalog_id": {"type": "string", "pattern": "^(?:registry-block|transition|motion-rule):.+$"},
-        "catalog_kind": {"enum": ["registry-block", "transition", "motion-rule"]},
-        "selection": {"const": "required"},
-        "role": {"enum": ["primary", "accent"]},
-        "implementation": {"enum": ["shader-runtime", "css-gsap", "subcomposition"]},
-        "duration_seconds": {"type": "number", "minimum": 0.1, "maximum": 1.5},
-        "purpose": {"type": "string", "minLength": 1},
-        "continuity": {"type": "string", "minLength": 1},
-        "same_background": {"type": "boolean"},
-        "perceptual_anchor": {"enum": ["luminance-seam", "focus-plane", "depth-occlusion", "shared-object", "directional-motion", "texture-field", "hard-cut"]},
-        "color_dependency": {"enum": ["independent", "supporting", "required"]}
-      }
+      "required": ["sceneId", "transition"],
+      "properties": {"sceneId": {"$ref": "#/$defs/sceneId"}, "transition": {"$ref": "#/$defs/nonEmptyString"}}
     },
-    "beat": {
+    "sourceAnchor": {
       "type": "object", "additionalProperties": false,
-      "required": ["id", "kind", "narration", "reveal", "target_role", "rule_ids", "purpose"],
+      "required": ["source", "anchor"],
+      "properties": {"source": {"$ref": "#/$defs/nonEmptyString"}, "anchor": {"$ref": "#/$defs/nonEmptyString"}}
+    },
+    "locks": {
+      "type": "object", "additionalProperties": false,
       "properties": {
-        "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
-        "kind": {"enum": ["reveal", "hold"]},
-        "window": {"type": "string", "pattern": "^\\d+(?:\\.\\d+)?-\\d+(?:\\.\\d+)?s$"},
-        "narration": {"type": "string"},
-        "reveal": {"type": "string", "minLength": 1},
-        "target_role": {"enum": ["hero", "evidence", "supporting", "annotation", "confirmation"]},
-        "rule_ids": {"type": "array", "items": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"}, "uniqueItems": true},
-        "purpose": {"type": "string", "minLength": 1}
+        "timing": {"type": "boolean"}, "content": {"type": "boolean"}, "visual": {"type": "boolean"},
+        "uses": {"type": "boolean"}, "motion": {"type": "boolean"}, "next": {"type": "boolean"}
       }
     },
-    "ambient": {
-      "type": "object", "additionalProperties": false, "required": ["mode"],
+    "scene": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "start", "end", "content", "visual", "uses", "motion"],
       "properties": {
-        "mode": {"enum": ["active", "none"]},
-        "target_role": {"enum": ["hero", "evidence", "supporting", "annotation"]},
-        "motion": {"type": "string", "minLength": 1},
-        "purpose": {"type": "string", "minLength": 1},
-        "reason": {"type": "string", "minLength": 1}
+        "id": {"$ref": "#/$defs/sceneId"}, "title": {"$ref": "#/$defs/nonEmptyString"},
+        "start": {"type": "number", "minimum": 0}, "end": {"type": "number", "exclusiveMinimum": 0},
+        "content": {"$ref": "#/$defs/nonEmptyString"}, "visual": {"$ref": "#/$defs/nonEmptyString"},
+        "uses": {"type": "array", "items": {"$ref": "#/$defs/use"}}, "motion": {"$ref": "#/$defs/nonEmptyString"},
+        "next": {"$ref": "#/$defs/next"}, "narration": {"$ref": "#/$defs/nonEmptyString"},
+        "on_screen_text": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/nonEmptyString"}},
+        "sfx": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/nonEmptyString"}},
+        "source_anchor": {"$ref": "#/$defs/sourceAnchor"}, "locks": {"$ref": "#/$defs/locks"}
       }
     },
-    "textPlan": {
-      "type": "object", "additionalProperties": false, "required": ["mode", "cues"],
+    "scenePatch": {
+      "type": "object", "additionalProperties": false, "minProperties": 3,
+      "required": ["segmentId", "sceneId"],
       "properties": {
-        "mode": {"enum": ["animated", "static-readable", "no-visible-text"]},
-        "reason": {"type": "string", "minLength": 1},
-        "cues": {
-          "type": "array",
-          "items": {
-            "type": "object", "additionalProperties": false,
-            "required": ["id", "beat_id", "text_shape", "effect", "purpose"],
-            "properties": {
-              "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
-              "beat_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
-              "text_shape": {"enum": ["short-sentence", "command", "code", "paragraph", "heading", "label", "number"]},
-              "effect": {"enum": ["typewriter", "typewriter-paragraph", "text-scramble", "scramble-decode", "magnetic-pull", "binary-decode", "spotlight-reveal", "spiral-in", "ink-bleed", "redacted-reveal", "progress-underline", "word-stagger", "line-reveal", "number-count"]},
-              "emphasis_rule": {"enum": ["gradient-text-sweep", "css-marker-patterns", "asr-keyword-glow", "counting-dynamic-scale"]},
-              "purpose": {"type": "string", "minLength": 1}
-            }
-          }
-        }
+        "segmentId": {"$ref": "#/$defs/nonEmptyString"}, "sceneId": {"$ref": "#/$defs/sceneId"},
+        "title": {"$ref": "#/$defs/nonEmptyString"}, "start": {"type": "number", "minimum": 0},
+        "end": {"type": "number", "exclusiveMinimum": 0}, "content": {"$ref": "#/$defs/nonEmptyString"},
+        "visual": {"$ref": "#/$defs/nonEmptyString"}, "uses": {"type": "array", "items": {"$ref": "#/$defs/use"}},
+        "motion": {"$ref": "#/$defs/nonEmptyString"}, "next": {"$ref": "#/$defs/next"},
+        "narration": {"$ref": "#/$defs/nonEmptyString"},
+        "on_screen_text": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/nonEmptyString"}},
+        "sfx": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/nonEmptyString"}},
+        "source_anchor": {"$ref": "#/$defs/sourceAnchor"}, "locks": {"$ref": "#/$defs/locks"}
       }
     }
   }

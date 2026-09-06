@@ -12,7 +12,7 @@
 
 A library contribution should include all applicable source files, catalog entries, registry projections, previews, provenance, hashes, and license metadata. Generated renders, snapshots, thumbnails, waveform caches, dependency directories, and private project files must not be committed.
 
-Do not add an asset when its redistribution rights are unclear. If an asset is only a local reference, keep it outside `library/` and describe the requirement without committing the file.
+Do not add an asset when its redistribution rights are unclear. If an asset is only a local reference, keep it outside `.agents/skills/hyperframes-curated-intake/assets/library/` and describe the requirement without committing the file. The former root `library/` mirror has been removed; do not recreate it or route production changes there.
 
 ## Skill and contract changes
 

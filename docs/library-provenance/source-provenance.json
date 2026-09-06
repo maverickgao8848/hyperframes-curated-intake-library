@@ -28,7 +28,7 @@
         "sha256": "sha256:e7678d16a5ea807ad51c062718b73840128dd9030b341be21541ebdfd43a792f"
       },
       "derivedTarget": {
-        "path": "library/candidates/visual-director/blocks/wechat-desktop-exchange.html",
+        "path": ".agents/skills/hyperframes-curated-intake/assets/library/candidates/visual-director/blocks/wechat-desktop-exchange.html",
         "sha256": "sha256:2e3e19eb5136aac03266603cda2c1620e0539e88332ac92d0ed0ab084a5a3b6e",
         "changes": ["local GSAP dependency", "long-text wrapping"]
       },
@@ -46,7 +46,7 @@
         "sha256": "sha256:44ebeee49717e4c3a974e6c2f8a6e7308d4ac5038f65b9ed5a33f5345d9199e1"
       },
       "derivedTarget": {
-        "path": "library/candidates/visual-director/blocks/chatgpt-desktop-exchange.html",
+        "path": ".agents/skills/hyperframes-curated-intake/assets/library/candidates/visual-director/blocks/chatgpt-desktop-exchange.html",
         "sha256": "sha256:423b15cf433ae6cd480526ecc0e2dadfcf76e9cf87c6eff153affdb5c50070f6",
         "changes": ["local GSAP dependency", "long-text wrapping", "compactMode variable"]
       },
@@ -71,7 +71,7 @@
         "sha256": "sha256:8662a6680adf4c73425298df366579c4f8f7857f836e14b4e35d569bf1d7bb3c"
       },
       "derivedTarget": {
-        "path": "library/candidates/visual-director/blocks/film-credits-stagger.html",
+        "path": ".agents/skills/hyperframes-curated-intake/assets/library/candidates/visual-director/blocks/film-credits-stagger.html",
         "sha256": "sha256:f75373b3c36fd1acc1e862105fd161b452a840a08bcc30ce15c6b6407e03f93f",
         "changes": ["local GSAP dependency", "long-name wrapping"]
       },

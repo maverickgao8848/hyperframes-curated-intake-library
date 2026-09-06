@@ -1,100 +1,66 @@
 from __future__ import annotations
 
-import importlib.util
+import hashlib
 import json
+import subprocess
 import sys
-import tempfile
-import unittest
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[2]
-CURATED = ROOT / ".agents" / "skills" / "hyperframes-curated-intake" / "scripts"
-DIRECTOR = ROOT / ".agents" / "skills" / "hyperframes-visual-director" / "scripts"
-sys.path[:0] = [str(CURATED), str(DIRECTOR)]
+SCRIPTS = ROOT / ".agents/skills/hyperframes-curated-intake/scripts"
+sys.path.insert(0, str(SCRIPTS))
+
+import _routed
 
 
-def load(name: str, path: Path):
-    spec = importlib.util.spec_from_file_location(name, path)
-    module = importlib.util.module_from_spec(spec)
-    assert spec.loader
-    spec.loader.exec_module(module)
-    return module
+def canonical_hash(value: dict) -> str:
+    payload = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    return "sha256:" + hashlib.sha256(payload).hexdigest()
 
 
-routed = load("curated_routed", CURATED / "_routed.py")
-merge = load("merge_curated", DIRECTOR / "merge-curated-result.py")
+def test_routed_prepare_writes_only_bounded_result(tmp_path: Path) -> None:
+    from test_curated_intake_workflow import make_library, make_review, make_storyboard, run
+    library, storyboard = make_library(tmp_path), make_storyboard(tmp_path)
+    curation = tmp_path / "curation.json"
+    run("select-project-palette.py", "--library", library, "--storyboard-spec", storyboard, "--frame-preset", "cobalt", "--review-confirmation", make_review(tmp_path, storyboard), "--output", curation)
+    parent = {"segments": [{"id": "seg-1", "route": "curated-intake"}]}
+    parent_path = tmp_path / "director-plan.json"
+    parent_path.write_text(json.dumps(parent), encoding="utf-8")
+    request = {"schemaVersion": "hyperframes-visual-director/curated-request-v3", "parentPlanPath": "director-plan.json", "parentPlanHash": canonical_hash(parent), "clusterId": "cluster-1", "segmentIds": ["seg-1"], "approvedScope": {"segmentIds": ["seg-1"], "ranges": [], "messages": [], "animationSentencesLocked": False, "segmentSceneMap": {"seg-1": ["s01-select"]}, "sceneLocks": {}}, "lockedDecisions": [], "inheritedVisualPolicy": {}, "timing": {"precision": "estimated"}, "assets": [], "questionsStillOpen": []}
+    request_path = tmp_path / "request.json"
+    request_path.write_text(json.dumps(request), encoding="utf-8")
+    project = tmp_path / "routed"
+    run("prepare-project.py", "--project", project, "--library", library, "--curation", curation, "--storyboard-spec", storyboard, "--intent", "x", "--destination", "web", "--language", "zh", "--request", request_path)
+    result = json.loads((project / ".hyperframes/curated-intake-result.json").read_text(encoding="utf-8"))
+    assert result["schemaVersion"] == "hyperframes-visual-director/curated-result-v3"
+    assert result["scenePatches"][0]["sceneId"] == "s01-select"
+    assert set(result["scenePatches"][0]) >= {"segmentId", "sceneId", "start", "end", "content", "visual", "uses", "motion"}
+    assert not ({"visual_thesis", "focus", "choreography", "reuse", "exit"} & set(result["scenePatches"][0]))
+    assert not (project / "STORYBOARD.md").exists()
+    assert not (project / "HANDOFF.md").exists()
+    assert not (project / ".hyperframes/intake-manifest.json").exists()
 
 
-class RoutedCuratedTests(unittest.TestCase):
-    def parent_plan(self):
-        from test_visual_director import valid_plan
+def test_segment_scene_map_is_exact_and_has_no_single_segment_fallback(tmp_path: Path) -> None:
+    from test_curated_intake_workflow import make_storyboard
+    parent = {"segments": [{"id": "seg-1", "route": "curated-intake"}, {"id": "seg-2", "route": "curated-intake"}]}
+    (tmp_path / "director-plan.json").write_text(json.dumps(parent), encoding="utf-8")
+    scope = {"segmentIds": ["seg-1", "seg-2"], "ranges": [], "messages": [], "animationSentencesLocked": False, "segmentSceneMap": {"seg-1": ["s01-select"]}, "sceneLocks": {}}
+    request = {"schemaVersion": "hyperframes-visual-director/curated-request-v3", "parentPlanPath": "director-plan.json", "parentPlanHash": canonical_hash(parent), "clusterId": "cluster-1", "segmentIds": ["seg-1", "seg-2"], "approvedScope": scope, "lockedDecisions": [], "inheritedVisualPolicy": {}, "timing": {"precision": "estimated"}, "assets": [], "questionsStillOpen": []}
+    path = tmp_path / "request.json"
+    path.write_text(json.dumps(request), encoding="utf-8")
+    try:
+        _routed.validate_request(path)
+        raise AssertionError("missing segmentSceneMap key was accepted")
+    except ValueError as error:
+        assert "keys must exactly match" in str(error)
 
-        plan = valid_plan()
-        plan["segments"][1]["route"] = "curated-intake"
-        return plan
-
-    def write_request(self, root: Path, plan: dict, *, hash_value: str | None = None, segment_ids=None) -> Path:
-        parent = root / "director-plan.json"
-        parent.write_text(json.dumps(plan), encoding="utf-8")
-        request = {
-            "schemaVersion": "hyperframes-visual-director/curated-request-v1",
-            "parentPlanPath": "director-plan.json",
-            "parentPlanHash": hash_value or routed.canonical_hash(plan),
-            "clusterId": "teach-001",
-            "segmentIds": segment_ids or ["seg-002"],
-            "approvedScope": {"segmentIds": segment_ids or ["seg-002"], "animationSentencesLocked": True},
-            "lockedDecisions": ["range", "dominantVisual", "route"],
-            "inheritedVisualPolicy": plan["visualPolicy"],
-            "timing": plan["timing"],
-            "assets": [],
-            "questionsStillOpen": [],
-        }
-        path = root / "curated-intake-request.json"
-        path.write_text(json.dumps(request), encoding="utf-8")
-        return path
-
-    def test_valid_request_binds_parent_scope_and_hash(self):
-        with tempfile.TemporaryDirectory() as raw:
-            root = Path(raw)
-            path = self.write_request(root, self.parent_plan())
-            request, parent = routed.validate_request(path)
-            self.assertEqual(["seg-002"], request["segmentIds"])
-            self.assertEqual("curated-intake", parent["segments"][1]["route"])
-
-    def test_stale_hash_and_non_curated_scope_are_rejected(self):
-        with tempfile.TemporaryDirectory() as raw:
-            root = Path(raw)
-            with self.assertRaisesRegex(ValueError, "parentPlanHash"):
-                routed.validate_request(self.write_request(root, self.parent_plan(), hash_value="sha256:" + "0" * 64))
-            with self.assertRaisesRegex(ValueError, "non-Curated"):
-                routed.validate_request(self.write_request(root, self.parent_plan(), segment_ids=["seg-001"]))
-
-    def test_result_cannot_modify_locked_or_out_of_scope_parent_fields(self):
-        plan = self.parent_plan()
-        result = {
-            "schemaVersion": "hyperframes-visual-director/curated-result-v1",
-            "parentPlanHash": routed.canonical_hash(plan),
-            "clusterId": "teach-001",
-            "segmentIds": ["seg-002"],
-            "lockedDecisions": ["range", "dominantVisual", "route"],
-            "segmentUpdates": [{"segmentId": "seg-002", "range": {"startFrame": 250, "endFrame": 600}, "sceneContracts": [], "beats": [], "components": [], "questionsResolved": []}],
-            "scopeChangeProposal": None,
-        }
-        with self.assertRaisesRegex(Exception, "locked decisions"):
-            merge.merge_result(plan, result)
-        result["segmentUpdates"][0].pop("range")
-        updated = merge.merge_result(plan, result)
-        self.assertIn("curated", updated["segments"][1])
-        self.assertEqual("proposed", updated["segments"][1]["approval"]["state"])
-        self.assertEqual(300, updated["segments"][1]["range"]["startFrame"])
-
-    def test_standalone_skill_text_still_requires_animation_scope(self):
-        skill = (CURATED.parent / "SKILL.md").read_text(encoding="utf-8")
-        self.assertIn("哪些段落/时间范围需要动画", skill)
-        self.assertIn("Standalone", skill)
-        self.assertIn("Routed", skill)
-
-
-if __name__ == "__main__":
-    unittest.main()
+    storyboard = json.loads(make_storyboard(tmp_path).read_text(encoding="utf-8"))
+    request["segmentIds"] = ["seg-1"]
+    request["approvedScope"]["segmentIds"] = ["seg-1"]
+    request["approvedScope"]["segmentSceneMap"] = {"seg-1": []}
+    try:
+        _routed.result_packet(request, storyboard)
+        raise AssertionError("empty stable scene set implicitly claimed Storyboard scenes")
+    except ValueError as error:
+        assert "unmapped Storyboard scenes" in str(error)

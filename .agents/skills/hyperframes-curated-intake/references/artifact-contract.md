@@ -1,51 +1,48 @@
-# Artifact contract
+# Artifact contract v3
 
-Each decision has one narrow authority.
+Every decision has one owner. Conflicts resolve in this order: explicit user locks, the canonical
+artifact that owns the field, skill defaults, then catalog ranking. Approval freezes the
+Storyboard; defaults and scorers cannot silently replace it.
 
-| Artifact | Authority |
-| --- | --- |
-| `BRIEF.md` | intent, audience, delivery, confirmed Frame, asset policy, curation policy, run boundary |
-| `frame.md` | visual system, composition language, typography, color, material, density, camera and motion character |
-| `STORYBOARD.md` | scene order, stable identity, canonical composition path, purpose, source relation, timing, narrative beats and the complete adjacent-scene transition map |
-| `scene-contracts/<id>.json` | approved teaching classification, concrete construction, layers, incoming transition, asset bindings, directed integrations, text plan, motion phases and evidence targets |
-| `hyperframes.json` | Registry endpoint and project installation paths |
-| `.hyperframes/curation.json` | bounded candidate palette, provenance, policy and catalog misses |
-| `.hyperframes/build-plan.json` | exact selected scene integrations and adjacent-boundary transitions with expected staging/integration methods |
-| `.hyperframes/intake-handoff.json` | complete expected scene set, canonical paths, timing, artifact hashes and next-stage state |
-| `.media/manifest.jsonl` | adopted media path, source, hash and required status |
-| `.hyperframes/usage.json` | later Build evidence for integrated scene elements |
-| `*.motion.json` | later Build evidence for ordering, text appearance and ambient liveness |
-| `.hyperframes/curated-intake-request.json` | optional routed-mode parent hash, cluster scope, inherited decisions, locks, assets, timing, and open questions |
-| `.hyperframes/curated-intake-result.json` | routed-mode teaching result returned for bounded upstream merge; never authority over the parent plan |
+| Artifact | Class | Sole responsibility |
+| --- | --- | --- |
+| `BRIEF.md` | canonical | why, who, delivery, source scope, asset policy, explicit overrides |
+| `frame.md` | canonical | palette, typography, material, composition grammar, spatial system, motion character |
+| `STORYBOARD.md` | canonical | v3 scene timing, content, visual, motion, approved uses, transitions, and locks |
+| `.hyperframes/curation.json` | state | v5 runtime output: exact Storyboard hash review state, needs, non-numeric candidate audits, hard-filter evidence, source, rejected choices, catalog misses; v4 is read-only migration input |
+| `.hyperframes/intake-manifest.json` | state | status, IDs, relative paths, hashes, blockers |
+| `.hyperframes/compiled/storyboard.json` | derived cache | machine projection of `STORYBOARD.md`; never hand-edited |
+| `.hyperframes/staging-receipt.json` | evidence | staged sources, destinations, licenses, provenance, hashes |
+| `.hyperframes/usage.json` and motion sidecars | build evidence | actual runtime targets, calls, states, snapshots, receipts |
+| `HANDOFF.md` | navigation | status, canonical read order, manifest, preflight, next action, blockers |
 
-## Identity
+`hyperframes.json` is runtime configuration, not creative authority. Composition paths derive from
+`scene id → compositions/frames/<id>.html`; do not repeat them in scene records.
 
-Every scene carries one stable value across:
+Derived files carry `generated: true`, `source: STORYBOARD.md`, and `sourceHash`. A hash mismatch
+makes the cache stale. Intake does not generate scene contracts or a Build Plan. If Build creates a
+   ledger, it stores use IDs, state, receipts, and blockers without copying creative prose.
 
-```text
-sceneId
-= STORYBOARD src stem
-= scene-contract filename stem
-= composition data-composition-id
-= motion-sidecar stem
-= build-plan sceneId
-= usage scene id
-```
+In routed mode the parent `director-plan.json` remains the only whole-film machine authority.
+Curated Intake returns one bounded result patch tied to the parent hash and requested segment IDs.
+It does not produce a parallel project packet before the Visual Director merges that patch.
 
-The handoff manifest lists the complete expected scene set. Preflight and build verification use that set as their denominator.
+## Storyboard v3 boundary
 
-In routed mode, the parent `director-plan.json` remains the sole whole-film machine authority. Curated files may refer to it by path/hash but never replace it. Only the Visual Director's bounded merge accepts result fields and returns affected segments to review.
+`storyboard-spec.schema.json` defines the production `hyperframes-storyboard/v3` authority. It has one
+scene layer (`start/end/content/visual/uses/motion`) and optional title, next, narration,
+on-screen text, SFX, source anchor, and field locks. It contains no approval, audit, candidate,
+selector, percentage-event, or needs-review state. `curated-intake-result.schema.json` may patch only
+those v3 scene fields and must respect global timing and scene locks.
 
-## Paths and provenance
+The use-ID contract separates Library-kind/`authored:` IDs from migration-only `recipe:` IDs.
+The existing alias resolver may map a recipe to a real catalog ID. Otherwise a required recipe fails
+selection, an optional recipe remains a provenance-bearing `unresolved-recipe` miss, and unresolved
+recipes fail every production path. Resolution claims are live-verified against the selected library
+and retained in staging provenance. Motion attestation is external, automated-agent-authored, and
+keyed to the exact Storyboard hash.
 
-Project runtime dependencies use project-relative paths. Shared Frame and media sources are copied into the project with SHA-256 provenance. The copy-ready prompt may name the absolute project root for discovery; generated runtime files resolve dependencies within that root.
-
-## State model
-
-Registry items and selected transition Blocks advance through observable states:
-
-```text
-candidate → selected-for-build → staged → integrated → verified
-```
-
-Each state has its own file and evidence. A later state includes evidence beyond the earlier state.
+The frozen `storyboard-spec.v2.legacy.schema.json` is accepted only by the explicit migration CLI;
+it must not evolve. The unused routed-result v2 legacy Schema was removed in F1; production
+standalone artifacts and routed results are v3. `assets/library/inventory-latest.json` is the only
+current library inventory report.
