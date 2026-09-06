@@ -1,0 +1,282 @@
+{
+  "schemaVersion": "video-spec-builder-legacy-aliases/v1",
+  "source": "catalog.json",
+  "aliases": {
+    "aroll.concept-card": {
+      "registry_id": "registry-component:overlay-concept-card",
+      "result": "ready"
+    },
+    "aroll.keyword-sticker": {
+      "registry_id": "registry-component:overlay-keyword-sticker",
+      "result": "ready"
+    },
+    "aroll.subtitle-highlight": {
+      "registry_id": "registry-component:overlay-subtitle-highlight",
+      "result": "ready"
+    },
+    "broll-abstract.analogy": {
+      "registry_id": "registry-component:abstract-analogy",
+      "result": "ready"
+    },
+    "broll-abstract.black-box": {
+      "registry_id": "registry-component:abstract-black-box",
+      "result": "ready"
+    },
+    "broll-abstract.equation": {
+      "registry_id": "registry-component:abstract-equation",
+      "result": "ready"
+    },
+    "broll-abstract.iceberg": {
+      "registry_id": "registry-component:abstract-iceberg",
+      "result": "ready"
+    },
+    "broll-abstract.placeholder": {
+      "registry_id": null,
+      "result": "no_recommendation"
+    },
+    "broll-abstract.spectrum": {
+      "registry_id": "registry-component:abstract-spectrum",
+      "result": "ready"
+    },
+    "broll-abstract.versus": {
+      "registry_id": "registry-component:abstract-versus",
+      "result": "ready"
+    },
+    "broll-charts.area-chart": {
+      "registry_id": "registry-component:chart-area",
+      "result": "ready"
+    },
+    "broll-charts.bar-chart": {
+      "registry_id": "registry-component:chart-bar",
+      "result": "ready"
+    },
+    "broll-charts.donut": {
+      "registry_id": "registry-component:chart-donut",
+      "result": "ready"
+    },
+    "broll-charts.gauge": {
+      "registry_id": "registry-component:chart-gauge",
+      "result": "ready"
+    },
+    "broll-charts.h-bar": {
+      "registry_id": "registry-component:chart-horizontal-bar",
+      "result": "ready"
+    },
+    "broll-charts.heatmap": {
+      "registry_id": "registry-component:chart-heatmap",
+      "result": "ready"
+    },
+    "broll-charts.line-chart": {
+      "registry_id": "registry-component:chart-line",
+      "result": "ready"
+    },
+    "broll-charts.multi-line": {
+      "registry_id": "registry-component:chart-multi-line",
+      "result": "ready"
+    },
+    "broll-charts.sankey": {
+      "registry_id": "registry-component:chart-sankey",
+      "result": "ready"
+    },
+    "broll-charts.scatter": {
+      "registry_id": "registry-component:chart-scatter",
+      "result": "ready"
+    },
+    "broll-charts.sparkline": {
+      "registry_id": "registry-component:chart-sparkline",
+      "result": "ready"
+    },
+    "broll-charts.stacked": {
+      "registry_id": "registry-component:chart-stacked-bar",
+      "result": "ready"
+    },
+    "broll-flows.branching": {
+      "registry_id": "registry-component:flow-branching",
+      "result": "ready"
+    },
+    "broll-flows.complex": {
+      "registry_id": "registry-component:flow-complex",
+      "result": "ready"
+    },
+    "broll-flows.decision-tree": {
+      "registry_id": "registry-component:flow-decision-tree",
+      "result": "ready"
+    },
+    "broll-flows.fork-join": {
+      "registry_id": "registry-component:flow-fork-join",
+      "result": "ready"
+    },
+    "broll-flows.loop": {
+      "registry_id": "registry-component:flow-loop",
+      "result": "ready"
+    },
+    "broll-flows.sequence": {
+      "registry_id": "registry-component:flow-sequence",
+      "result": "ready"
+    },
+    "broll-flows.state-machine": {
+      "registry_id": "registry-component:flow-state-machine",
+      "result": "ready"
+    },
+    "broll-flows.swimlane": {
+      "registry_id": "registry-component:flow-swimlane",
+      "result": "ready"
+    },
+    "broll-hero.big-number": {
+      "registry_id": "registry-component:hero-big-number",
+      "result": "ready"
+    },
+    "broll-hero.big-type": {
+      "registry_id": "registry-component:hero-big-type",
+      "result": "ready"
+    },
+    "broll-hero.inversion-flash": {
+      "registry_id": "registry-component:hero-inversion-flash",
+      "result": "ready"
+    },
+    "broll-hero.pull-quote": {
+      "registry_id": "registry-component:hero-pull-quote",
+      "result": "ready"
+    },
+    "broll-structure.concentric": {
+      "registry_id": "registry-component:structure-concentric",
+      "result": "ready"
+    },
+    "broll-structure.flow-chart": {
+      "registry_id": "registry-component:structure-flow-chart",
+      "result": "ready"
+    },
+    "broll-structure.funnel": {
+      "registry_id": "registry-component:structure-funnel",
+      "result": "ready"
+    },
+    "broll-structure.node-graph": {
+      "registry_id": "registry-component:structure-node-graph",
+      "result": "ready"
+    },
+    "broll-structure.pyramid": {
+      "registry_id": "registry-component:structure-pyramid",
+      "result": "ready"
+    },
+    "broll-structure.spectrum": {
+      "registry_id": "registry-component:structure-spectrum",
+      "result": "ready"
+    },
+    "broll-structures2.grid-map": {
+      "registry_id": "registry-component:structure-grid-map",
+      "result": "ready"
+    },
+    "broll-structures2.hub-spoke": {
+      "registry_id": "registry-component:structure-hub-spoke",
+      "result": "ready"
+    },
+    "broll-structures2.layered-stack": {
+      "registry_id": "registry-component:structure-layered-stack",
+      "result": "ready"
+    },
+    "broll-structures2.matrix-2x2": {
+      "registry_id": "registry-component:structure-matrix-2x2",
+      "result": "ready"
+    },
+    "broll-structures2.mind-map": {
+      "registry_id": "registry-component:structure-mind-map",
+      "result": "ready"
+    },
+    "broll-structures2.tree": {
+      "registry_id": "registry-component:structure-tree",
+      "result": "ready"
+    },
+    "broll-structures2.venn": {
+      "registry_id": "registry-component:structure-venn",
+      "result": "ready"
+    },
+    "broll-thinking.card-grid": {
+      "registry_id": "registry-component:thinking-card-grid",
+      "result": "ready"
+    },
+    "broll-thinking.compare-table": {
+      "registry_id": "registry-component:thinking-compare-table",
+      "result": "ready"
+    },
+    "broll-thinking.fishbone": {
+      "registry_id": "registry-component:thinking-fishbone",
+      "result": "ready"
+    },
+    "broll-thinking.gantt": {
+      "registry_id": "registry-component:thinking-gantt",
+      "result": "ready"
+    },
+    "broll-thinking.kanban": {
+      "registry_id": "registry-component:thinking-kanban",
+      "result": "ready"
+    },
+    "broll-thinking.swot": {
+      "registry_id": "registry-component:thinking-swot",
+      "result": "ready"
+    },
+    "broll-thinking.timeline-row": {
+      "registry_id": "registry-component:thinking-timeline-row",
+      "result": "ready"
+    },
+    "broll-ui.api-call": {
+      "registry_id": "registry-component:ui-api-call",
+      "result": "ready"
+    },
+    "broll-ui.browser": {
+      "registry_id": "registry-component:ui-browser",
+      "result": "ready"
+    },
+    "broll-ui.chat-thread": {
+      "registry_id": "registry-component:ui-chat-thread",
+      "result": "ready"
+    },
+    "broll-ui.code-editor": {
+      "registry_id": "registry-component:ui-code-editor",
+      "result": "ready"
+    },
+    "broll-ui.dashboard": {
+      "registry_id": "registry-component:ui-dashboard",
+      "result": "ready"
+    },
+    "broll-ui.terminal": {
+      "registry_id": "registry-component:ui-terminal",
+      "result": "ready"
+    },
+    "icons.lucide-set": {
+      "registry_id": "registry-component:icon-lucide-set",
+      "result": "ready"
+    },
+    "icons.stroke-weights": {
+      "registry_id": "registry-component:icon-stroke-weights",
+      "result": "ready"
+    },
+    "illustrations.scene-analytics": {
+      "registry_id": "registry-component:illustration-analytics",
+      "result": "ready"
+    },
+    "illustrations.scene-co-create": {
+      "registry_id": "registry-component:illustration-co-create",
+      "result": "ready"
+    },
+    "illustrations.scene-launch": {
+      "registry_id": "registry-component:illustration-launch",
+      "result": "ready"
+    },
+    "illustrations.scene-library": {
+      "registry_id": "registry-component:illustration-scene-library",
+      "result": "ready"
+    },
+    "illustrations.scene-prompt": {
+      "registry_id": "registry-component:illustration-prompt",
+      "result": "ready"
+    },
+    "illustrations.scene-retrieval": {
+      "registry_id": "registry-component:illustration-retrieval",
+      "result": "ready"
+    },
+    "illustrations.scene-thinking": {
+      "registry_id": "registry-component:illustration-thinking",
+      "result": "ready"
+    }
+  }
+}

@@ -1,42 +1,42 @@
 {
-  "schemaVersion": "mav-hyperframes-library-inventory/v1",
+  "schemaVersion": "hyperframes-curated-library-inventory/v1",
   "library": ".",
   "catalog": {
     "path": "catalog.json",
     "schemaVersion": "hyperframes-directed-video-library/v1",
     "schemaValid": true,
-    "revision": 7,
-    "sha256": "bca7b943fc1ba4ae3037e847c7a8e4c5911c03bbde428a17d12c4ee9f69841b9"
+    "revision": 15,
+    "sha256": "8ee24dd0d01e8199ed54d44fb990663205ccfc3e210dafbc227a64259a480809"
   },
   "registry": {
     "path": "registry/registry.json",
     "exists": true,
-    "name": "mav-curated",
-    "items": 144
+    "name": "hyperframes-curated",
+    "items": 162
   },
   "summary": {
-    "entries": 345,
+    "entries": 356,
     "kinds": {
       "background": 4,
       "font": 8,
       "logo": 95,
       "lottie": 30,
       "motion-rule": 4,
-      "registry-block": 45,
-      "registry-component": 118,
+      "registry-block": 48,
+      "registry-component": 123,
       "scene-blueprint": 4,
       "sfx": 3,
       "svg": 31,
       "texture": 1,
-      "transition": 2
+      "transition": 5
     },
     "statuses": {
       "disabled": 9,
-      "ready": 336
+      "ready": 347
     },
-    "registryEligible": 154,
-    "registryMapped": 144,
-    "registryValid": 144,
+    "registryEligible": 162,
+    "registryMapped": 162,
+    "registryValid": 162,
     "frames": 8,
     "errors": 0,
     "warnings": 19
@@ -45,42 +45,42 @@
     {
       "preset": "biennale-yellow",
       "path": "frames/biennale-yellow/FRAME.md",
-      "sha256": "2502ffff48182d00756ce1e61969c709f4d54e3162f92958a5b9c258ee4a1720"
+      "sha256": "d0c013cf4fbe4cf1863a01972f5113e713887d569afca25c187b9b6e190fe0e2"
     },
     {
       "preset": "bmw-m-engineered-contrast",
       "path": "frames/bmw-m-engineered-contrast/FRAME.md",
-      "sha256": "92555299f2b87908c713e6891d2238bdc3e3c40efaf828b6d08034a5ce6ec34d"
+      "sha256": "18e14c064ed0dd86a77d60ac285d72c3eb78ae5f11f963b1fd4623474ded276c"
     },
     {
       "preset": "broadside",
       "path": "frames/broadside/FRAME.md",
-      "sha256": "d0087171b5dafaf3937b70c9fcedad81c0ac3ff3facea5cee8e45ee1d78f2b24"
+      "sha256": "5568705c5f44bdcf060105bed87378f80a2d82f5029afc24562b515f3ae22fed"
     },
     {
       "preset": "cartesian",
       "path": "frames/cartesian/FRAME.md",
-      "sha256": "d0061354a4a1069b8dfaff59472622964c0dea309a8188228acc74873a5a9dde"
+      "sha256": "0763299ebc86cf0bc17f9aca4b5903232ce548e51f747921629055b4f078a1d7"
     },
     {
       "preset": "cobalt-grid",
       "path": "frames/cobalt-grid/FRAME.md",
-      "sha256": "a9e3bcd2dab5732334c68f1d55095e57b5b75115488ec47575959ea6b758d9c3"
+      "sha256": "e087161e2dedc8625b54c77040cbd5aa75dbebc92dd2f2666895fad966c297cd"
     },
     {
       "preset": "dell-1996",
       "path": "frames/dell-1996/FRAME.md",
-      "sha256": "1d494646e1f9a27a60e87400569b6d03fd3c622293fa12c96e84454bc491575a"
+      "sha256": "b3bece48512cd3bc5407fb48ceb5ef1b2694bfb2f60c34f5d4d42267e4f21d5b"
     },
     {
       "preset": "ferrari-editorial-chiaroscuro",
       "path": "frames/ferrari-editorial-chiaroscuro/FRAME.md",
-      "sha256": "28ac34028df533f7e536433950d1b6d6a75d715d55a8915983512256e36b4fbb"
+      "sha256": "ee988a3e03c034403b28f793b916cb9a3ea7479c0b778c9f6175824a450e3b69"
     },
     {
       "preset": "runway-editorial-cinema",
       "path": "frames/runway-editorial-cinema/FRAME.md",
-      "sha256": "f3281c633ef696b6683195907428a9adba91f5eaa1d3dce64a165ee3cee5d85a"
+      "sha256": "8612e88a7099ec77626aa0f922afbd41f2ee5e74e540f74df950a3de06e8aad3"
     }
   ],
   "entries": [
@@ -2711,9 +2711,9 @@
         "eligible": true,
         "type": "hyperframes:block",
         "itemPath": "blocks/before-after-wipe/registry-item.json",
-        "exists": false,
-        "manifestListed": false,
-        "valid": false
+        "exists": true,
+        "manifestListed": true,
+        "valid": true
       }
     },
     {
@@ -2833,9 +2833,9 @@
         "eligible": true,
         "type": "hyperframes:block",
         "itemPath": "blocks/caption-camera-follow/registry-item.json",
-        "exists": false,
-        "manifestListed": false,
-        "valid": false
+        "exists": true,
+        "manifestListed": true,
+        "valid": true
       }
     },
     {
@@ -3022,6 +3022,37 @@
       }
     },
     {
+      "id": "registry-block:chatgpt-desktop-exchange",
+      "kind": "registry-block",
+      "status": "ready",
+      "sourceFiles": [
+        {
+          "path": "candidates/visual-director/blocks/chatgpt-desktop-exchange.html",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "423b15cf433ae6cd480526ecc0e2dadfcf76e9cf87c6eff153affdb5c50070f6"
+        },
+        {
+          "path": "registry/assets/vendor/gsap.min.js",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280"
+        }
+      ],
+      "preview": {
+        "path": "candidates/visual-director/blocks/chatgpt-desktop-exchange.html",
+        "exists": true
+      },
+      "registry": {
+        "eligible": true,
+        "type": "hyperframes:block",
+        "itemPath": "blocks/chatgpt-desktop-exchange/registry-item.json",
+        "exists": true,
+        "manifestListed": true,
+        "valid": true
+      }
+    },
+    {
       "id": "registry-block:chatgpt-exchange",
       "kind": "registry-block",
       "status": "ready",
@@ -3199,9 +3230,9 @@
         "eligible": true,
         "type": "hyperframes:block",
         "itemPath": "blocks/code-snippet-apple-terminal-clear-dark/registry-item.json",
-        "exists": false,
-        "manifestListed": false,
-        "valid": false
+        "exists": true,
+        "manifestListed": true,
+        "valid": true
       }
     },
     {
@@ -3260,9 +3291,9 @@
         "eligible": true,
         "type": "hyperframes:block",
         "itemPath": "blocks/code-snippet-dark-plus/registry-item.json",
-        "exists": false,
-        "manifestListed": false,
-        "valid": false
+        "exists": true,
+        "manifestListed": true,
+        "valid": true
       }
     },
     {
@@ -3443,6 +3474,37 @@
         "eligible": true,
         "type": "hyperframes:block",
         "itemPath": "blocks/domain-warp-dissolve/registry-item.json",
+        "exists": true,
+        "manifestListed": true,
+        "valid": true
+      }
+    },
+    {
+      "id": "registry-block:film-credits-stagger",
+      "kind": "registry-block",
+      "status": "ready",
+      "sourceFiles": [
+        {
+          "path": "candidates/visual-director/blocks/film-credits-stagger.html",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "f75373b3c36fd1acc1e862105fd161b452a840a08bcc30ce15c6b6407e03f93f"
+        },
+        {
+          "path": "registry/assets/vendor/gsap.min.js",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280"
+        }
+      ],
+      "preview": {
+        "path": "candidates/visual-director/blocks/film-credits-stagger.html",
+        "exists": true
+      },
+      "registry": {
+        "eligible": true,
+        "type": "hyperframes:block",
+        "itemPath": "blocks/film-credits-stagger/registry-item.json",
         "exists": true,
         "manifestListed": true,
         "valid": true
@@ -4583,9 +4645,9 @@
         "eligible": true,
         "type": "hyperframes:block",
         "itemPath": "blocks/ordered-dither-pass/registry-item.json",
-        "exists": false,
-        "manifestListed": false,
-        "valid": false
+        "exists": true,
+        "manifestListed": true,
+        "valid": true
       }
     },
     {
@@ -4644,9 +4706,9 @@
         "eligible": true,
         "type": "hyperframes:block",
         "itemPath": "blocks/particle-text-dissolve/registry-item.json",
-        "exists": false,
-        "manifestListed": false,
-        "valid": false
+        "exists": true,
+        "manifestListed": true,
+        "valid": true
       }
     },
     {
@@ -4705,9 +4767,9 @@
         "eligible": true,
         "type": "hyperframes:block",
         "itemPath": "blocks/stitched-text-draw/registry-item.json",
-        "exists": false,
-        "manifestListed": false,
-        "valid": false
+        "exists": true,
+        "manifestListed": true,
+        "valid": true
       }
     },
     {
@@ -4766,9 +4828,9 @@
         "eligible": true,
         "type": "hyperframes:block",
         "itemPath": "blocks/telemetry-hud/registry-item.json",
-        "exists": false,
-        "manifestListed": false,
-        "valid": false
+        "exists": true,
+        "manifestListed": true,
+        "valid": true
       }
     },
     {
@@ -4827,9 +4889,9 @@
         "eligible": true,
         "type": "hyperframes:block",
         "itemPath": "blocks/testimonial-proof-card/registry-item.json",
-        "exists": false,
-        "manifestListed": false,
-        "valid": false
+        "exists": true,
+        "manifestListed": true,
+        "valid": true
       }
     },
     {
@@ -4949,9 +5011,9 @@
         "eligible": true,
         "type": "hyperframes:block",
         "itemPath": "blocks/variable-axis-type/registry-item.json",
-        "exists": false,
-        "manifestListed": false,
-        "valid": false
+        "exists": true,
+        "manifestListed": true,
+        "valid": true
       }
     },
     {
@@ -5071,6 +5133,37 @@
         "eligible": true,
         "type": "hyperframes:block",
         "itemPath": "blocks/vfx-text-cursor/registry-item.json",
+        "exists": true,
+        "manifestListed": true,
+        "valid": true
+      }
+    },
+    {
+      "id": "registry-block:wechat-desktop-exchange",
+      "kind": "registry-block",
+      "status": "ready",
+      "sourceFiles": [
+        {
+          "path": "candidates/visual-director/blocks/wechat-desktop-exchange.html",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "2e3e19eb5136aac03266603cda2c1620e0539e88332ac92d0ed0ab084a5a3b6e"
+        },
+        {
+          "path": "registry/assets/vendor/gsap.min.js",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280"
+        }
+      ],
+      "preview": {
+        "path": "candidates/visual-director/blocks/wechat-desktop-exchange.html",
+        "exists": true
+      },
+      "registry": {
+        "eligible": true,
+        "type": "hyperframes:block",
+        "itemPath": "blocks/wechat-desktop-exchange/registry-item.json",
         "exists": true,
         "manifestListed": true,
         "valid": true
@@ -5683,6 +5776,43 @@
         "eligible": true,
         "type": "hyperframes:component",
         "itemPath": "components/abstract-versus/registry-item.json",
+        "exists": true,
+        "manifestListed": true,
+        "valid": true
+      }
+    },
+    {
+      "id": "registry-component:active-border",
+      "kind": "registry-component",
+      "status": "ready",
+      "sourceFiles": [
+        {
+          "path": "components/active-border/component.js",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "0cbaed6e2c06dcf852fb5b405e5a33180e41b62f3b00fc5cb6e245ec0db69bac"
+        },
+        {
+          "path": "components/fidelity-runtime.js",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "8fd1fc33bc8c633ba1a91a96dc95bf3e66d4c979547d7934ae05448e23b82dd6"
+        },
+        {
+          "path": "components/runtime.js",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "b7236a1cbbe9a9e918f243560bc537d0eab01370bb7cd3f9cc7736de8410534b"
+        }
+      ],
+      "preview": {
+        "path": "previews/migrated/component/active-border.svg",
+        "exists": true
+      },
+      "registry": {
+        "eligible": true,
+        "type": "hyperframes:component",
+        "itemPath": "components/active-border/registry-item.json",
         "exists": true,
         "manifestListed": true,
         "valid": true
@@ -6483,6 +6613,43 @@
       }
     },
     {
+      "id": "registry-component:concept-pin",
+      "kind": "registry-component",
+      "status": "ready",
+      "sourceFiles": [
+        {
+          "path": "components/concept-pin/component.js",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "0684d10b2a64a29bd523040865d373ccfffcab1230a2d0fe177c876ae58c7bba"
+        },
+        {
+          "path": "components/fidelity-runtime.js",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "8fd1fc33bc8c633ba1a91a96dc95bf3e66d4c979547d7934ae05448e23b82dd6"
+        },
+        {
+          "path": "components/runtime.js",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "b7236a1cbbe9a9e918f243560bc537d0eab01370bb7cd3f9cc7736de8410534b"
+        }
+      ],
+      "preview": {
+        "path": "previews/migrated/component/concept-pin.svg",
+        "exists": true
+      },
+      "registry": {
+        "eligible": true,
+        "type": "hyperframes:component",
+        "itemPath": "components/concept-pin/registry-item.json",
+        "exists": true,
+        "manifestListed": true,
+        "valid": true
+      }
+    },
+    {
       "id": "registry-component:connector-draw",
       "kind": "registry-component",
       "status": "ready",
@@ -6755,6 +6922,43 @@
         "eligible": true,
         "type": "hyperframes:component",
         "itemPath": "components/dual-arc-converge/registry-item.json",
+        "exists": true,
+        "manifestListed": true,
+        "valid": true
+      }
+    },
+    {
+      "id": "registry-component:evidence-lens",
+      "kind": "registry-component",
+      "status": "ready",
+      "sourceFiles": [
+        {
+          "path": "components/evidence-lens/component.js",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "4b2b541b141faa489867474d67ab66ecd9ecbdb7651e316a168f01dacac7ab17"
+        },
+        {
+          "path": "components/fidelity-runtime.js",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "8fd1fc33bc8c633ba1a91a96dc95bf3e66d4c979547d7934ae05448e23b82dd6"
+        },
+        {
+          "path": "components/runtime.js",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "b7236a1cbbe9a9e918f243560bc537d0eab01370bb7cd3f9cc7736de8410534b"
+        }
+      ],
+      "preview": {
+        "path": "previews/migrated/component/evidence-lens.svg",
+        "exists": true
+      },
+      "registry": {
+        "eligible": true,
+        "type": "hyperframes:component",
+        "itemPath": "components/evidence-lens/registry-item.json",
         "exists": true,
         "manifestListed": true,
         "valid": true
@@ -8422,6 +8626,43 @@
       }
     },
     {
+      "id": "registry-component:pointer-proof",
+      "kind": "registry-component",
+      "status": "ready",
+      "sourceFiles": [
+        {
+          "path": "components/pointer-proof/component.js",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "d9a7b0214cf1a7d224d4f7c3378456f28c137d78ef1a9995508857abff22c348"
+        },
+        {
+          "path": "components/fidelity-runtime.js",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "8fd1fc33bc8c633ba1a91a96dc95bf3e66d4c979547d7934ae05448e23b82dd6"
+        },
+        {
+          "path": "components/runtime.js",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "b7236a1cbbe9a9e918f243560bc537d0eab01370bb7cd3f9cc7736de8410534b"
+        }
+      ],
+      "preview": {
+        "path": "previews/migrated/component/pointer-proof.svg",
+        "exists": true
+      },
+      "registry": {
+        "eligible": true,
+        "type": "hyperframes:component",
+        "itemPath": "components/pointer-proof/registry-item.json",
+        "exists": true,
+        "manifestListed": true,
+        "valid": true
+      }
+    },
+    {
       "id": "registry-component:result-rows",
       "kind": "registry-component",
       "status": "ready",
@@ -9278,6 +9519,43 @@
         "eligible": true,
         "type": "hyperframes:component",
         "itemPath": "components/svg-mask-reveal/registry-item.json",
+        "exists": true,
+        "manifestListed": true,
+        "valid": true
+      }
+    },
+    {
+      "id": "registry-component:teaching-bento",
+      "kind": "registry-component",
+      "status": "ready",
+      "sourceFiles": [
+        {
+          "path": "components/teaching-bento/component.js",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "004df3b895e64b5e1986c682f87408b5176eef5ba82ebf98ed7ca8e3a270b813"
+        },
+        {
+          "path": "components/fidelity-runtime.js",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "8fd1fc33bc8c633ba1a91a96dc95bf3e66d4c979547d7934ae05448e23b82dd6"
+        },
+        {
+          "path": "components/runtime.js",
+          "exists": true,
+          "hashMatches": true,
+          "sha256": "b7236a1cbbe9a9e918f243560bc537d0eab01370bb7cd3f9cc7736de8410534b"
+        }
+      ],
+      "preview": {
+        "path": "previews/migrated/component/teaching-bento.svg",
+        "exists": true
+      },
+      "registry": {
+        "eligible": true,
+        "type": "hyperframes:component",
+        "itemPath": "components/teaching-bento/registry-item.json",
         "exists": true,
         "manifestListed": true,
         "valid": true
@@ -10735,6 +11013,39 @@
       ],
       "preview": {
         "path": "media/images/textures/grain-neutral-512.png",
+        "exists": true
+      },
+      "registry": null
+    },
+    {
+      "id": "transition:depth-swap",
+      "kind": "transition",
+      "status": "ready",
+      "sourceFiles": [],
+      "preview": {
+        "path": "previews/fixture-block.svg",
+        "exists": true
+      },
+      "registry": null
+    },
+    {
+      "id": "transition:edge-lit-wipe",
+      "kind": "transition",
+      "status": "ready",
+      "sourceFiles": [],
+      "preview": {
+        "path": "previews/fixture-block.svg",
+        "exists": true
+      },
+      "registry": null
+    },
+    {
+      "id": "transition:focus-pull",
+      "kind": "transition",
+      "status": "ready",
+      "sourceFiles": [],
+      "preview": {
+        "path": "previews/fixture-block.svg",
         "exists": true
       },
       "registry": null
