@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HyperFrames 视觉总导演</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">总导</span><div><small>HYPERFRAMES</small><h1>视觉总导演</h1></div></div>
+    <div class="project-state"><span id="revision">版本 —</span><span id="approval">载入中</span><button id="finalApprove" class="primary">批准整片</button></div>
+  </header>
+  <main>
+    <section class="overview panel">
+      <div class="section-head"><div><small>全片状态</small><h2>项目概览</h2></div><p id="projectMeta"></p></div>
+      <div class="metric-grid" id="metricGrid"></div>
+      <div class="share-row"><span>画面构成</span><div class="share-bars" id="shareBars"></div></div>
+    </section>
+
+    <section class="timeline panel">
+      <div class="section-head"><div><small>导演视图</small><h2>多轨时间线</h2></div><p>点击主画面片段进行审阅</p></div>
+      <div class="timeline-shell"><div class="track-labels" id="trackLabels"></div><div class="track-stage"><div class="ruler" id="ruler"></div><div id="tracks"></div></div></div>
+    </section>
+
+    <section class="inspector panel">
+      <div class="section-head"><div><small>当前片段</small><h2>片段审阅</h2></div><span id="selectionState">尚未选择</span></div>
+      <div id="emptyInspector" class="empty"><b>从主画面轨选择一个片段</b><span>只需确认画面、关键文字和时间是否合适。</span></div>
+      <div id="segmentInspector" hidden>
+        <div class="segment-summary"><div><span id="segmentNumber" class="eyebrow"></span><b id="segmentTime"></b></div><span id="segmentStatus" class="status-pill"></span></div>
+        <section class="decision-card"><span class="field-title">这段要表达</span><p id="messageView"></p></section>
+
+        <section class="subsection visual-editor">
+          <div class="subhead"><div><span class="field-title">推荐画面</span><h3 id="visualTitle">—</h3></div><span id="visualBadge" class="soft-pill"></span></div>
+          <p id="rationaleView" class="support-copy"></p>
+          <div class="inspector-grid essential-fields">
+            <label>画面形式<select id="visualType"></select></label>
+            <label id="catalogField">具体方案<select id="catalogId"></select></label>
+            <label>结束时间（秒）<input id="endSeconds" type="number" step="0.1" min="0"></label>
+          </div>
+          <div id="contentFields" class="content-fields"></div>
+          <button id="saveVisual" class="save-button">保存本段画面</button>
+        </section>
+
+        <section class="subsection">
+          <div class="subhead"><div><span class="field-title">辅助效果</span><h3>叠加层</h3></div><span id="layerCount" class="soft-pill"></span></div>
+          <div id="layerList"></div>
+          <div class="add-layer simple-add"><select id="newLayerType" aria-label="辅助效果类型"></select><button id="addLayer">添加效果</button></div>
+        </section>
+
+        <section class="subsection feedback-box">
+          <label>修改意见<input id="commentBody" placeholder="例如：这里的标题太长，改成一句结论"></label>
+          <div class="review-actions">
+            <button id="addComment">提交意见</button><button data-state="rejected" class="needs-work">需要修改</button><button data-state="approved" class="approve">接受本段</button><button data-state="locked" class="lock">接受并锁定</button>
+          </div>
+        </section>
+
+        <details class="technical-details">
+          <summary>技术详情（一般无需修改）</summary>
+          <div class="inspector-grid">
+            <label>片段 ID<input id="segmentId" readonly></label>
+            <label>下游流程<select id="route"><option value="direct-build">直接制作</option><option value="curated-intake">教学动画设计</option><option value="media-sourcing">素材准备</option><option value="source-only">保留原片</option></select></label>
+            <label>起始帧<input id="startFrame" type="number" readonly></label>
+            <label>结束帧<input id="endFrame" type="number" readonly></label>
+            <label>画面规则<select id="framePolicy"></select></label>
+          </div>
+          <label>原始画面参数（JSON）<textarea id="content" class="code" rows="7"></textarea></label>
+          <label>导演理由<textarea id="rationale" rows="3"></textarea></label>
+          <label hidden>本段唯一信息<textarea id="message" readonly></textarea></label>
+          <div class="advanced-layer-fields"><label>效果组件 ID<select id="newLayerCatalog"></select></label><label>作用目标<input id="newLayerTarget" placeholder="例如：主画面"></label></div>
+          <details class="diff"><summary>查看片段数据与最近审计</summary><pre id="segmentJson"></pre></details>
+        </details>
+      </div>
+    </section>
+
+    <section class="assets panel"><div class="section-head"><div><small>素材准备</small><h2>素材待办</h2></div><span id="assetCount"></span></div><div id="assetList"></div></section>
+    <section class="approval panel"><div class="section-head"><div><small>交付前检查</small><h2>批准状态</h2></div></div><div id="validation"></div><div class="approval-summary" id="approvalSummary"></div></section>
+  </main>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
