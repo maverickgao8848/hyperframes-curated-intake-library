@@ -14,4 +14,5 @@ it. Generic change claims, templates, same-state paraphrases, missing direction,
 claims fail the rubric. Record the conclusion and rationale outside Storyboard v3, quote `motion`
 verbatim, and identify the rubric version plus model or run provenance.
 
-The executable review fixture is `tests/fixtures/curated-intake-motion-attestation-v1.json`.
+The executable review fixture is
+`references/fixtures/curated-intake-motion-attestation-v1.json` inside this skill.

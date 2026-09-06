@@ -7,16 +7,18 @@
     "authorizationNote": "talkcraft-partner-authorization.md"
   },
   "hyperframesReferenceRepository": {
-    "path": "C:/Users/buend/Desktop/mav-works/mav-content-fac",
-    "commit": "b752ef5d13db88b90cd0652db953cacdacea692a"
+    "commit": "b752ef5d13db88b90cd0652db953cacdacea692a",
+    "availability": "provenance-only",
+    "runtimeRequired": false
   },
   "canonicalUiMotionLibrary": {
-    "path": "C:/Users/buend/Desktop/mav-works/mav-content-fac/.agents/skills/hyperframes-ui-motion-library",
-    "trackingStatus": "workspace-local-untracked",
+    "repositoryRelativePath": ".agents/skills/hyperframes-ui-motion-library",
+    "trackingStatus": "historical-workspace-local-untracked",
+    "runtimeRequired": false,
     "manifestSha256": "sha256:a1b3e8730dcc445d8450681550f4a17872a460507eb199f395c1baef3b365034",
     "sourceNotesSha256": "sha256:fa1487ff1abc72bf76bea5e82c36b886a9b7bbfbc2500376efab0ec0abcd64f9",
     "contractTest": "passed",
-    "sourceModel": "The maintained local Skill is the canonical source. WeChat and ChatGPT are clean-room HyperFrames-native implementations; Film Credits derives from a user-supplied HTML/GSAP snippet. No Remotion port is claimed for these three blocks."
+    "sourceModel": "The bundled derived targets are the production runtime sources. Historical sources are recorded for provenance only: WeChat and ChatGPT are clean-room HyperFrames-native implementations, while Film Credits derives from a user-supplied HTML/GSAP snippet. No Remotion port is claimed for these three blocks."
   },
   "blocks": [
     {
@@ -24,7 +26,8 @@
       "aspect": "16:9",
       "canonicalSource": {
         "type": "hyperframes-native-clean-room",
-        "path": ".agents/skills/hyperframes-ui-motion-library/assets/library/compositions/wechat-desktop-exchange.html",
+        "repositoryRelativePath": ".agents/skills/hyperframes-ui-motion-library/assets/library/compositions/wechat-desktop-exchange.html",
+        "runtimeRequired": false,
         "sha256": "sha256:e7678d16a5ea807ad51c062718b73840128dd9030b341be21541ebdfd43a792f"
       },
       "derivedTarget": {
@@ -42,7 +45,8 @@
       "aspect": "16:9",
       "canonicalSource": {
         "type": "hyperframes-native-clean-room",
-        "path": ".agents/skills/hyperframes-ui-motion-library/assets/library/compositions/chatgpt-desktop-exchange.html",
+        "repositoryRelativePath": ".agents/skills/hyperframes-ui-motion-library/assets/library/compositions/chatgpt-desktop-exchange.html",
+        "runtimeRequired": false,
         "sha256": "sha256:44ebeee49717e4c3a974e6c2f8a6e7308d4ac5038f65b9ed5a33f5345d9199e1"
       },
       "derivedTarget": {
@@ -67,7 +71,8 @@
       "aspect": "16:9",
       "canonicalSource": {
         "type": "user-supplied-html-gsap",
-        "path": ".agents/skills/hyperframes-ui-motion-library/assets/library/compositions/film-credits-stagger.html",
+        "repositoryRelativePath": ".agents/skills/hyperframes-ui-motion-library/assets/library/compositions/film-credits-stagger.html",
+        "runtimeRequired": false,
         "sha256": "sha256:8662a6680adf4c73425298df366579c4f8f7857f836e14b4e35d569bf1d7bb3c"
       },
       "derivedTarget": {

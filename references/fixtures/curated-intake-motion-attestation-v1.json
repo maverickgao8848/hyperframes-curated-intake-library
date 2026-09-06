@@ -1,0 +1,14 @@
+{
+  "rubricVersion": "motion-attestation/v1",
+  "authority": "automated-agent",
+  "cases": [
+    {"id": "en-valid-change", "language": "en", "category": "specific-internal-change", "motion": "Three unsorted claims converge into one cited claim, then its source opens beside it.", "expected": "accept"},
+    {"id": "zh-valid-static", "language": "zh-CN", "category": "specific-static-reason", "motion": "引文与出处并排保持不动，让观众逐字核对原文和来源。", "expected": "accept"},
+    {"id": "eval-en-filler", "language": "en", "category": "filler", "motion": "Something changes over time.", "expected": "reject"},
+    {"id": "eval-en-template", "language": "en", "category": "template", "motion": "Internal change: describe the before and after states here.", "expected": "reject"},
+    {"id": "eval-zh-same-state", "language": "zh-CN", "category": "same-state", "motion": "卡片从可见状态变化为仍然可见状态。", "expected": "reject"},
+    {"id": "eval-zh-no-direction", "language": "zh-CN", "category": "missing-direction", "motion": "画面内部发生了明确变化。", "expected": "reject"},
+    {"id": "eval-en-static-generic", "language": "en", "category": "non-specific-static-reason", "motion": "The scene stays static because it should remain static.", "expected": "reject"},
+    {"id": "eval-zh-static-generic", "language": "zh-CN", "category": "non-specific-static-reason", "motion": "画面保持静止，因为这里需要静止。", "expected": "reject"}
+  ]
+}
