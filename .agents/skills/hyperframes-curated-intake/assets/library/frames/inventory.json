@@ -4,42 +4,42 @@
     {
       "preset": "biennale-yellow",
       "path": "frames/biennale-yellow/FRAME.md",
-      "sha256": "2502ffff48182d00756ce1e61969c709f4d54e3162f92958a5b9c258ee4a1720"
+      "sha256": "d0c013cf4fbe4cf1863a01972f5113e713887d569afca25c187b9b6e190fe0e2"
     },
     {
       "preset": "bmw-m-engineered-contrast",
       "path": "frames/bmw-m-engineered-contrast/FRAME.md",
-      "sha256": "92555299f2b87908c713e6891d2238bdc3e3c40efaf828b6d08034a5ce6ec34d"
+      "sha256": "18e14c064ed0dd86a77d60ac285d72c3eb78ae5f11f963b1fd4623474ded276c"
     },
     {
       "preset": "broadside",
       "path": "frames/broadside/FRAME.md",
-      "sha256": "d0087171b5dafaf3937b70c9fcedad81c0ac3ff3facea5cee8e45ee1d78f2b24"
+      "sha256": "5568705c5f44bdcf060105bed87378f80a2d82f5029afc24562b515f3ae22fed"
     },
     {
       "preset": "cartesian",
       "path": "frames/cartesian/FRAME.md",
-      "sha256": "d0061354a4a1069b8dfaff59472622964c0dea309a8188228acc74873a5a9dde"
+      "sha256": "0763299ebc86cf0bc17f9aca4b5903232ce548e51f747921629055b4f078a1d7"
     },
     {
       "preset": "cobalt-grid",
       "path": "frames/cobalt-grid/FRAME.md",
-      "sha256": "a9e3bcd2dab5732334c68f1d55095e57b5b75115488ec47575959ea6b758d9c3"
+      "sha256": "e087161e2dedc8625b54c77040cbd5aa75dbebc92dd2f2666895fad966c297cd"
     },
     {
       "preset": "dell-1996",
       "path": "frames/dell-1996/FRAME.md",
-      "sha256": "1d494646e1f9a27a60e87400569b6d03fd3c622293fa12c96e84454bc491575a"
+      "sha256": "b3bece48512cd3bc5407fb48ceb5ef1b2694bfb2f60c34f5d4d42267e4f21d5b"
     },
     {
       "preset": "ferrari-editorial-chiaroscuro",
       "path": "frames/ferrari-editorial-chiaroscuro/FRAME.md",
-      "sha256": "28ac34028df533f7e536433950d1b6d6a75d715d55a8915983512256e36b4fbb"
+      "sha256": "ee988a3e03c034403b28f793b916cb9a3ea7479c0b778c9f6175824a450e3b69"
     },
     {
       "preset": "runway-editorial-cinema",
       "path": "frames/runway-editorial-cinema/FRAME.md",
-      "sha256": "f3281c633ef696b6683195907428a9adba91f5eaa1d3dce64a165ee3cee5d85a"
+      "sha256": "8612e88a7099ec77626aa0f922afbd41f2ee5e74e540f74df950a3de06e8aad3"
     }
   ]
 }

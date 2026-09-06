@@ -160,6 +160,13 @@ components:
 
 # frame.md — Ferrari-inspired editorial chiaroscuro, frame layer
 
+## 风格速览 / Style Snapshot
+
+- **感觉 / Mood:** 高级杂志式的明暗对照——克制、戏剧化、昂贵但不喧闹。Premium editorial chiaroscuro: restrained, dramatic, and expensive without shouting.
+- **最适合 / Best for:** 汽车、奢侈品、人物、品牌电影、高端发布和单一主角叙事。Automotive, luxury, portraits, brand films, premium launches, and single-hero stories.
+- **视觉签名 / Signature:** 暖近黑画布、白色大标题、零圆角结构、一个受光主体和极稀缺红色。Warm near-black canvas, white display type, zero-radius structure, one lit subject, and extremely scarce red.
+- **避免 / Avoid:** 把红色铺满、堆叠发光层或塞入大量信息，会立刻失去高级感。Flooding the frame with red, stacking glow, or packing in information immediately destroys the premium register.
+
 > **Atoms are sacred · composition is free · numbers come from the script.**
 
 ## Overview
@@ -525,4 +532,3 @@ Run before finalizing every frame:
 - **Real entities.** Ferrari is the visual *reference* per the source's teaching credit; no
   Ferrari trademark, wordmark, or livery imagery is bundled. Any real logo, product image, or
   footage must clear the source's media / rights / manifest contract before render.
-

@@ -92,6 +92,13 @@ components:
 
 # Broadside — Frame (video / frame layer)
 
+## 风格速览 / Style Snapshot
+
+- **感觉 / Mood:** 像贴在街头的巨幅宣言海报——直接、响亮、节奏快。A giant street-poster manifesto: direct, loud, and fast.
+- **最适合 / Best for:** 强观点、品牌宣言、新品发布、标题驱动的社交短片。Strong opinions, brand manifestos, launches, and headline-led social films.
+- **视觉签名 / Signature:** 黑橙双域、超大粗体小写字、单色平面、1px 分隔线。Black/orange registers, oversized heavy lowercase type, flat planes, and 1px dividers.
+- **避免 / Avoid:** 长段文字、细腻照片叙事和连续温柔节奏会让冲击力变成噪声。Long copy, delicate photographic storytelling, and continuously gentle pacing turn its impact into noise.
+
 ## Overview
 
 Broadside at frame scale is a **protest-poster system where type is so large it stops reading as
@@ -270,4 +277,3 @@ them. Catalogue numbers (No. 01) are decorative chrome and may be sequential.
 - **Barlow + IBM Plex Mono via Google Fonts**; Noto Sans SC is the CJK fallback (the lowercase-display signal has no CJK equivalent — the two-register color system carries the identity, per the source).
 - **9:16 / 1:1 are guidance**; verify the one big line stays ≤78cqw and above the floor per ratio.
 - Bars, compare panels, and the dashed image placeholder are CSS-only; no external imagery is required.
-

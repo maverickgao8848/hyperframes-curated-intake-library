@@ -102,6 +102,13 @@ components:
 
 # Cartesian — Frame (video / frame layer)
 
+## 风格速览 / Style Snapshot
+
+- **感觉 / Mood:** 安静、博物馆式、严谨而有人文气质。Quiet and museum-like: rigorous, calm, and humanist.
+- **最适合 / Best for:** 咨询框架、方法论、教育、建筑、研究和需要慢一点理解的复杂概念。Consulting frameworks, methods, education, architecture, research, and complex ideas that deserve a slower read.
+- **视觉签名 / Signature:** 暖石色、Playfair 衬线、细线网格、罗盘几何和零阴影。Warm stone, Playfair serif, hairline structure, compass geometry, and no shadows.
+- **避免 / Avoid:** 电竞霓虹、故障特效、强促销 CTA 与过快剪辑不属于这套语法。Gaming neon, glitch effects, hard-sell CTAs, and frantic cutting do not belong to this language.
+
 ## Overview
 
 Cartesian at frame scale is a **quiet museum-catalog editorial system** — restraint through 1px
@@ -264,4 +271,3 @@ Stats and timeline years carry placeholders until the script supplies them. Agen
 - **Playfair Display + Inter via Google Fonts.** CJK pairing (Noto Serif SC 700/400) carries over; Playfair has no Hanzi italic — substitute weight/taupe for emphasis.
 - **9:16 / 1:1 are guidance**; verify the legibility floor and that the timeline collapses to a vertical list.
 - Geo rings, the crossed-X placeholder, and the dashed inner ring are CSS-only; no external imagery is required.
-

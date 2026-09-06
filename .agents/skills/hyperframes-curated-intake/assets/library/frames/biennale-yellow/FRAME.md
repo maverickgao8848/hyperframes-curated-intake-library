@@ -90,6 +90,13 @@ components:
 
 # Biennale Yellow — Frame (video / frame layer)
 
+## 风格速览 / Style Snapshot
+
+- **感觉 / Mood:** 像当代艺术双年展的策展画册——温暖、理性、带一点诗意。A contemporary-art biennale catalogue: warm, intellectual, and quietly poetic.
+- **最适合 / Best for:** 艺术文化、研究、展览、思想型叙事、需要“高级但不冷”的解释视频。Culture, research, exhibitions, idea-led stories, and explainers that should feel elevated without becoming cold.
+- **视觉签名 / Signature:** 羊皮纸底、深靛蓝文字、克制的太阳黄、衬线大标题、细线与页码。Parchment grounds, deep-indigo type, rationed solar yellow, serif display, hairlines, and page numbers.
+- **避免 / Avoid:** 霓虹科技、厚重阴影、玻璃拟态和高密度仪表盘会破坏它的策展留白。Neon tech, heavy shadows, glassmorphism, and dense dashboards break its curatorial breathing room.
+
 ## Overview
 
 Biennale Yellow at frame scale is a **literary-editorial system** in the register of an art

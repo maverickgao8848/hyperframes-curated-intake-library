@@ -240,6 +240,13 @@ motion:
 
 # frame.md — BMW M-inspired engineered contrast (frame layer)
 
+## 风格速览 / Style Snapshot
+
+- **感觉 / Mood:** 冷静、精确、有机械张力，像性能工程发布片。Controlled, exact, and mechanically tense—built like a performance-engineering launch film.
+- **最适合 / Best for:** 汽车、硬件、制造、工程、性能指标和严肃技术产品。Automotive, hardware, manufacturing, engineering, performance metrics, and serious technical products.
+- **视觉签名 / Signature:** 近黑底、硬边框架、定向轮廓光、无彩色层级和每帧一次白色强调。Near-black grounds, hard framing, directional rim light, achromatic hierarchy, and one white accent per frame.
+- **避免 / Avoid:** 柔软生活方式、儿童内容、糖果色和装饰性圆角会削弱它的工程可信度。Soft lifestyle work, children's content, candy colors, and decorative rounding dilute its engineered credibility.
+
 > **atoms are sacred · composition is free · numbers come from the script.**
 
 ## Overview
@@ -485,4 +492,3 @@ Run before finalizing any frame:
 - **Motion is directional only.** `{motion.*}` names allowed/banned gestures and a dwell floor; concrete keyframes are owned by HyperFrames.
 - **Media is placeholder.** Frame Treatments describe artifact placement and crop; real footage substitutes at production. Showcase renders artifacts as flat token-colored blocks.
 - **No fourth surface tier.** If a plate needs more separation than three tiers can carry, use a hairline, not a new tier.
-

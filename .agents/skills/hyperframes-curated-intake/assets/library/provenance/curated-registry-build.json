@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "mav-hyperframes-registry-build/v1",
+  "schemaVersion": "hyperframes-curated-registry-build/v1",
   "catalog": "catalog.json",
   "output": "registry",
   "mapped": [
@@ -9,8 +9,18 @@
       "type": "hyperframes:block"
     },
     {
+      "id": "registry-block:before-after-wipe",
+      "name": "before-after-wipe",
+      "type": "hyperframes:block"
+    },
+    {
       "id": "registry-block:camcorder-hud",
       "name": "camcorder-hud",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:caption-camera-follow",
+      "name": "caption-camera-follow",
       "type": "hyperframes:block"
     },
     {
@@ -29,8 +39,23 @@
       "type": "hyperframes:block"
     },
     {
+      "id": "registry-block:chatgpt-desktop-exchange",
+      "name": "chatgpt-desktop-exchange",
+      "type": "hyperframes:block"
+    },
+    {
       "id": "registry-block:chatgpt-exchange",
       "name": "chatgpt-exchange",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:code-snippet-apple-terminal-clear-dark",
+      "name": "code-snippet-apple-terminal-clear-dark",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:code-snippet-dark-plus",
+      "name": "code-snippet-dark-plus",
       "type": "hyperframes:block"
     },
     {
@@ -46,6 +71,11 @@
     {
       "id": "registry-block:domain-warp-dissolve",
       "name": "domain-warp-dissolve",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:film-credits-stagger",
+      "name": "film-credits-stagger",
       "type": "hyperframes:block"
     },
     {
@@ -114,13 +144,48 @@
       "type": "hyperframes:block"
     },
     {
+      "id": "registry-block:ordered-dither-pass",
+      "name": "ordered-dither-pass",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:particle-text-dissolve",
+      "name": "particle-text-dissolve",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:stitched-text-draw",
+      "name": "stitched-text-draw",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:telemetry-hud",
+      "name": "telemetry-hud",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:testimonial-proof-card",
+      "name": "testimonial-proof-card",
+      "type": "hyperframes:block"
+    },
+    {
       "id": "registry-block:us-map-hex",
       "name": "us-map-hex",
       "type": "hyperframes:block"
     },
     {
+      "id": "registry-block:variable-axis-type",
+      "name": "variable-axis-type",
+      "type": "hyperframes:block"
+    },
+    {
       "id": "registry-block:vfx-text-cursor",
       "name": "vfx-text-cursor",
+      "type": "hyperframes:block"
+    },
+    {
+      "id": "registry-block:wechat-desktop-exchange",
+      "name": "wechat-desktop-exchange",
       "type": "hyperframes:block"
     },
     {
@@ -171,6 +236,11 @@
     {
       "id": "registry-component:abstract-versus",
       "name": "abstract-versus",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:active-border",
+      "name": "active-border",
       "type": "hyperframes:component"
     },
     {
@@ -274,6 +344,11 @@
       "type": "hyperframes:component"
     },
     {
+      "id": "registry-component:concept-pin",
+      "name": "concept-pin",
+      "type": "hyperframes:component"
+    },
+    {
       "id": "registry-component:connector-draw",
       "name": "connector-draw",
       "type": "hyperframes:component"
@@ -311,6 +386,11 @@
     {
       "id": "registry-component:dual-arc-converge",
       "name": "dual-arc-converge",
+      "type": "hyperframes:component"
+    },
+    {
+      "id": "registry-component:evidence-lens",
+      "name": "evidence-lens",
       "type": "hyperframes:component"
     },
     {
@@ -519,6 +599,11 @@
       "type": "hyperframes:component"
     },
     {
+      "id": "registry-component:pointer-proof",
+      "name": "pointer-proof",
+      "type": "hyperframes:component"
+    },
+    {
       "id": "registry-component:result-rows",
       "name": "result-rows",
       "type": "hyperframes:component"
@@ -629,6 +714,11 @@
       "type": "hyperframes:component"
     },
     {
+      "id": "registry-component:teaching-bento",
+      "name": "teaching-bento",
+      "type": "hyperframes:component"
+    },
+    {
       "id": "registry-component:thinking-card-grid",
       "name": "thinking-card-grid",
       "type": "hyperframes:component"
@@ -726,33 +816,9 @@
   ],
   "unmapped": [
     {
-      "id": "registry-block:before-after-wipe",
-      "reasons": [
-        "block dimensions are not declared in data-width/data-height or viewport metadata"
-      ]
-    },
-    {
-      "id": "registry-block:caption-camera-follow",
-      "reasons": [
-        "block dimensions are not declared in data-width/data-height or viewport metadata"
-      ]
-    },
-    {
       "id": "registry-block:code-particle-assemble",
       "reasons": [
         "status is 'disabled', not 'ready'"
-      ]
-    },
-    {
-      "id": "registry-block:code-snippet-apple-terminal-clear-dark",
-      "reasons": [
-        "block duration is not declared in data-duration"
-      ]
-    },
-    {
-      "id": "registry-block:code-snippet-dark-plus",
-      "reasons": [
-        "block duration is not declared in data-duration"
       ]
     },
     {
@@ -777,42 +843,6 @@
       "id": "registry-block:notification-cascade",
       "reasons": [
         "status is 'disabled', not 'ready'"
-      ]
-    },
-    {
-      "id": "registry-block:ordered-dither-pass",
-      "reasons": [
-        "block dimensions are not declared in data-width/data-height or viewport metadata"
-      ]
-    },
-    {
-      "id": "registry-block:particle-text-dissolve",
-      "reasons": [
-        "block dimensions are not declared in data-width/data-height or viewport metadata"
-      ]
-    },
-    {
-      "id": "registry-block:stitched-text-draw",
-      "reasons": [
-        "block dimensions are not declared in data-width/data-height or viewport metadata"
-      ]
-    },
-    {
-      "id": "registry-block:telemetry-hud",
-      "reasons": [
-        "block dimensions are not declared in data-width/data-height or viewport metadata"
-      ]
-    },
-    {
-      "id": "registry-block:testimonial-proof-card",
-      "reasons": [
-        "block dimensions are not declared in data-width/data-height or viewport metadata"
-      ]
-    },
-    {
-      "id": "registry-block:variable-axis-type",
-      "reasons": [
-        "block dimensions are not declared in data-width/data-height or viewport metadata"
       ]
     },
     {
@@ -1562,6 +1592,18 @@
       "kind": "texture"
     },
     {
+      "id": "transition:depth-swap",
+      "kind": "transition"
+    },
+    {
+      "id": "transition:edge-lit-wipe",
+      "kind": "transition"
+    },
+    {
+      "id": "transition:focus-pull",
+      "kind": "transition"
+    },
+    {
       "id": "transition:push-slide",
       "kind": "transition"
     },
@@ -1571,8 +1613,8 @@
     }
   ],
   "summary": {
-    "mapped": 144,
-    "unmapped": 19,
-    "ignored": 182
+    "mapped": 162,
+    "unmapped": 9,
+    "ignored": 185
   }
 }

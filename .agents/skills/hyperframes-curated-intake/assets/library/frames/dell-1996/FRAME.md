@@ -505,6 +505,15 @@ components:
 
 ---
 
+# Dell 1996 — Frame (video / frame layer)
+
+## 风格速览 / Style Snapshot
+
+- **感觉 / Mood:** 1996 年电脑目录与早期网页的快乐复古，笨拙得真诚，也因此很有记忆点。Joyful 1996 computer-catalog and early-web nostalgia—awkward, sincere, and memorable.
+- **最适合 / Best for:** 怀旧科技、互联网文化、品牌历史、趣味产品故事和反精致叙事。Retro technology, internet culture, brand history, playful product stories, and intentionally anti-polished narratives.
+- **视觉签名 / Signature:** 黑色页面外框、彩色 ribbon cards、Arial Black、Times、GIF 贴纸与稀缺 Dell 红。A black page frame, tinted ribbon cards, Arial Black, Times, GIF stickers, and scarce Dell red.
+- **避免 / Avoid:** 极简奢侈品、严肃金融和需要当代高级感的内容通常会与它的时代感冲突。Minimal luxury, serious finance, and contemporary-premium work usually conflict with its period character.
+
 > **Atoms are sacred · composition is free · numbers come from the script.**
 
 ## Overview
@@ -777,4 +786,3 @@ Run before finalizing any frame:
 - **Product photography** is intentionally placeholder-only in this spec — the ribbon-focal frame reserves the right-edge notch but never composes a real image. Renderers should stand in a flat token-colored block with a `— product photo —` caption.
 - **The connecting green rule** under the icon-label nav row is drawn as a 1px `{colors.tint-lime}` line at compose time; it is not a token because the geometry is chrome, not surface.
 - **Motion tokens** are prose-only (dwell ranges, cut grammar) — no formal easing/duration token block, because the brand's motion vocabulary is deliberately near-zero.
-

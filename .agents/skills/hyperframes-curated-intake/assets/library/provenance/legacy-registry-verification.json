@@ -1,0 +1,429 @@
+{
+  "schemaVersion": "hyperframes-legacy-registry-verification/v1",
+  "ok": true,
+  "summary": {
+    "legacyReady": 68,
+    "registryArtifacts": 68,
+    "mountExports": 68,
+    "seekSafeClosures": 68
+  },
+  "checks": [
+    "registry-payload",
+    "meta-export",
+    "mount-export",
+    "seek-contract",
+    "paused-timelines",
+    "no-render-time-nondeterminism"
+  ],
+  "results": [
+    {
+      "legacyId": "aroll.concept-card",
+      "registryId": "registry-component:overlay-concept-card",
+      "dependencyFiles": 3,
+      "ok": true
+    },
+    {
+      "legacyId": "aroll.keyword-sticker",
+      "registryId": "registry-component:overlay-keyword-sticker",
+      "dependencyFiles": 3,
+      "ok": true
+    },
+    {
+      "legacyId": "aroll.subtitle-highlight",
+      "registryId": "registry-component:overlay-subtitle-highlight",
+      "dependencyFiles": 3,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-abstract.analogy",
+      "registryId": "registry-component:abstract-analogy",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-abstract.black-box",
+      "registryId": "registry-component:abstract-black-box",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-abstract.equation",
+      "registryId": "registry-component:abstract-equation",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-abstract.iceberg",
+      "registryId": "registry-component:abstract-iceberg",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-abstract.spectrum",
+      "registryId": "registry-component:abstract-spectrum",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-abstract.versus",
+      "registryId": "registry-component:abstract-versus",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-charts.area-chart",
+      "registryId": "registry-component:chart-area",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-charts.bar-chart",
+      "registryId": "registry-component:chart-bar",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-charts.donut",
+      "registryId": "registry-component:chart-donut",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-charts.gauge",
+      "registryId": "registry-component:chart-gauge",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-charts.h-bar",
+      "registryId": "registry-component:chart-horizontal-bar",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-charts.heatmap",
+      "registryId": "registry-component:chart-heatmap",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-charts.line-chart",
+      "registryId": "registry-component:chart-line",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-charts.multi-line",
+      "registryId": "registry-component:chart-multi-line",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-charts.sankey",
+      "registryId": "registry-component:chart-sankey",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-charts.scatter",
+      "registryId": "registry-component:chart-scatter",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-charts.sparkline",
+      "registryId": "registry-component:chart-sparkline",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-charts.stacked",
+      "registryId": "registry-component:chart-stacked-bar",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-flows.branching",
+      "registryId": "registry-component:flow-branching",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-flows.complex",
+      "registryId": "registry-component:flow-complex",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-flows.decision-tree",
+      "registryId": "registry-component:flow-decision-tree",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-flows.fork-join",
+      "registryId": "registry-component:flow-fork-join",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-flows.loop",
+      "registryId": "registry-component:flow-loop",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-flows.sequence",
+      "registryId": "registry-component:flow-sequence",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-flows.state-machine",
+      "registryId": "registry-component:flow-state-machine",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-flows.swimlane",
+      "registryId": "registry-component:flow-swimlane",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-hero.big-number",
+      "registryId": "registry-component:hero-big-number",
+      "dependencyFiles": 3,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-hero.big-type",
+      "registryId": "registry-component:hero-big-type",
+      "dependencyFiles": 3,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-hero.inversion-flash",
+      "registryId": "registry-component:hero-inversion-flash",
+      "dependencyFiles": 3,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-hero.pull-quote",
+      "registryId": "registry-component:hero-pull-quote",
+      "dependencyFiles": 3,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-structure.concentric",
+      "registryId": "registry-component:structure-concentric",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-structure.flow-chart",
+      "registryId": "registry-component:structure-flow-chart",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-structure.funnel",
+      "registryId": "registry-component:structure-funnel",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-structure.node-graph",
+      "registryId": "registry-component:structure-node-graph",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-structure.pyramid",
+      "registryId": "registry-component:structure-pyramid",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-structure.spectrum",
+      "registryId": "registry-component:structure-spectrum",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-structures2.grid-map",
+      "registryId": "registry-component:structure-grid-map",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-structures2.hub-spoke",
+      "registryId": "registry-component:structure-hub-spoke",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-structures2.layered-stack",
+      "registryId": "registry-component:structure-layered-stack",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-structures2.matrix-2x2",
+      "registryId": "registry-component:structure-matrix-2x2",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-structures2.mind-map",
+      "registryId": "registry-component:structure-mind-map",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-structures2.tree",
+      "registryId": "registry-component:structure-tree",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-structures2.venn",
+      "registryId": "registry-component:structure-venn",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-thinking.card-grid",
+      "registryId": "registry-component:thinking-card-grid",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-thinking.compare-table",
+      "registryId": "registry-component:thinking-compare-table",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-thinking.fishbone",
+      "registryId": "registry-component:thinking-fishbone",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-thinking.gantt",
+      "registryId": "registry-component:thinking-gantt",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-thinking.kanban",
+      "registryId": "registry-component:thinking-kanban",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-thinking.swot",
+      "registryId": "registry-component:thinking-swot",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-thinking.timeline-row",
+      "registryId": "registry-component:thinking-timeline-row",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-ui.api-call",
+      "registryId": "registry-component:ui-api-call",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-ui.browser",
+      "registryId": "registry-component:ui-browser",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-ui.chat-thread",
+      "registryId": "registry-component:ui-chat-thread",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-ui.code-editor",
+      "registryId": "registry-component:ui-code-editor",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-ui.dashboard",
+      "registryId": "registry-component:ui-dashboard",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "broll-ui.terminal",
+      "registryId": "registry-component:ui-terminal",
+      "dependencyFiles": 4,
+      "ok": true
+    },
+    {
+      "legacyId": "icons.lucide-set",
+      "registryId": "registry-component:icon-lucide-set",
+      "dependencyFiles": 5,
+      "ok": true
+    },
+    {
+      "legacyId": "icons.stroke-weights",
+      "registryId": "registry-component:icon-stroke-weights",
+      "dependencyFiles": 5,
+      "ok": true
+    },
+    {
+      "legacyId": "illustrations.scene-analytics",
+      "registryId": "registry-component:illustration-analytics",
+      "dependencyFiles": 6,
+      "ok": true
+    },
+    {
+      "legacyId": "illustrations.scene-co-create",
+      "registryId": "registry-component:illustration-co-create",
+      "dependencyFiles": 6,
+      "ok": true
+    },
+    {
+      "legacyId": "illustrations.scene-launch",
+      "registryId": "registry-component:illustration-launch",
+      "dependencyFiles": 6,
+      "ok": true
+    },
+    {
+      "legacyId": "illustrations.scene-library",
+      "registryId": "registry-component:illustration-scene-library",
+      "dependencyFiles": 6,
+      "ok": true
+    },
+    {
+      "legacyId": "illustrations.scene-prompt",
+      "registryId": "registry-component:illustration-prompt",
+      "dependencyFiles": 6,
+      "ok": true
+    },
+    {
+      "legacyId": "illustrations.scene-retrieval",
+      "registryId": "registry-component:illustration-retrieval",
+      "dependencyFiles": 6,
+      "ok": true
+    },
+    {
+      "legacyId": "illustrations.scene-thinking",
+      "registryId": "registry-component:illustration-thinking",
+      "dependencyFiles": 6,
+      "ok": true
+    }
+  ],
+  "errors": []
+}

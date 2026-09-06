@@ -167,6 +167,13 @@ components:
 
 # Runway editorial cinema — frame layer
 
+## 风格速览 / Style Snapshot
+
+- **感觉 / Mood:** 极简编辑电影感——界面退后，影像和一个清晰观点站到前面。Minimal editorial cinema: the interface recedes so imagery and one clear idea can lead.
+- **最适合 / Best for:** AI、创意工具、影像产品、未来工作流、设计技术和克制的产品发布。AI, creative tools, imaging products, future workflows, design technology, and restrained product launches.
+- **视觉签名 / Signature:** 纯黑底、冷白字、薄荷绿单点、巨型字标、电影式满幅影像和固定字幕系统。Black ground, cool-white type, one mint accent, mega wordmarks, cinematic full-bleed imagery, and a fixed caption system.
+- **避免 / Avoid:** 多彩儿童向、电商大促、每个元素都动和界面发光，会破坏“静态 chrome、动态影像”的核心。Colorful children's work, sales promos, animating every element, and glowing UI break its “still chrome, moving image” core.
+
 > **Atoms are sacred · composition is free · numbers come from the script.**
 
 ## Overview
@@ -389,4 +396,3 @@ Run all before finalizing any frame:
 - **Aspect-ratio behavior is guidance.** The 9:16 and 1:1 columns describe *reflow intent*; a treatment reflowed under duress may need a bespoke pass. When in doubt, hold the short edge, re-derive safe pad, and preserve the anchor described in the 16:9 column.
 - **Motion timing is out of scope.** This spec sets the *shape* of the beat (what may animate, what must not, cut grammar, dwell shape). HyperFrames owns the numeric timeline.
 - **Derived sections.** Motion & Timing, Frame Treatments, Aspect-Ratio Behavior, and Pre-Render Self-Audit are video-first derivations. `design.md` remains the source of truth for atoms.
-

@@ -91,6 +91,13 @@ components:
 
 # Cobalt Grid — Frame (video / frame layer)
 
+## 风格速览 / Style Snapshot
+
+- **感觉 / Mood:** 像一份会动的研究报告或独立科技杂志——聪明、清晰、有数字手感。A moving research report or indie technology journal: smart, legible, and digitally tactile.
+- **最适合 / Best for:** AI、数据、系统、产品机制、研究结论和趋势解释。AI, data, systems, product mechanics, research findings, and trend explainers.
+- **视觉签名 / Signature:** 奶油纸、电钴蓝、永久网格、衬线标题、像素故障与 QR 方块。Cream paper, electric cobalt, a persistent grid, serif display, pixel glitches, and QR blocks.
+- **避免 / Avoid:** 奢华暗调、写实电影光和多色渐变会冲淡它的双色研究感。Luxury darkness, cinematic realism, and multicolor gradients weaken its two-color research character.
+
 ## Overview
 
 Cobalt Grid at frame scale is a **two-color risograph trend-report** — warm cream paper, electric
@@ -251,4 +258,3 @@ script supplies values. Mono catalogue ordinals (001, 002…) are decorative and
 - **Three Google Fonts** (Newsreader, Hanken Grotesk, DM Mono); CJK pairing (Noto Serif SC 700/400) carries over from the source.
 - **9:16 / 1:1 are guidance**; verify the legibility floor and grid density per ratio.
 - The QR mosaic and glitch step patterns are hand-authored; there is no generative layer.
-
