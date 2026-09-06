@@ -1,7 +1,8 @@
 # Library routing and staging
 
-Read `.agents/skills/hyperframes-curated-intake/assets/library/catalog.json` as the only routing
-authority. `.agents/skills/hyperframes-curated-intake/assets/library/director-catalog.json` is a
+Resolve library paths from the skill directory containing `SKILL.md`.
+Read `assets/library/catalog.json` as the only routing
+authority. `assets/library/director-catalog.json` is a
 deterministic projection for Visual Director inspection and must never feed facts back into routing. The catalog owns
 capability facts, readiness, source metadata, rights, and installation mechanics; it does not own the
 creative winner.

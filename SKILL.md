@@ -47,24 +47,24 @@ ranking. Once approved, `STORYBOARD.md` is the sole scene-level creative authori
 ## Package and setup
 
 All runtime scripts, schemas, library assets, and provenance are inside this skill directory.
-With Python 3.11+, install `requirements.txt` from this directory. Command examples below assume
-a workspace installation at `.agents/skills/hyperframes-curated-intake`; when installed elsewhere,
-resolve script paths from this `SKILL.md`. Library defaults are always relative to the script.
+With Python 3.11+, install `requirements.txt` from this directory. Run the examples below from
+the directory containing this `SKILL.md`; from another working directory, resolve script paths
+against this skill directory. Library defaults are always relative to the script.
 The later `$hyperframes` build/render stage requires HyperFrames separately.
 
 ## Commands
 
 ```text
-python .agents/skills/hyperframes-curated-intake/scripts/migrate-storyboard-v2-to-v3.py --input <approved-v2.json> --output <v3-draft.json> --report <outside-project-review.json>
-python .agents/skills/hyperframes-curated-intake/scripts/select-project-palette.py --library .agents/skills/hyperframes-curated-intake/assets/library --storyboard-spec <approved-v3.json> --frame-preset <frame> --review-confirmation <external-review.json> --output <curation.json>
-python .agents/skills/hyperframes-curated-intake/scripts/prepare-project.py --project <project> --library .agents/skills/hyperframes-curated-intake/assets/library --curation <curation.json> --storyboard-spec <approved-v3.json> --intent <intent> --destination <destination> --language <language>
-python .agents/skills/hyperframes-curated-intake/scripts/stage-selected-items.py --project <project> --library .agents/skills/hyperframes-curated-intake/assets/library --all-required
-python .agents/skills/hyperframes-curated-intake/scripts/verify-handoff.py --project <project>
-python .agents/skills/hyperframes-curated-intake/scripts/apply-video-spec-refactor.py --check
-python .agents/skills/hyperframes-curated-intake/scripts/apply-video-spec-refactor.py --report <outside-library-proposal.json>
+python scripts/migrate-storyboard-v2-to-v3.py --input <approved-v2.json> --output <v3-draft.json> --report <outside-project-review.json>
+python scripts/select-project-palette.py --storyboard-spec <approved-v3.json> --frame-preset <frame> --review-confirmation <external-review.json> --output <curation.json>
+python scripts/prepare-project.py --project <project> --curation <curation.json> --storyboard-spec <approved-v3.json> --intent <intent> --destination <destination> --language <language>
+python scripts/stage-selected-items.py --project <project> --all-required
+python scripts/verify-handoff.py --project <project>
+python scripts/apply-video-spec-refactor.py --check
+python scripts/apply-video-spec-refactor.py --report <outside-library-proposal.json>
 ```
 
-The canonical production library is `.agents/skills/hyperframes-curated-intake/assets/library`.
+The canonical production library is `assets/library` inside this skill directory.
 Library-aware Curated Intake CLIs resolve that location by default; keep `--library` only when a
 test or user-supplied external library must explicitly override it. The former root `library/`
 mirror has been removed; do not recreate it or use it as a fallback.
