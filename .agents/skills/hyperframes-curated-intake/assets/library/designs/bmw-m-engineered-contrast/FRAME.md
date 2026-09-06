@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: "BMW M-inspired engineered contrast — frame layer"
-description: "Video-first companion to design.md. Hard-edged carbon hierarchy at frame scale: near-black grounds, directional rim light, mechanically precise framing, one rationed white accent per frame."
+description: "Video-first companion to design.md. Hard-edged carbon hierarchy at frame scale: near-black grounds, directional rim light, mechanically precise framing, one concentrated light-blue, dark-blue and red stripe group or one white accent per frame."
 unit: "the frame — 1920×1080 primary; 1080×1920 and 1080×1080 documented"
 principle: "atoms are sacred · composition is free · numbers come from the script"
 fontAssets:
@@ -20,6 +20,9 @@ colors:
   surface: "#1a1a1c"
   surfaceHi: "#242426"
   accent: "#ffffff"
+  mLightBlue: "#5DADE0"
+  mDarkBlue: "#174A8B"
+  mRed: "#E32636"
 typography:
   # --- Reading ramp (px → cqw @1920) ---
   body:
@@ -244,12 +247,13 @@ motion:
 
 ## Overview
 
-This is the **frame layer** of the BMW M-inspired direction. `design.md` remains the source of
-truth for atoms (colors, weights, radius `0`, hairline `1px`, framePad `3.8cqw`); this file
+This is the **frame layer** of the BMW M-inspired direction. The palette below governs this Frame; `design.md` supplies the base
+weights, radius `0`, hairline `1px`, and framePad `3.8cqw`. This file
 re-frames those atoms so the **frame** — not the page — is the unit. The register is mechanical:
 near-black canvas, three carbon tiers (`{colors.canvas}` → `{colors.surface}` → `{colors.surfaceHi}`),
-Inter 800 display against Inter 400 body, JetBrains Mono for technical voice, and a single white
-accent rationed to one moment per frame. No soft decorative shadow, no pill geometry, no
+Inter 800 display against Inter 400 body, JetBrains Mono for technical voice, and a light-blue / dark-blue / red stripe signature.
+Use that stripe group as the focal accent on identity and showcase frames; on other frames,
+choose either the stripe group or a single white accent. No soft decorative shadow, no pill geometry, no
 dead-black unstructured space.
 
 ### Frame Craft Bar
@@ -258,12 +262,12 @@ Every frame passes four eyeball tests before any structural check:
 
 - **Squint test** — exactly one element dominates at **3–6×** the size of its nearest neighbor. A chasm, not a ramp.
 - **Silence test** — sparse archetypes (identity, oversized-claim, focal-artifact, closer) read **55–75% empty**. Emptiness is the brand's confidence — do not fill it. The **ledger / spec-sheet** plate is the ONE named density exception.
-- **Restraint test** — the brand's scarce element (the one `{colors.accent}` moment — a `{components.sticker-mono}`, a `{components.rim-light-bar}`, a `{components.ledger-cell-hero}` rim, or an accent stat) fires **once per frame**. If it appears twice at full strength, demote one to `{colors.ink}`.
-- **Reference bar** — aim at a BMW M keynote plate or a motorsport print specimen: hard edges, three carbon tiers, one white line. Failure looks like a generic dark-mode SaaS dashboard — too many gray boxes, accent spent everywhere.
+- **Restraint test** — the brand's scarce element (one stripe group or one `{colors.accent}` moment — a `{components.sticker-mono}`, a `{components.rim-light-bar}`, a `{components.ledger-cell-hero}` rim, or an accent stat) fires **once per frame**. If it appears twice at full strength, demote one to `{colors.ink}`.
+- **Reference bar** — aim at a BMW M keynote plate or a motorsport print specimen: hard edges, three carbon tiers, and a concentrated blue / blue / red stripe group. Failure looks like a generic dark-mode SaaS dashboard — too many gray boxes, accent spent everywhere.
 
 ## Colors
 
-Tokens carried from `design.md` verbatim. Reframed as **full-frame grounds and a rationed accent**, not surface swatches.
+Carbon and white tokens follow `design.md`; the M-inspired stripe palette is defined here. Reframed as **full-frame grounds and a rationed accent**, not surface swatches.
 
 | Token | Value | Frame role |
 | --- | --- | --- |
@@ -274,8 +278,15 @@ Tokens carried from `design.md` verbatim. Reframed as **full-frame grounds and a
 | `{colors.ink}` | `#f4f4f5` | Load-bearing type. Never `#ffffff`. |
 | `{colors.inkDim}` | `#8e8e91` | Kickers, labels, secondary rows. |
 | `{colors.accent}` | `#ffffff` | **Rationed.** One firing per frame — rim-light, one stat, one sticker, or one meter-cap. |
+| `{colors.mLightBlue}` | `#5DADE0` | First stripe in the M-inspired signature. |
+| `{colors.mDarkBlue}` | `#174A8B` | Second stripe; keep distinct from the carbon ground. |
+| `{colors.mRed}` | `#E32636` | Third stripe; keep grouped with the blues. |
 
-**Frame color rules.** A frame's ground is a single carbon tier; no gradient crosses the frame edge. Every tier step must be perceptibly heavier. Accent white is a budget of one per frame at full strength.
+The stripe colors are this Frame's illustrative palette, not an official brand color specification.
+Render them as three adjacent hard-edged diagonal bands, ordered light blue, dark blue, red.
+Treat the group as one accent; keep it legible at thumbnail size.
+
+**Frame color rules.** A frame's ground is a single carbon tier; no gradient crosses the frame edge. Every tier step must be perceptibly heavier. Use one stripe group or one white accent at full strength; do not spread the stripe colors across unrelated UI elements.
 
 ## Typography
 
@@ -353,9 +364,9 @@ Six plate archetypes. Each **composes** frontmatter components and adds only pla
 **Composes** `{components.rim-light-bar}`, `{components.eyebrow-mono}`, `{components.index-chip}`.
 **Focal** wordmark at `{typography.wordmark-mega}` in `{colors.ink}`, centered, clamped to one line.
 **Chrome** `{components.eyebrow-mono}` above the wordmark at top-safe; `{components.index-chip}` `00 / NN` bottom-left.
-**Accent** one horizontal `{components.rim-light-bar}` beneath the wordmark, offset left (light-direction cue).
+**Accent** one light-blue / dark-blue / red diagonal stripe group beneath the wordmark, offset left.
 **Silence** ~72% empty.
-**Fixed** wordmark centered; rim-bar left-offset under focal.  **Free** the wordmark string, index count, eyebrow copy.
+**Fixed** wordmark centered; stripe group left-offset under focal.  **Free** the wordmark string, index count, eyebrow copy.
 **Density** sparse.
 
 ### 2 · Editorial Oversized-Claim  (editorial · move: fit-to-measure hero)
@@ -442,7 +453,7 @@ Every treatment reflows across the three ratios. Short-edge safe area is `{spaci
 
 | Treatment | 16:9 (primary) | 9:16 (portrait) | 1:1 (square) |
 | --- | --- | --- | --- |
-| **1 · Identity Cover** | Wordmark `{typography.wordmark-mega}` centered; rim-bar left-offset. | Wordmark steps to `{typography.display-hero}`; rim-bar re-orients horizontal, centered under mark. | Wordmark at `{typography.display-large}`; rim-bar centered; eyebrow above. |
+| **1 · Identity Cover** | Wordmark `{typography.wordmark-mega}` centered; stripe group left-offset. | Wordmark steps to `{typography.display-hero}`; stripe group centered under mark. | Wordmark at `{typography.display-large}`; stripe group centered; eyebrow above. |
 | **2 · Editorial Claim** | Fit-to-measure hero, ≤78cqw. | Text block re-caps at `78cqw` of short edge; ramp steps one size down. | Ramp steps one size down; center-anchored; rule beneath eyebrow. |
 | **3 · Focal Artifact** | Artifact upper-center, caption below, rim-light right. | Artifact re-crops to `78cqw × 60cqh`; caption stacks; rim on right edge of new crop. | Artifact centered `72cqw × 72cqh`; rim-light shortens to `12cqw`. |
 | **4 · Spec Ledger** | 4-column grid; hero cell top-left. | Grid reflows to 2 columns; hero cell top-left of row 1. | 3-column grid; hero cell top-left; ledger stays dense-exception. |
@@ -467,7 +478,7 @@ Run before finalizing any frame:
 
 - **Squint** — one element dominates at 3–6× its nearest neighbor?
 - **Silence** — sparse plate reads 55–75% empty? (Ledger is the named exception.)
-- **Restraint** — accent white fires exactly once at full strength?
+- **Restraint** — one blue / blue / red stripe group or one white accent at full strength?
 - **Weight** — display at Inter 800, body at Inter 400, no in-between weights introduced?
 - **Depth** — three carbon tiers max, no soft shadow, one rim-light direction?
 - **Geometry** — `{rounded.chrome}` = `0` on every atom; hairlines structural?

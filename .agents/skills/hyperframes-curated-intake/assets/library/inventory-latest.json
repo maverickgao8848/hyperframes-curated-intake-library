@@ -37,7 +37,7 @@
     "registryEligible": 162,
     "registryMapped": 162,
     "registryValid": 162,
-    "frames": 8,
+    "frames": 7,
     "errors": 0,
     "warnings": 19
   },
@@ -50,7 +50,7 @@
     {
       "preset": "bmw-m-engineered-contrast",
       "path": "frames/bmw-m-engineered-contrast/FRAME.md",
-      "sha256": "18e14c064ed0dd86a77d60ac285d72c3eb78ae5f11f963b1fd4623474ded276c"
+      "sha256": "74c7e23479364a25f3e4d076bd97116edefe2e662533189182212760ce65caf3"
     },
     {
       "preset": "broadside",
@@ -76,11 +76,6 @@
       "preset": "ferrari-editorial-chiaroscuro",
       "path": "frames/ferrari-editorial-chiaroscuro/FRAME.md",
       "sha256": "ee988a3e03c034403b28f793b916cb9a3ea7479c0b778c9f6175824a450e3b69"
-    },
-    {
-      "preset": "runway-editorial-cinema",
-      "path": "frames/runway-editorial-cinema/FRAME.md",
-      "sha256": "8612e88a7099ec77626aa0f922afbd41f2ee5e74e540f74df950a3de06e8aad3"
     }
   ],
   "entries": [

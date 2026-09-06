@@ -1,32 +1,4 @@
-# Python caches and test state
-.pytest_cache/
 **/__pycache__/
 **/*.py[cod]
-
-# JavaScript dependencies and generated media caches
 **/node_modules/
-**/.thumbnails/
-**/.waveform-cache/
-**/renders/
-**/snapshots/
-
-# Local scratch work and generated dependency sandboxes
-.tmp/
-.tmp-hf-animation-deps/
-
-# Local production projects are not part of the reusable toolkit.
-# Promote a project into examples/ when it becomes a maintained fixture.
-projects/
-
-# Common local environment files
-.venv/
-venv/
 .env
-.env.*
-!.env.example
-
-# Editor and OS metadata
-.DS_Store
-Thumbs.db
-.idea/
-.vscode/

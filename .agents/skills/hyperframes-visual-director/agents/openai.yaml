@@ -1,5 +1,0 @@
-interface:
-  display_name: "HyperFrames Visual Director"
-  short_description: "Direct and approve a whole-film visual plan"
-  brand_color: "#D7FF3F"
-  default_prompt: "Use $hyperframes-visual-director to inspect my source, propose the whole-film visual plan, and open the approval workbench."

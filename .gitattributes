@@ -1,1 +1,3 @@
-.agents/skills/hyperframes-curated-intake/assets/library/**/*.min.js whitespace=-trailing-space,-blank-at-eof
+# Asset receipts hash exact bytes; checkout and archive must preserve line endings.
+.agents/skills/hyperframes-curated-intake/assets/library/** -text whitespace=cr-at-eol,-blank-at-eol
+.agents/skills/hyperframes-curated-intake/assets/library/**/*.min.js whitespace=cr-at-eol,-trailing-space,-blank-at-eof

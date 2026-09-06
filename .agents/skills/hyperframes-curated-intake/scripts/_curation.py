@@ -16,7 +16,7 @@ CURATION_SCHEMA_VERSION = "hyperframes-curated-intake/v5"
 MANIFEST_SCHEMA_VERSION = "curated-intake/v3"
 MOTION_ATTESTATION_RUBRIC_VERSION = "motion-attestation/v1"
 POLICIES = ("approved-first", "approved-only", "open")
-LIBRARY_SCHEMA_PATH = Path(__file__).resolve().parents[4] / "schemas/library.schema.json"
+LIBRARY_SCHEMA_PATH = Path(__file__).resolve().parents[1] / "references/library.schema.json"
 
 
 def load_json(path: Path) -> dict[str, Any]:

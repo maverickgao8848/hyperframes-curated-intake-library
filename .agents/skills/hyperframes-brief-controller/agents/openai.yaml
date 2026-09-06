@@ -1,4 +1,0 @@
-interface:
-  display_name: "HyperFrames Brief Controller"
-  short_description: "Create one constrained BRIEF and select one Frame"
-  default_prompt: "Use $hyperframes-brief-controller to prepare a constrained HyperFrames BRIEF and select one Frame."

@@ -9,6 +9,10 @@ Apply the v3 authoring contract from [storyboard-authoring.md](storyboard-author
 details the user leaves open. Reserve a second question batch for contradictions or facts that
 materially block an accurate handoff.
 
+Show Frame candidates inline using the bundled [visual gallery](frame-gallery.md), with a short
+content-fit explanation and a recommended choice. Users can compare before opening the full
+Frame specification; reuse a choice they already made.
+
 ## Shared-creative review
 
 Present the complete proposed sequence before writing canonical files. Each scene card shows its

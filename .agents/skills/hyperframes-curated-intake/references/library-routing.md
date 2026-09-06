@@ -6,7 +6,7 @@ deterministic projection for Visual Director inspection and must never feed fact
 capability facts, readiness, source metadata, rights, and installation mechanics; it does not own the
 creative winner.
 
-`schemas/library.schema.json` defines the production revision 15 contract. Each
+`references/library.schema.json` defines the production revision 15 contract. Each
 `registry-block`, `registry-component`, `svg`, and `lottie` entry must keep the six directing facts
 inside `routing`: `family`, `purpose`, `useWhen`, `avoidWhen`, `expects`, and `motion`, with only
 optional declared `fallbackIds` alongside them. Revisions 13 and 14 remain readable migration
@@ -48,7 +48,7 @@ not a legacy boolean. TalkCraft locks pass through unchanged and never enter cat
 receive synthesized catalog metadata.
 
 Before routing, the catalog loader validates the complete `catalog.json` against the single
-repository-root `schemas/library.schema.json`; a failure is a configuration error identifying the
+skill-local `references/library.schema.json`; a failure is a configuration error identifying the
 entry, JSON path, and field. The integration hard gate is fail-closed: its required fields, allowed
 `mode` and `timelineOwner` values, and permitted property set come directly from that Schema, and
 `renderTimeNetwork` must be the literal boolean `false`.

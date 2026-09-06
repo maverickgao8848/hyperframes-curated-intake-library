@@ -12,7 +12,7 @@ from typing import Any, Iterable
 
 SHA256_RE = re.compile(r"^[a-f0-9]{64}$")
 LONG_SCENE_SECONDS = 3.0
-LIBRARY_SCHEMA_PATH = Path(__file__).resolve().parents[4] / "schemas/library.schema.json"
+LIBRARY_SCHEMA_PATH = Path(__file__).resolve().parents[1] / "references/library.schema.json"
 
 
 def _integration_contract() -> tuple[frozenset[str], frozenset[str], frozenset[str], frozenset[str]]:

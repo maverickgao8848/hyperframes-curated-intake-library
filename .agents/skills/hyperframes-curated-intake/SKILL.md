@@ -44,6 +44,14 @@ ranking. Once approved, `STORYBOARD.md` is the sole scene-level creative authori
 8. Run `scripts/verify-handoff.py --project <project>` and resolve every error. Read
    [verification.md](references/verification.md) for intake and later Build evidence gates.
 
+## Package and setup
+
+All runtime scripts, schemas, library assets, and provenance are inside this skill directory.
+With Python 3.11+, install `requirements.txt` from this directory. Command examples below assume
+a workspace installation at `.agents/skills/hyperframes-curated-intake`; when installed elsewhere,
+resolve script paths from this `SKILL.md`. Library defaults are always relative to the script.
+The later `$hyperframes` build/render stage requires HyperFrames separately.
+
 ## Commands
 
 ```text
