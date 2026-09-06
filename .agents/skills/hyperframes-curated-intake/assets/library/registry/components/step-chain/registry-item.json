@@ -1,0 +1,40 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "step-chain",
+  "type": "hyperframes:component",
+  "title": "Step Chain",
+  "description": "relationship|流程步骤递进与可选回环",
+  "tags": [
+    "comparison",
+    "directed-video",
+    "migrated",
+    "process",
+    "关系"
+  ],
+  "routing": {
+    "family": "process",
+    "purpose": "Connect compact steps into one directional chain.",
+    "useWhen": [
+      "A small linear procedure needs visible dependency."
+    ],
+    "avoidWhen": [
+      "The workflow includes branches or parallel work."
+    ],
+    "expects": [
+      "Step labels and connection order"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "step-chain/component.js",
+      "target": "compositions/components/step-chain/component.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

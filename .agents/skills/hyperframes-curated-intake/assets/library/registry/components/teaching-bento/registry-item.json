@@ -1,0 +1,45 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "teaching-bento",
+  "type": "hyperframes:component",
+  "title": "Teaching Bento",
+  "description": "综合归纳｜一个主模型与四个支撑事实组成非对称叙事网格。",
+  "tags": [
+    "aceternity-inspired",
+    "bento",
+    "directed-video",
+    "summary",
+    "teaching"
+  ],
+  "routing": {
+    "family": "structure",
+    "purpose": "Organize a lesson into varied but coordinated bento panels.",
+    "useWhen": [
+      "Several complementary ideas need one coherent overview."
+    ],
+    "avoidWhen": [
+      "A strict sequence or single hero should dominate."
+    ],
+    "expects": [
+      "Panel titles, content, and visual priority"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "teaching-bento/component.js",
+      "target": "compositions/components/teaching-bento/component.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "structure-spectrum",
+  "type": "hyperframes:component",
+  "title": "Structure Spectrum",
+  "description": "structure|Place categories on a labeled axis",
+  "tags": [
+    "comparison",
+    "diagram",
+    "directed-video",
+    "migrated",
+    "process"
+  ],
+  "routing": {
+    "family": "compare",
+    "purpose": "Locate alternatives along a continuous structural axis.",
+    "useWhen": [
+      "Degree and relative position are more honest than categories."
+    ],
+    "avoidWhen": [
+      "The alternatives belong to distinct unordered classes."
+    ],
+    "expects": [
+      "Endpoint meanings and item positions"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "diagram-runtime.js",
+      "target": "compositions/components/diagram-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "structure-spectrum/component.js",
+      "target": "compositions/components/structure-spectrum/component.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

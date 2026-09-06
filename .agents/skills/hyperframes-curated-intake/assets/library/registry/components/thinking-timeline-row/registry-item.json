@@ -1,0 +1,50 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "thinking-timeline-row",
+  "type": "hyperframes:component",
+  "title": "Thinking Timeline Row",
+  "description": "analysis|Place events on one normalized historical axis",
+  "tags": [
+    "comparison",
+    "directed-video",
+    "migrated",
+    "process",
+    "thinking"
+  ],
+  "routing": {
+    "family": "process",
+    "purpose": "Lay milestones along one readable chronological row.",
+    "useWhen": [
+      "Sequence and intervals explain how a story developed."
+    ],
+    "avoidWhen": [
+      "Events are simultaneous or chronology is incidental."
+    ],
+    "expects": [
+      "Dated milestones and labels"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "thinking-runtime.js",
+      "target": "compositions/components/thinking-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "thinking-timeline-row/component.js",
+      "target": "compositions/components/thinking-timeline-row/component.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

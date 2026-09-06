@@ -1,0 +1,50 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "structure-funnel",
+  "type": "hyperframes:component",
+  "title": "Structure Funnel",
+  "description": "structure|Show filtering loss and conversion",
+  "tags": [
+    "comparison",
+    "diagram",
+    "directed-video",
+    "migrated",
+    "process"
+  ],
+  "routing": {
+    "family": "process",
+    "purpose": "Narrow many inputs through stages to fewer outcomes.",
+    "useWhen": [
+      "Filtering or conversion reduces a population step by step."
+    ],
+    "avoidWhen": [
+      "The stages expand rather than narrow."
+    ],
+    "expects": [
+      "Stage labels and quantities"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "diagram-runtime.js",
+      "target": "compositions/components/diagram-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "structure-funnel/component.js",
+      "target": "compositions/components/structure-funnel/component.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

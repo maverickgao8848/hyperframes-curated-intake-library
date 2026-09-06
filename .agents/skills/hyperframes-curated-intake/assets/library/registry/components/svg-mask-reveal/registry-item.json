@@ -1,0 +1,45 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "svg-mask-reveal",
+  "type": "hyperframes:component",
+  "title": "Svg Mask Reveal",
+  "description": "reveal|以 SVG 遮罩揭示局部证据",
+  "tags": [
+    "directed-video",
+    "hook",
+    "migrated",
+    "transition",
+    "揭示"
+  ],
+  "routing": {
+    "family": "emphasis",
+    "purpose": "Reveal media through the silhouette of a supplied SVG.",
+    "useWhen": [
+      "A meaningful shape can pace and frame an entrance."
+    ],
+    "avoidWhen": [
+      "The mask shape would obscure necessary evidence."
+    ],
+    "expects": [
+      "SVG mask, target media, and reveal progress"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "svg-mask-reveal/component.js",
+      "target": "compositions/components/svg-mask-reveal/component.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

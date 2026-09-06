@@ -1,0 +1,52 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "ui-terminal",
+  "type": "hyperframes:component",
+  "title": "Ui Terminal",
+  "description": "interface|Show project-provided commands and terminal output as an explicit mock",
+  "tags": [
+    "demo",
+    "directed-video",
+    "migrated",
+    "ui-mock"
+  ],
+  "routing": {
+    "family": "interface",
+    "purpose": "Demonstrate commands and outputs in an interactive terminal.",
+    "useWhen": [
+      "Shell execution and resulting state are essential."
+    ],
+    "avoidWhen": [
+      "The command text alone is sufficient evidence."
+    ],
+    "expects": [
+      "Commands, outputs, prompt, and shell state"
+    ],
+    "motion": "stateful",
+    "fallbackIds": [
+      "registry-component:ui-code-editor"
+    ]
+  },
+  "files": [
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "ui-mock-runtime.js",
+      "target": "compositions/components/ui-mock-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "ui-terminal/component.js",
+      "target": "compositions/components/ui-terminal/component.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

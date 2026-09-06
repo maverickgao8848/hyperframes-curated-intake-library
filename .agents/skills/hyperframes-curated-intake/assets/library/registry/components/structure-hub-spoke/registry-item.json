@@ -1,0 +1,50 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "structure-hub-spoke",
+  "type": "hyperframes:component",
+  "title": "Structure Hub Spoke",
+  "description": "structure|Show a central system with peripheral nodes",
+  "tags": [
+    "comparison",
+    "diagram",
+    "directed-video",
+    "migrated",
+    "process"
+  ],
+  "routing": {
+    "family": "structure",
+    "purpose": "Connect one central entity to several direct dependents.",
+    "useWhen": [
+      "A single hub mediates otherwise peer relationships."
+    ],
+    "avoidWhen": [
+      "Connections mainly occur among the outer nodes."
+    ],
+    "expects": [
+      "Hub label, spoke labels, and link meanings"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "diagram-runtime.js",
+      "target": "compositions/components/diagram-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "structure-hub-spoke/component.js",
+      "target": "compositions/components/structure-hub-spoke/component.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

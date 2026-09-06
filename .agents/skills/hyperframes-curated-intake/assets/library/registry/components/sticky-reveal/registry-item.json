@@ -1,0 +1,45 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "sticky-reveal",
+  "type": "hyperframes:component",
+  "title": "Sticky Reveal",
+  "description": "sequence|逐段揭示章节内容",
+  "tags": [
+    "demo",
+    "directed-video",
+    "migrated",
+    "process",
+    "序列"
+  ],
+  "routing": {
+    "family": "interface",
+    "purpose": "Hold a key panel while surrounding content scrolls into view.",
+    "useWhen": [
+      "One reference must persist across sequential explanations."
+    ],
+    "avoidWhen": [
+      "All panels should move together."
+    ],
+    "expects": [
+      "Sticky content and scroll sections"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "sticky-reveal/component.js",
+      "target": "compositions/components/sticky-reveal/component.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

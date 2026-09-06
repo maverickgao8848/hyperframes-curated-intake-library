@@ -1,0 +1,40 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "side-note",
+  "type": "hyperframes:component",
+  "title": "Side Note",
+  "description": "explain|主线之外的轻量补充注释",
+  "tags": [
+    "definition",
+    "directed-video",
+    "evidence",
+    "migrated",
+    "文本"
+  ],
+  "routing": {
+    "family": "evidence",
+    "purpose": "Place a brief sourced qualification beside the main content.",
+    "useWhen": [
+      "A caveat matters but should not interrupt the primary flow."
+    ],
+    "avoidWhen": [
+      "The qualification changes the central conclusion."
+    ],
+    "expects": [
+      "Note text, anchor, and source"
+    ],
+    "motion": "entrance-only"
+  },
+  "files": [
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "side-note/component.js",
+      "target": "compositions/components/side-note/component.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

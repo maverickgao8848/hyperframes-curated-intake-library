@@ -1,0 +1,40 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "typewriter-block",
+  "type": "hyperframes:component",
+  "title": "Typewriter Block",
+  "description": "explain|口播同步关键句逐字出场",
+  "tags": [
+    "definition",
+    "directed-video",
+    "evidence",
+    "migrated",
+    "文本"
+  ],
+  "routing": {
+    "family": "evidence",
+    "purpose": "Type a multiline block while preserving code-like alignment.",
+    "useWhen": [
+      "A longer textual artifact is built in observable order."
+    ],
+    "avoidWhen": [
+      "The final block must be available immediately for study."
+    ],
+    "expects": [
+      "Lines, typing order, and cursor behavior"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "typewriter-block/component.js",
+      "target": "compositions/components/typewriter-block/component.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

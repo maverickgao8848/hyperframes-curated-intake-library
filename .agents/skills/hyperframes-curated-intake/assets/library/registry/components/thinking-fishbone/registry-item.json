@@ -1,0 +1,50 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "thinking-fishbone",
+  "type": "hyperframes:component",
+  "title": "Thinking Fishbone",
+  "description": "analysis|Trace layered causes to one main problem",
+  "tags": [
+    "comparison",
+    "directed-video",
+    "migrated",
+    "process",
+    "thinking"
+  ],
+  "routing": {
+    "family": "structure",
+    "purpose": "Trace contributing causes toward a single observed effect.",
+    "useWhen": [
+      "Root-cause analysis groups factors into causal branches."
+    ],
+    "avoidWhen": [
+      "The relationship is correlational rather than causal."
+    ],
+    "expects": [
+      "Effect, cause categories, and contributing factors"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "thinking-fishbone/component.js",
+      "target": "compositions/components/thinking-fishbone/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "thinking-runtime.js",
+      "target": "compositions/components/thinking-runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "overlay-keyword-sticker",
+  "type": "hyperframes:component",
+  "title": "Overlay Keyword Sticker",
+  "description": "explain|Place up to three anchored keyword stickers",
+  "tags": [
+    "definition",
+    "directed-video",
+    "evidence",
+    "migrated",
+    "text"
+  ],
+  "routing": {
+    "family": "emphasis",
+    "purpose": "Place compact keyword stickers around the main visual.",
+    "useWhen": [
+      "Several short terms should annotate without forming prose."
+    ],
+    "avoidWhen": [
+      "The keywords require hierarchy or causal order."
+    ],
+    "expects": [
+      "Keyword items and anchor positions"
+    ],
+    "motion": "entrance-only"
+  },
+  "files": [
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "overlay-keyword-sticker/component.js",
+      "target": "compositions/components/overlay-keyword-sticker/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "structure-matrix-2x2",
+  "type": "hyperframes:component",
+  "title": "Structure Matrix 2x2",
+  "description": "structure|Place items on two labeled axes",
+  "tags": [
+    "comparison",
+    "diagram",
+    "directed-video",
+    "migrated",
+    "process"
+  ],
+  "routing": {
+    "family": "compare",
+    "purpose": "Position alternatives across two binary decision axes.",
+    "useWhen": [
+      "Two criteria create four meaningful quadrants."
+    ],
+    "avoidWhen": [
+      "Either criterion is continuous or poorly defined."
+    ],
+    "expects": [
+      "Axis labels, quadrant meanings, and plotted items"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "diagram-runtime.js",
+      "target": "compositions/components/diagram-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "structure-matrix-2x2/component.js",
+      "target": "compositions/components/structure-matrix-2x2/component.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

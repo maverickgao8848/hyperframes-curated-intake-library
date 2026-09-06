@@ -1,0 +1,50 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "thinking-gantt",
+  "type": "hyperframes:component",
+  "title": "Thinking Gantt",
+  "description": "analysis|Show legal task ranges plus milestones and dependencies",
+  "tags": [
+    "comparison",
+    "directed-video",
+    "migrated",
+    "process",
+    "thinking"
+  ],
+  "routing": {
+    "family": "process",
+    "purpose": "Schedule tasks across time with dependencies and overlap.",
+    "useWhen": [
+      "Duration, concurrency, and delivery timing matter together."
+    ],
+    "avoidWhen": [
+      "Only task order matters and dates are unknown."
+    ],
+    "expects": [
+      "Tasks, start and end times, and dependencies"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "thinking-gantt/component.js",
+      "target": "compositions/components/thinking-gantt/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "thinking-runtime.js",
+      "target": "compositions/components/thinking-runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

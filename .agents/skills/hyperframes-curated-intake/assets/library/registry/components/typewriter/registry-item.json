@@ -1,0 +1,33 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "typewriter",
+  "type": "hyperframes:component",
+  "title": "Typewriter",
+  "description": "Migrated HyperFrames inline component: typewriter.",
+  "tags": [
+    "auto",
+    "hyperframes",
+    "migrated"
+  ],
+  "routing": {
+    "family": "emphasis",
+    "purpose": "Reveal a concise line character by character.",
+    "useWhen": [
+      "Authorship or wording should unfold at reading speed."
+    ],
+    "avoidWhen": [
+      "Immediate access to the full text is required."
+    ],
+    "expects": [
+      "Text and typing cadence"
+    ],
+    "motion": "progressive"
+  },
+  "files": [
+    {
+      "path": "typewriter.html",
+      "target": "compositions/components/typewriter.html",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

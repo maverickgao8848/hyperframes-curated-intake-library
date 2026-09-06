@@ -1,0 +1,40 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "result-rows",
+  "type": "hyperframes:component",
+  "title": "Result Rows",
+  "description": "status|结论证据风险建议逐条汇报",
+  "tags": [
+    "directed-video",
+    "evidence",
+    "migrated",
+    "summary",
+    "状态"
+  ],
+  "routing": {
+    "family": "data",
+    "purpose": "Present a ranked or filtered set of result rows.",
+    "useWhen": [
+      "Several records must be scanned with comparable fields."
+    ],
+    "avoidWhen": [
+      "The relationship is temporal rather than tabular."
+    ],
+    "expects": [
+      "Row labels, values, and active result"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "result-rows/component.js",
+      "target": "compositions/components/result-rows/component.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}

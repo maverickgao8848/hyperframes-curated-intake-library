@@ -1,0 +1,50 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/registry-item.json",
+  "name": "structure-tree",
+  "type": "hyperframes:component",
+  "title": "Structure Tree",
+  "description": "structure|Show classification and inheritance",
+  "tags": [
+    "comparison",
+    "diagram",
+    "directed-video",
+    "migrated",
+    "process"
+  ],
+  "routing": {
+    "family": "structure",
+    "purpose": "Organize entities into parent-child branches.",
+    "useWhen": [
+      "Each child has a clear hierarchical parent."
+    ],
+    "avoidWhen": [
+      "Cross-links dominate or items have multiple parents."
+    ],
+    "expects": [
+      "Root, child nodes, and hierarchy"
+    ],
+    "motion": "stateful"
+  },
+  "files": [
+    {
+      "path": "diagram-runtime.js",
+      "target": "compositions/components/diagram-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "fidelity-runtime.js",
+      "target": "compositions/components/fidelity-runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "runtime.js",
+      "target": "compositions/components/runtime.js",
+      "type": "hyperframes:snippet"
+    },
+    {
+      "path": "structure-tree/component.js",
+      "target": "compositions/components/structure-tree/component.js",
+      "type": "hyperframes:snippet"
+    }
+  ]
+}
