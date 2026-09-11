@@ -1,4 +1,4 @@
 interface:
-  display_name: "HyperFrames Curated Intake"
+  display_name: "mav-mg"
   short_description: "Co-direct scenes and prepare a verified HyperFrames handoff"
-  default_prompt: "Use $hyperframes-curated-intake to inspect my material, confirm the Frame and animated scenes, co-design and approve one canonical storyboard, bind real reusable items, and prepare a verified handoff for a separate HyperFrames build."
+  default_prompt: "Use $mav-mg to inspect my material, confirm the Frame and animated scenes, co-design and approve one canonical storyboard, bind real reusable items, and prepare a verified handoff for a separate HyperFrames build."

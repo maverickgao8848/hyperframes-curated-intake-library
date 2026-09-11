@@ -15,7 +15,7 @@ Each scene must state:
 Use one to three through-line props, spaces, or signals when they create continuity. Prefer real
 interface, data, quotations, and source evidence when proof is required. A noun-matching icon is not
 a visual argument. For every scene longer than three seconds, keep `motion` as the authored motion
-description. The normal Curated Intake or Visual Director agent applies the versioned motion rubric
+description. The normal mav-mg or Visual Director agent applies the versioned motion rubric
 and records an external attestation: exact Storyboard SHA, scene ID, full verbatim motion quote,
 automated-agent provenance, decision, structured conclusion, and rationale. This is not another user
 step. The CLI makes no textual semantic judgment; migration and legacy event count never attest.

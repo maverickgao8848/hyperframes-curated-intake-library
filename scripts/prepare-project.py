@@ -12,7 +12,7 @@ from _registry import default_library
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Prepare a canonical HyperFrames Curated Intake v3 packet; stop before Build.")
+    parser = argparse.ArgumentParser(description="Prepare a canonical mav-mg v3 packet; stop before Build.")
     parser.add_argument("--project", type=Path, required=True)
     parser.add_argument("--library", type=Path, default=default_library(), help="Library containing catalog.json (default: skill assets/library)")
     parser.add_argument("--curation", type=Path, required=True)

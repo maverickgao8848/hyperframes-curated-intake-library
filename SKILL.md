@@ -1,9 +1,9 @@
 ---
-name: hyperframes-curated-intake
+name: mav-mg
 description: Prepare a user-approved, source-aware HyperFrames Storyboard v3 and verified build handoff. Use to choose a Frame and animation scope, direct scene content/visual/motion, bind real reusable library items, or return a bounded Visual Director patch. Stops before composition authoring or rendering.
 ---
 
-# HyperFrames Curated Intake
+# mav-mg
 
 Produce one clear, executable directing authority for a later `$hyperframes` build. This skill ends
 after handoff verification; it does not author compositions or render video.
@@ -65,7 +65,7 @@ python scripts/apply-video-spec-refactor.py --report <outside-library-proposal.j
 ```
 
 The canonical production library is `assets/library` inside this skill directory.
-Library-aware Curated Intake CLIs resolve that location by default; keep `--library` only when a
+Library-aware mav-mg CLIs resolve that location by default; keep `--library` only when a
 test or user-supplied external library must explicitly override it. The former root `library/`
 mirror has been removed; do not recreate it or use it as a fallback.
 `assets/library/inventory-latest.json` is the sole current library inventory report; no provenance
@@ -90,7 +90,7 @@ The frozen v2 schema is migration-only.
 
 Storyboard v3 is the single-layer authority defined by `references/storyboard-spec.schema.json`.
 Approval, candidate audit, selectors, percentage events, and needs-review state stay outside it.
-For every scene longer than three seconds, the normal Curated Intake or Visual Director agent applies
+For every scene longer than three seconds, the normal mav-mg or Visual Director agent applies
 [motion-attestation-rubric.md](references/motion-attestation-rubric.md) and writes an external
 attestation with the exact Storyboard hash, scene ID, full verbatim `motionQuote`, decision,
 structured conclusion/rationale, rubric version, and model or run provenance. This adds no user step.

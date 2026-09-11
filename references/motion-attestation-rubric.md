@@ -1,6 +1,6 @@
 # Motion attestation rubric v1
 
-This rubric is the semantic authority used by the normal Curated Intake or Visual Director agent.
+This rubric is the semantic authority used by the normal mav-mg or Visual Director agent.
 Its only production identifier is the exact, case-sensitive string `motion-attestation/v1`.
 It does not add a user approval step. The CLI validates only the external attestation's structure,
 supported agent provenance, exact Storyboard hash, exact full `motionQuote`, scene coverage, and

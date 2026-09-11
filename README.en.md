@@ -1,10 +1,10 @@
-# HyperFrames Curated Intake
+# mav-mg
 
-[中文](README.md) · **English** · [Download skill](https://github.com/maverickgao8848/hyperframes-curated-intake-library/archive/refs/heads/main.zip) · [Watch the 60-second demo](https://github.com/maverickgao8848/hyperframes-curated-intake-library/raw/refs/heads/main/assets/showcase/hyperframes-curated-intake-demo-zh.mp4)
+[中文](README.md) · **English** · [Download skill](https://github.com/maverickgao8848/mav-mg/archive/refs/heads/main.zip) · [Watch the 60-second demo](https://github.com/maverickgao8848/mav-mg/raw/refs/heads/main/assets/showcase/hyperframes-curated-intake-demo-zh.mp4)
 
 **Turn articles, scripts and ideas into directed MG animation plans using natural language.** Choose a visual direction below, review the complete storyboard, then hand it to HyperFrames for production.
 
-[![Watch the 60-second demo](assets/showcase/demo-contact-sheet.jpg)](https://github.com/maverickgao8848/hyperframes-curated-intake-library/raw/refs/heads/main/assets/showcase/hyperframes-curated-intake-demo-zh.mp4)
+[![Watch the 60-second demo](assets/showcase/demo-contact-sheet.jpg)](https://github.com/maverickgao8848/mav-mg/raw/refs/heads/main/assets/showcase/hyperframes-curated-intake-demo-zh.mp4)
 
 ## Choose a Frame visually
 
@@ -30,7 +30,7 @@ Compare palette, type scale and composition here. Copy the preset name to use it
 
 ## Get started
 
-Download and unzip the package above. Rename the extracted folder to `hyperframes-curated-intake` and place the entire folder in your project's `.agents/skills/` directory. The repository root is the skill: SKILL.md, READMEs, license, scripts, schemas and assets travel together.
+Download and unzip the package above. Rename the extracted folder to `mav-mg` and place the entire folder in your project's `.agents/skills/` directory. The repository root is the skill: SKILL.md, READMEs, license, scripts, schemas and assets travel together.
 
 With Python 3.11+, run this inside the skill folder:
 
@@ -41,7 +41,7 @@ python -m pip install -r requirements.txt
 Open your project in Codex, paste the source and ask:
 
 ```text
-Use hyperframes-curated-intake to plan a 60-second MG explainer from this article.
+Use mav-mg to plan a 60-second MG explainer from this article.
 Use cobalt-grid for an audience new to the topic.
 Recommend passages to animate, review the full storyboard with me,
 then hand it to HyperFrames for production.

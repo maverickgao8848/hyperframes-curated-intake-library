@@ -24,7 +24,7 @@ makes the cache stale. Intake does not generate scene contracts or a Build Plan.
    ledger, it stores use IDs, state, receipts, and blockers without copying creative prose.
 
 In routed mode the parent `director-plan.json` remains the only whole-film machine authority.
-Curated Intake returns one bounded result patch tied to the parent hash and requested segment IDs.
+mav-mg returns one bounded result patch tied to the parent hash and requested segment IDs.
 It does not produce a parallel project packet before the Visual Director merges that patch.
 
 ## Storyboard v3 boundary

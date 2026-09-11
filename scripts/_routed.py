@@ -1,4 +1,4 @@
-"""Bounded Curated Intake patches for the Visual Director authority."""
+"""Bounded mav-mg patches for the Visual Director authority."""
 
 from __future__ import annotations
 

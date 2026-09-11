@@ -153,7 +153,7 @@ def catalog_index(catalog: dict[str, Any]) -> dict[str, dict[str, Any]]:
 def load_catalog(library: Path) -> tuple[dict[str, Any], str]:
     # catalog.json is the only routing authority. director-catalog.json is a
     # deterministic projection for the Visual Director and must never feed
-    # facts back into Curated Intake.
+    # facts back into mav-mg.
     path = library / "catalog.json"
     try:
         catalog: Any = json.loads(path.read_text(encoding="utf-8"))

@@ -1,4 +1,4 @@
-"""Deterministic, explainable routing primitives for Curated Intake."""
+"""Deterministic, explainable routing primitives for mav-mg."""
 
 from __future__ import annotations
 

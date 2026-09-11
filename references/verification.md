@@ -22,7 +22,7 @@ migrate v2; its fail-fast message names the explicit v2-to-v3 migration command.
 
 ## Build evidence
 
-This is a later Build responsibility; Curated Intake publishes the gate and still stops at the
+This is a later Build responsibility; mav-mg publishes the gate and still stops at the
 verified handoff. Before the builder opens the final preview, it performs one
 compare-correct-recheck pass against the approved Storyboard v3, `frame.md`, delivery requirements,
 and [motion-contract.md](motion-contract.md):

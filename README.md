@@ -1,10 +1,10 @@
-# HyperFrames Curated Intake
+# mav-mg
 
-**中文** · [English](README.en.md) · [下载 Skill](https://github.com/maverickgao8848/hyperframes-curated-intake-library/archive/refs/heads/main.zip) · [观看 60 秒演示](https://github.com/maverickgao8848/hyperframes-curated-intake-library/raw/refs/heads/main/assets/showcase/hyperframes-curated-intake-demo-zh.mp4)
+**中文** · [English](README.en.md) · [下载 Skill](https://github.com/maverickgao8848/mav-mg/archive/refs/heads/main.zip) · [观看 60 秒演示](https://github.com/maverickgao8848/mav-mg/raw/refs/heads/main/assets/showcase/hyperframes-curated-intake-demo-zh.mp4)
 
 **用自然语言，把文章、脚本和想法变成有导演感的 MG 动画方案。** 先看图选风格，再一次审阅整条分镜；确认后交给 HyperFrames 制作。
 
-[![观看 60 秒演示](assets/showcase/demo-contact-sheet.jpg)](https://github.com/maverickgao8848/hyperframes-curated-intake-library/raw/refs/heads/main/assets/showcase/hyperframes-curated-intake-demo-zh.mp4)
+[![观看 60 秒演示](assets/showcase/demo-contact-sheet.jpg)](https://github.com/maverickgao8848/mav-mg/raw/refs/heads/main/assets/showcase/hyperframes-curated-intake-demo-zh.mp4)
 
 ## 直接看图选 Frame
 
@@ -30,7 +30,7 @@
 
 ## 开始使用
 
-点击顶部「下载 Skill」并解压，将解压后的整个文件夹重命名为 `hyperframes-curated-intake`，再放到项目的 `.agents/skills/` 目录下。仓库根目录就是 Skill：`SKILL.md`、README、许可证、脚本、Schema 和素材都在包内。
+点击顶部「下载 Skill」并解压，将解压后的整个文件夹重命名为 `mav-mg`，再放到项目的 `.agents/skills/` 目录下。仓库根目录就是 Skill：`SKILL.md`、README、许可证、脚本、Schema 和素材都在包内。
 
 需要 Python 3.11+。在这个 Skill 文件夹内运行：
 
@@ -41,7 +41,7 @@ python -m pip install -r requirements.txt
 在 Codex 中打开项目，粘贴材料并直接说：
 
 ```text
-用 hyperframes-curated-intake 把这篇文章策划成 60 秒中文 MG 动画。
+用 mav-mg 把这篇文章策划成 60 秒中文 MG 动画。
 风格用 cobalt-grid，面向第一次了解这个主题的人。
 先推荐需要动画的段落，和我一起确认整条 Storyboard，再交给 HyperFrames 制作。
 ```

@@ -12,7 +12,7 @@ from _registry import default_library
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Verify a canonical Curated Intake v3 handoff before Build.")
+    parser = argparse.ArgumentParser(description="Verify a canonical mav-mg v3 handoff before Build.")
     parser.add_argument("--project", type=Path, required=True)
     parser.add_argument("--library", type=Path, default=default_library())
     parser.add_argument("--output", type=Path)
